@@ -2,9 +2,9 @@
 
     <div class="header-container">
 
-        <a href="/html/index.html" class="site-logo">
+        <a href="/RIZAL_WEB/html/index.html" class="site-logo">
 
-            <img src="/images/rizal.png" alt="José Rizal" class="logo-image">
+            <img src="/RIZAL_WEB/images/rizal.png" alt="José Rizal" class="logo-image">
 
             <div class="logo-text">
 
@@ -23,7 +23,7 @@
 
         <nav class="site-nav">
 
-            <a href="/html/index.html">
+            <a href="/RIZAL_WEB/html/index.html">
                 Home
             </a>
 
@@ -32,37 +32,41 @@
 
                 <button class="dropdown-toggle" id="rizal-dropdown-toggle" type="button" aria-expanded="false"
                     aria-haspopup="true">
-                    <span>Rizal</span>
+
+                    <span>
+                        Rizal
+                    </span>
 
                     <span class="dropdown-arrow">
                         ▼
                     </span>
+
                 </button>
 
 
                 <div class="dropdown-menu" id="rizal-dropdown-menu">
 
-                    <a href="/html/pages/childhood.html">
+                    <a href="/RIZAL_WEB/html/pages/childhood.html">
                         Childhood
                     </a>
 
-                    <a href="/html/pages/education.html">
+                    <a href="/RIZAL_WEB/html/pages/education.html">
                         Education
                     </a>
 
-                    <a href="/html/pages/travels.html">
+                    <a href="/RIZAL_WEB/html/pages/travels.html">
                         Travels
                     </a>
 
-                    <a href="/html/pages/works.html">
+                    <a href="/RIZAL_WEB/html/pages/works.html">
                         Works
                     </a>
 
-                    <a href="/html/pages/exile.html">
+                    <a href="/RIZAL_WEB/html/pages/exile.html">
                         Exile
                     </a>
 
-                    <a href="/html/pages/death.html">
+                    <a href="/RIZAL_WEB/html/pages/death.html">
                         Death
                     </a>
 
@@ -71,17 +75,17 @@
             </div>
 
 
-            <a href="/html/pages/gallery.html">
+            <a href="/RIZAL_WEB/html/pages/gallery.html">
                 Gallery
             </a>
 
 
-            <a href="/html/pages/references.html">
+            <a href="/RIZAL_WEB/html/pages/references.html">
                 References
             </a>
 
 
-            <a href="/html/pages/about.html">
+            <a href="/RIZAL_WEB/html/pages/about.html">
                 About
             </a>
 
@@ -92,7 +96,7 @@
 </header>
 
 
-<link rel="stylesheet" href="../../css/colors.css">
+<link rel="stylesheet" href="/RIZAL_WEB/css/colors.css">
 
 
 <style>
@@ -111,12 +115,14 @@
 
         z-index: 1000;
 
-        background: var(--primary-color);
+        background:
+            var(--primary-color);
 
         border-bottom:
             1px solid var(--border-color);
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
 
         transition:
             transform 0.3s ease,
@@ -147,7 +153,8 @@
 
         margin: 0 auto;
 
-        padding: 0 30px;
+        padding:
+            0 30px;
 
         display: flex;
 
@@ -170,7 +177,8 @@
 
         gap: 14px;
 
-        color: var(--light-color);
+        color:
+            var(--light-color);
 
         text-decoration: none;
 
@@ -203,7 +211,8 @@
 
     .logo-main {
 
-        color: var(--light-color);
+        color:
+            var(--light-color);
 
         font-family:
             Georgia,
@@ -223,7 +232,8 @@
 
         margin-top: 3px;
 
-        color: var(--border-color);
+        color:
+            var(--border-color);
 
         font-size: 11px;
 
@@ -253,7 +263,8 @@
 
         position: relative;
 
-        color: var(--light-color);
+        color:
+            var(--light-color);
 
         text-decoration: none;
 
@@ -269,7 +280,8 @@
 
     .site-nav>a:hover {
 
-        color: var(--accent-color);
+        color:
+            var(--accent-color);
 
     }
 
@@ -295,13 +307,17 @@
 
         padding: 0;
 
-        color: var(--light-color);
+        color:
+            var(--light-color);
 
-        background: none;
+        background:
+            none;
 
-        border: none;
+        border:
+            none;
 
-        font-family: inherit;
+        font-family:
+            inherit;
 
         font-size: 14px;
 
@@ -317,7 +333,8 @@
 
     .dropdown-toggle:hover {
 
-        color: var(--accent-color);
+        color:
+            var(--accent-color);
 
     }
 
@@ -345,7 +362,8 @@
 
         line-height: 1;
 
-        transform-origin: center;
+        transform-origin:
+            center;
 
         transition:
             transform 0.25s ease;
@@ -369,13 +387,15 @@
 
         position: absolute;
 
-        top: calc(100% + 20px);
+        top:
+            calc(100% + 20px);
 
         left: 50%;
 
         min-width: 180px;
 
-        padding: 8px 0;
+        padding:
+            8px 0;
 
         background:
             var(--light-color);
@@ -416,9 +436,10 @@
 
     }
 
+
     /* =========================
-   DROPDOWN LINKS
-========================= */
+       DROPDOWN LINKS
+    ========================= */
 
     .dropdown-menu a {
 
@@ -426,9 +447,11 @@
 
         display: block;
 
-        padding: 11px 18px;
+        padding:
+            11px 18px;
 
-        color: var(--text-color);
+        color:
+            var(--text-color);
 
         font-size: 13px;
 
@@ -444,8 +467,8 @@
 
 
     /* =========================
-   DROPDOWN UNDERLINE
-========================= */
+       DROPDOWN UNDERLINE
+    ========================= */
 
     .dropdown-menu a::after {
 
@@ -464,7 +487,8 @@
         background:
             var(--accent-color);
 
-        transform-origin: left center;
+        transform-origin:
+            left center;
 
         transition:
             width 0.25s ease;
@@ -473,8 +497,8 @@
 
 
     /* =========================
-   HOVER
-========================= */
+       HOVER
+    ========================= */
 
     .dropdown-menu a:hover {
 
@@ -489,13 +513,14 @@
 
     .dropdown-menu a:hover::after {
 
-        width: calc(100% - 36px);
+        width:
+            calc(100% - 36px);
 
     }
 
 
     /* =========================
-       MOBILE
+       TABLET
     ========================= */
 
     @media (max-width: 800px) {
@@ -507,18 +532,22 @@
             padding:
                 18px 20px;
 
-            flex-direction: column;
+            flex-direction:
+                column;
 
         }
 
 
         .site-nav {
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            gap: 15px;
+            gap:
+                15px;
 
-            flex-wrap: wrap;
+            flex-wrap:
+                wrap;
 
         }
 
@@ -526,7 +555,8 @@
         .site-nav>a,
         .dropdown-toggle {
 
-            font-size: 12px;
+            font-size:
+                12px;
 
         }
 
@@ -541,11 +571,16 @@
     }
 
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 500px) {
 
         .logo-main {
 
-            font-size: 18px;
+            font-size:
+                18px;
 
         }
 
@@ -560,16 +595,19 @@
 
         .logo-subtitle {
 
-            font-size: 9px;
+            font-size:
+                9px;
 
-            letter-spacing: 2px;
+            letter-spacing:
+                2px;
 
         }
 
 
         .site-nav {
 
-            gap: 12px;
+            gap:
+                12px;
 
         }
 

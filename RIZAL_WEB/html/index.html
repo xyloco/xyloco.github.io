@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>José Rizal — Life & Works</title>
+
+    <link rel="stylesheet" href="../css/colors.css">
+
+
+    <style>
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            margin: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background:
+                var(--secondary-color);
+
+            color:
+                var(--text-color);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+        }
+
+
+        main {
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+                linear-gradient(90deg,
+                    rgba(33, 26, 22, 0.96) 0%,
+                    rgba(33, 26, 22, 0.88) 45%,
+                    rgba(33, 26, 22, 0.55) 100%),
+                url("../images/rizal-background.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color:
+                var(--light-color);
+
+        }
+
+
+        .hero-container {
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding:
+                100px 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.2fr 0.8fr;
+
+            align-items: center;
+
+            gap: 70px;
+
+        }
+
+
+        /* =========================
+           HERO TEXT
+        ========================= */
+
+        .hero-label {
+
+            margin-bottom: 18px;
+
+            color:
+                var(--border-color);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .hero h1 {
+
+            margin: 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(52px, 7vw, 92px);
+
+            line-height: 0.95;
+
+            font-weight: normal;
+
+        }
+
+
+        .hero h1 span {
+
+            display: block;
+
+            color:
+                var(--accent-color);
+
+        }
+
+
+        .hero-description {
+
+            max-width: 600px;
+
+            margin:
+                30px 0 0;
+
+            color:
+                #E8DED2;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           HERO BUTTONS
+        ========================= */
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 14px;
+
+            margin-top: 35px;
+
+        }
+
+
+        .hero-button {
+
+            display: inline-block;
+
+            padding:
+                13px 24px;
+
+            border:
+                1px solid var(--accent-color);
+
+            color:
+                var(--light-color);
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+
+        }
+
+
+        .hero-button.primary {
+
+            background:
+                var(--accent-color);
+
+        }
+
+
+        .hero-button:hover {
+
+            background:
+                var(--light-color);
+
+            color:
+                var(--dark-color);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* =========================
+           HERO PORTRAIT
+        ========================= */
+
+        .hero-portrait {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        .portrait-frame {
+
+            position: relative;
+
+            width:
+                min(360px, 100%);
+
+            padding: 12px;
+
+            border:
+                1px solid var(--accent-color);
+
+        }
+
+
+        .portrait-frame::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -10px;
+
+            left: -10px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border-top:
+                1px solid var(--border-color);
+
+            border-left:
+                1px solid var(--border-color);
+
+        }
+
+
+        .portrait-frame::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: -10px;
+
+            bottom: -10px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border-right:
+                1px solid var(--border-color);
+
+            border-bottom:
+                1px solid var(--border-color);
+
+        }
+
+
+        .portrait-frame img {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            filter:
+                sepia(15%);
+
+        }
+
+
+        /* =========================
+           INTRODUCTION
+        ========================= */
+
+        .introduction {
+
+            padding:
+                110px 30px;
+
+        }
+
+
+        .introduction-container {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+        .section-label {
+
+            margin-bottom: 12px;
+
+            color:
+                var(--accent-color);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .introduction h2 {
+
+            margin: 0;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(32px, 5vw, 48px);
+
+            font-weight: normal;
+
+        }
+
+
+        .section-divider {
+
+            width: 60px;
+
+            height: 1px;
+
+            margin:
+                25px auto;
+
+            background:
+                var(--accent-color);
+
+        }
+
+
+        .introduction p {
+
+            max-width: 780px;
+
+            margin: 0 auto;
+
+            color:
+                var(--muted-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
+        }
+
+        /* =========================
+   TIMELINE
+========================= */
+
+        .timeline-section {
+
+            padding:
+                100px 30px;
+
+            background:
+                var(--light-color);
+
+        }
+
+
+        .timeline-container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .timeline-heading {
+
+            margin-bottom: 60px;
+
+            text-align: center;
+
+        }
+
+
+        .timeline-heading h2 {
+
+            margin: 0;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 42px;
+
+            font-weight: normal;
+
+        }
+
+
+        /* =========================
+   TIMELINE GRID
+========================= */
+
+        .timeline {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 1px;
+
+            background:
+                var(--border-color);
+
+            border:
+                1px solid var(--border-color);
+
+        }
+
+
+        /* =========================
+   TIMELINE CARD
+========================= */
+
+        .timeline-card {
+
+            display: block;
+
+            padding:
+                35px 28px;
+
+            background:
+                var(--light-color);
+
+            color:
+                inherit;
+
+            text-decoration: none;
+
+            transition:
+                background-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+        }
+
+
+        .timeline-card:hover {
+
+            background:
+                var(--secondary-color);
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 8px 25px rgba(33, 26, 22, 0.08);
+
+        }
+
+
+        /* =========================
+   YEAR
+========================= */
+
+        .timeline-year {
+
+            color:
+                var(--accent-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                28px;
+
+        }
+
+
+        /* =========================
+   TITLE
+========================= */
+
+        .timeline-card h3 {
+
+            margin:
+                12px 0;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                21px;
+
+            font-weight:
+                normal;
+
+        }
+
+
+        /* =========================
+   DESCRIPTION
+========================= */
+
+        .timeline-card p {
+
+            margin:
+                0;
+
+            color:
+                var(--muted-color);
+
+            font-size:
+                14px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        /* =========================
+   TABLET
+========================= */
+
+        @media (max-width: 1000px) {
+
+            .timeline {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        /* =========================
+   MOBILE
+========================= */
+
+        @media (max-width: 600px) {
+
+            .timeline {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .timeline-card {
+
+                padding:
+                    30px 24px;
+
+            }
+
+
+            .timeline-section {
+
+                padding:
+                    70px 20px;
+
+            }
+
+
+            .timeline-heading h2 {
+
+                font-size:
+                    34px;
+
+            }
+
+        }
+
+        /* =========================
+           WORKS
+        ========================= */
+
+        .works-section {
+
+            padding:
+                110px 30px;
+
+            background:
+                var(--secondary-color);
+
+        }
+
+
+        .works-container {
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .works-heading {
+
+            margin-bottom: 55px;
+
+            text-align: center;
+
+        }
+
+
+        .works-heading h2 {
+
+            margin: 0;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 42px;
+
+            font-weight: normal;
+
+        }
+
+
+        .works-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .work-card {
+
+            padding: 35px;
+
+            background:
+                var(--light-color);
+
+            border:
+                1px solid var(--border-color);
+
+            text-decoration: none;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+        }
+
+
+        .work-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 10px 30px rgba(33, 26, 22, 0.1);
+
+        }
+
+
+        .work-number {
+
+            color:
+                var(--accent-color);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .work-card h3 {
+
+            margin:
+                12px 0 10px;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 25px;
+
+            font-weight: normal;
+
+        }
+
+
+        .work-card p {
+
+            margin: 0;
+
+            color:
+                var(--muted-color);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .hero {
+
+                min-height: auto;
+
+            }
+
+
+            .hero-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+                padding:
+                    100px 30px;
+
+                text-align: center;
+
+            }
+
+
+            .hero-description {
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+            }
+
+
+            .hero-buttons {
+
+                justify-content: center;
+
+            }
+
+
+            .hero-portrait {
+
+                order: -1;
+
+            }
+
+
+            .portrait-frame {
+
+                width:
+                    min(280px, 80%);
+
+            }
+
+
+            .timeline {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .works-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .hero-container {
+
+                padding:
+                    90px 20px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 52px;
+
+            }
+
+
+            .hero-description {
+
+                font-size: 16px;
+
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .hero-button {
+
+                width: 100%;
+
+                text-align: center;
+
+            }
+
+
+            .introduction,
+            .timeline-section,
+            .works-section {
+
+                padding-left: 20px;
+
+                padding-right: 20px;
+
+            }
+
+
+            .timeline-heading h2,
+            .works-heading h2 {
+
+                font-size: 34px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <div id="header-container"></div>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main>
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <section class="hero">
+
+            <div class="hero-container">
+
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        Life · Works · Legacy
+                    </div>
+
+
+                    <h1>
+                        José
+                        <span>Rizal</span>
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        A journey through the life,
+                        writings, travels, struggles,
+                        and enduring legacy of one of
+                        the most influential figures in
+                        Philippine history.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a href="pages/childhood.html" class="hero-button primary">
+                            Explore His Life
+                        </a>
+
+
+                        <a href="pages/works.html" class="hero-button">
+                            Discover His Works
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-portrait">
+
+                    <div class="portrait-frame">
+
+                        <img src="../images/rizal.png" alt="Portrait of José Rizal">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             INTRODUCTION
+        ========================= -->
+
+        <section class="introduction">
+
+            <div class="introduction-container">
+
+                <div class="section-label">
+                    An Introduction
+                </div>
+
+
+                <h2>
+                    A Life Written in History
+                </h2>
+
+
+                <div class="section-divider"></div>
+
+
+                <p>
+
+                    José Protacio Rizal Mercado y
+                    Alonso Realonda was born on
+                    June 19, 1861, in Calamba,
+                    Laguna.
+
+                    Physician, writer, artist,
+                    linguist, and reformist,
+                    Rizal devoted much of his life
+                    to learning and expressing his
+                    ideas through literature and
+                    scholarship.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+     TIMELINE
+========================= -->
+
+        <section class="timeline-section">
+
+            <div class="timeline-container">
+
+
+                <div class="timeline-heading">
+
+                    <div class="section-label">
+                        A Life in Years
+                    </div>
+
+
+                    <h2>
+                        From Childhood to Legacy
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <a href="pages/childhood.html" class="timeline-card">
+
+                        <div class="timeline-year">
+                            1861
+                        </div>
+
+                        <h3>
+                            The Young Rizal
+                        </h3>
+
+                        <p>
+
+                            Born in Calamba, Laguna, José Rizal
+                            grew up in a family that valued
+                            education, discipline, faith, and
+                            intellectual development.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/education.html" class="timeline-card">
+
+                        <div class="timeline-year">
+                            1872
+                        </div>
+
+                        <h3>
+                            The Learner
+                        </h3>
+
+                        <p>
+
+                            Rizal pursued his studies in the
+                            Philippines, developing an early
+                            passion for literature, languages,
+                            science, and the arts.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/travels.html" class="timeline-card">
+
+                        <div class="timeline-year">
+                            1882
+                        </div>
+
+                        <h3>
+                            The Traveler
+                        </h3>
+
+                        <p>
+
+                            His journey to Spain began a period
+                            of extensive travel through Europe,
+                            where he encountered new cultures,
+                            ideas, and intellectual movements.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/works.html" class="timeline-card">
+
+                        <div class="timeline-year">
+                            1887
+                        </div>
+
+                        <h3>
+                            The Writer
+                        </h3>
+
+                        <p>
+
+                            Rizal's literary works gave voice
+                            to the experiences and concerns of
+                            Filipinos, including his novels
+                            <i>Noli Me Tangere</i> and
+                            <i>El Filibusterismo</i>.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/works.html" class="timeline-card">
+
+                        <div class="timeline-year">
+                            1892
+                        </div>
+
+                        <h3>
+                            The Reformer
+                        </h3>
+
+                        <p>
+
+                            Through his writings and civic
+                            efforts, Rizal advocated reforms,
+                            education, and greater rights for
+                            Filipinos under Spanish rule.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/exile.html" class="timeline-card">
+
+                        <div class="timeline-year">
+                            1892
+                        </div>
+
+                        <h3>
+                            The Exile
+                        </h3>
+
+                        <p>
+
+                            In Dapitan, Rizal practiced medicine,
+                            taught students, pursued scientific
+                            interests, and contributed to the
+                            development of the local community.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/death.html" class="timeline-card">
+
+                        <div class="timeline-year">
+                            1896
+                        </div>
+
+                        <h3>
+                            The Final Journey
+                        </h3>
+
+                        <p>
+
+                            Rizal left the Philippines intending
+                            to serve as a military doctor in Cuba,
+                            but his journey ultimately brought
+                            him back to Manila.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/death.html" class="timeline-card">
+
+                        <div class="timeline-year">
+                            1896
+                        </div>
+
+                        <h3>
+                            The Hero
+                        </h3>
+
+                        <p>
+
+                            On December 30, 1896, Rizal was
+                            executed at Bagumbayan. His life,
+                            writings, and ideals continued to
+                            influence the Filipino nation.
+
+                        </p>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             WORKS
+        ========================= -->
+
+        <section class="works-section">
+
+            <div class="works-container">
+
+
+                <div class="works-heading">
+
+                    <div class="section-label">
+                        Literature & Thought
+                    </div>
+
+
+                    <h2>
+                        His Works
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+                </div>
+
+
+                <div class="works-grid">
+
+
+                    <a href="pages/works.html#noli" class="work-card">
+
+                        <div class="work-number">
+                            01 · NOVEL
+                        </div>
+
+
+                        <h3>
+                            Noli Me Tangere
+                        </h3>
+
+
+                        <p>
+
+                            Published in 1887,
+                            the novel portrays
+                            Philippine society
+                            and explores the
+                            experiences of its
+                            characters under
+                            colonial rule.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/works.html#fili" class="work-card">
+
+                        <div class="work-number">
+                            02 · NOVEL
+                        </div>
+
+
+                        <h3>
+                            El Filibusterismo
+                        </h3>
+
+
+                        <p>
+
+                            Published in 1891,
+                            Rizal's second novel
+                            presents a darker
+                            continuation of the
+                            story begun in
+                            Noli Me Tangere.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/works.html" class="work-card">
+
+                        <div class="work-number">
+                            03 · ESSAYS
+                        </div>
+
+
+                        <h3>
+                            Essays & Articles
+                        </h3>
+
+
+                        <p>
+
+                            Rizal produced numerous
+                            essays, annotations,
+                            letters, and articles
+                            concerning history,
+                            society, language,
+                            and reform.
+
+                        </p>
+
+                    </a>
+
+
+                    <a href="pages/works.html" class="work-card">
+
+                        <div class="work-number">
+                            04 · POETRY
+                        </div>
+
+
+                        <h3>
+                            Poetry
+                        </h3>
+
+
+                        <p>
+
+                            His poetry reflects
+                            his thoughts on education,
+                            country, youth, nature,
+                            family, and the human
+                            experience.
+
+                        </p>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <div id="footer-container"></div>
+
+
+    <!-- =========================
+         INJECTORS
+    ========================= -->
+
+    <script src="../js/injector/injectHeader.js"></script>
+
+    <script src="../js/injector/injectFooter.js"></script>
+
+
+</body>
+
+</html>

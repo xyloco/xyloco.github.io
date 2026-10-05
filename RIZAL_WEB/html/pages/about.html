@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — José Rizal: Life & Works</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--light-color);
+            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* ===== ORGANIZATION ===== */
+        .organization-section {
+            padding: 140px 30px 100px;
+            background: var(--secondary-color);
+        }
+
+        .organization-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .organization-heading {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-label {
+            margin-bottom: 12px;
+            color: var(--accent-color);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .organization-heading h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 42px;
+            font-weight: normal;
+        }
+
+        .section-divider {
+            width: 55px;
+            height: 1px;
+            margin: 20px auto 0;
+            background: var(--accent-color);
+        }
+
+        /* ===== CHART ===== */
+        .organization-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ===== CARDS ===== */
+        .org-card {
+            position: relative;
+            width: 180px;
+            min-height: 125px;
+            padding: 22px 18px;
+            border: 1px solid var(--border-color);
+            background: var(--light-color);
+            color: var(--text-color);
+            font-family: inherit;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* no lift on hover, so the connector lines stay attached */
+        .org-card:hover {
+            border-color: var(--accent-color);
+            background: var(--light-color);
+            box-shadow: 0 8px 20px rgba(33, 26, 22, 0.12);
+        }
+
+        .org-card.active {
+            border-color: var(--accent-color);
+            background: var(--secondary-color);
+            box-shadow: 0 8px 20px rgba(33, 26, 22, 0.15);
+        }
+
+        /* ===== HEAD ===== */
+        .org-head {
+            border: 2px solid var(--accent-color);
+        }
+
+        .org-head .org-icon {
+            color: var(--accent-color);
+        }
+
+        /* ===== ICON / NAME / ROLE ===== */
+        .org-icon {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .org-name {
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .org-role {
+            margin-top: 5px;
+            color: var(--muted-color);
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== CONNECTOR ===== */
+        .org-main-connector {
+            width: 1px;
+            height: 25px;
+            background: var(--border-color);
+        }
+
+        /* ===== MEMBERS ===== */
+        .org-members {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        /* vertical stub above each card */
+        .org-members .org-card::before {
+            content: "";
+            position: absolute;
+            top: -26px;
+            left: 50%;
+            width: 1px;
+            height: 26px;
+            background: var(--border-color);
+        }
+
+        /* one continuous horizontal line, from the center of card 1 to the center of card 6.
+           column width = (100% - 5 gaps of 15px) / 6, so half a column = (100% - 75px) / 12 */
+        .org-members::before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: calc((100% - 125px) / 12);
+            right: calc((100% - 50px) / 12);
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        /* ===== INFORMATION PANEL ===== */
+        .org-info {
+            width: 100%;
+            max-width: 700px;
+            margin: 50px auto 0;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            background: var(--light-color);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .org-info-label {
+            margin-bottom: 8px;
+            color: var(--accent-color);
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .org-info h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 27px;
+        }
+
+        .org-info div {
+            margin-top: 5px;
+            color: var(--muted-color);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .org-info p {
+            max-width: 600px;
+            margin: 15px auto 0;
+            color: var(--muted-color);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ===== TABLET ===== */
+        @media (max-width: 950px) {
+            .org-members {
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: 45px;
+                margin-top: 0;
+            }
+
+            .org-main-connector {
+                height: 50px;
+            }
+
+            .org-members::before,
+            .org-members .org-card::before {
+                display: none;
+            }
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 600px) {
+            .organization-section {
+                padding: 120px 20px 70px;
+            }
+
+            .organization-heading h2 {
+                font-size: 34px;
+            }
+
+            .org-members {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .org-card {
+                width: auto;
+                min-height: 115px;
+                padding: 18px 10px;
+            }
+
+            .org-name {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- INJECTED HEADER -->
+    <div id="header-container"></div>
+
+    <!-- PAGE CONTENT -->
+    <main>
+        <section class="organization-section">
+            <div class="organization-container">
+
+                <div class="organization-heading">
+                    <div class="section-label">The Team</div>
+                    <h2>Organization</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="organization-chart">
+
+                    <!-- HEAD -->
+                    <div class="org-level org-head-level">
+                        <button class="org-card org-head" type="button" data-name="Head" data-role="Project Head"
+                            data-description="Leads the project and coordinates the overall direction of the team.">
+                            <div class="org-icon">★</div>
+                            <div class="org-name">Head</div>
+                            <div class="org-role">Project Head</div>
+                        </button>
+                    </div>
+
+                    <!-- CONNECTOR -->
+                    <div class="org-connector org-main-connector"></div>
+
+                    <!-- MEMBERS -->
+                    <div class="org-members">
+
+                        <button class="org-card" type="button" data-name="Member 1" data-role="Member"
+                            data-description="Contributes to the planning, development, documentation, and implementation of the project.">
+                            <div class="org-icon">01</div>
+                            <div class="org-name">Member 1</div>
+                            <div class="org-role">Member</div>
+                        </button>
+
+                        <button class="org-card" type="button" data-name="Member 2" data-role="Member"
+                            data-description="Contributes to the planning, development, documentation, and implementation of the project.">
+                            <div class="org-icon">02</div>
+                            <div class="org-name">Member 2</div>
+                            <div class="org-role">Member</div>
+                        </button>
+
+                        <button class="org-card" type="button" data-name="Member 3" data-role="Member"
+                            data-description="Contributes to the planning, development, documentation, and implementation of the project.">
+                            <div class="org-icon">03</div>
+                            <div class="org-name">Member 3</div>
+                            <div class="org-role">Member</div>
+                        </button>
+
+                        <button class="org-card" type="button" data-name="Member 4" data-role="Member"
+                            data-description="Contributes to the planning, development, documentation, and implementation of the project.">
+                            <div class="org-icon">04</div>
+                            <div class="org-name">Member 4</div>
+                            <div class="org-role">Member</div>
+                        </button>
+
+                        <button class="org-card" type="button" data-name="Member 5" data-role="Member"
+                            data-description="Contributes to the planning, development, documentation, and implementation of the project.">
+                            <div class="org-icon">05</div>
+                            <div class="org-name">Member 5</div>
+                            <div class="org-role">Member</div>
+                        </button>
+
+                        <button class="org-card" type="button" data-name="Member 6" data-role="Member"
+                            data-description="Contributes to the planning, development, documentation, and implementation of the project.">
+                            <div class="org-icon">06</div>
+                            <div class="org-name">Member 6</div>
+                            <div class="org-role">Member</div>
+                        </button>
+
+                    </div>
+
+                    <!-- INFORMATION PANEL -->
+                    <div class="org-info" id="org-info" aria-live="polite">
+                        <div class="org-info-label">Selected</div>
+                        <h3 id="org-info-name">Select a person</h3>
+                        <div id="org-info-role">Click a card above</div>
+                        <p id="org-info-description">
+                            Select a member of the organization to view their role and contribution.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- INJECTED FOOTER -->
+    <div id="footer-container"></div>
+
+    <!-- INJECTOR SCRIPTS -->
+    <script src="../../js/injector/injectHeader.js"></script>
+    <script src="../../js/injector/injectFooter.js"></script>
+
+    <!-- ORGANIZATION INTERACTION -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const cards = document.querySelectorAll(".org-card");
+            const infoName = document.getElementById("org-info-name");
+            const infoRole = document.getElementById("org-info-role");
+            const infoDescription = document.getElementById("org-info-description");
+
+            cards.forEach((card) => {
+                card.addEventListener("click", () => {
+
+                    cards.forEach((item) => item.classList.remove("active"));
+                    card.classList.add("active");
+
+                    infoName.textContent = card.dataset.name;
+                    infoRole.textContent = card.dataset.role;
+                    infoDescription.textContent = card.dataset.description;
+
+                });
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

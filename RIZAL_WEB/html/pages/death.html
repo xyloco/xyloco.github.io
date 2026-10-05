@@ -1,0 +1,2729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Death & Final Journey — José Rizal: Life & Works</title>
+
+    <link rel="stylesheet" href="../../css/colors.css">
+
+
+    <style>
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            margin: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background:
+                var(--secondary-color);
+
+            color:
+                var(--text-color);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        main {
+            flex: 1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 78vh;
+
+            display: flex;
+
+            align-items: center;
+
+            background:
+                linear-gradient(90deg,
+                    rgba(33, 26, 22, 0.96) 0%,
+                    rgba(33, 26, 22, 0.82) 50%,
+                    rgba(33, 26, 22, 0.55) 100%),
+                url("../../images/rizal-background.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            color:
+                var(--light-color);
+
+        }
+
+
+        .hero-container {
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding:
+                110px 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 0.7fr;
+
+            align-items: center;
+
+            gap: 70px;
+
+        }
+
+
+        /* =========================
+           HERO CONTENT
+        ========================= */
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+
+        .hero-label {
+
+            margin-bottom: 18px;
+
+            color:
+                var(--border-color);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .hero h1 {
+
+            margin: 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(48px, 7vw, 88px);
+
+            line-height: 0.98;
+
+            font-weight: normal;
+
+        }
+
+
+        .hero h1 span {
+
+            display: block;
+
+            color:
+                var(--accent-color);
+
+        }
+
+
+        .hero-description {
+
+            max-width: 680px;
+
+            margin:
+                30px 0 0;
+
+            color:
+                #E8DED2;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .hero-date {
+
+            margin-top: 30px;
+
+            color:
+                var(--accent-color);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================
+           HERO SIDE PANEL
+        ========================= */
+
+        .hero-panel {
+
+            padding: 35px;
+
+            border:
+                1px solid rgba(242, 233, 228, 0.25);
+
+            background:
+                rgba(33, 26, 22, 0.35);
+
+            backdrop-filter:
+                blur(4px);
+
+        }
+
+
+        .hero-panel-label {
+
+            margin-bottom: 18px;
+
+            color:
+                var(--accent-color);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .hero-panel h2 {
+
+            margin: 0 0 18px;
+
+            color:
+                var(--light-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 30px;
+
+            font-weight: normal;
+
+        }
+
+
+        .hero-panel p {
+
+            margin: 0;
+
+            color:
+                #E8DED2;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           SECTION GENERAL
+        ========================= */
+
+        .section {
+
+            padding:
+                110px 30px;
+
+            background:
+                var(--secondary-color);
+
+        }
+
+
+        .section.light {
+
+            background:
+                var(--light-color);
+
+        }
+
+
+        .section-container {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .section-heading {
+
+            max-width: 800px;
+
+            margin:
+                0 auto 65px;
+
+            text-align: center;
+
+        }
+
+
+        .section-label {
+
+            margin-bottom: 12px;
+
+            color:
+                var(--accent-color);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .section-heading h2 {
+
+            margin: 0;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(34px, 5vw, 48px);
+
+            font-weight: normal;
+
+        }
+
+
+        .section-divider {
+
+            width: 60px;
+
+            height: 1px;
+
+            margin:
+                25px auto;
+
+            background:
+                var(--accent-color);
+
+        }
+
+
+        .section-intro {
+
+            margin: 0 auto;
+
+            color:
+                var(--muted-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =========================
+           STORY
+        ========================= */
+
+        .story {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 0.85fr;
+
+            gap: 65px;
+
+            align-items: center;
+
+            margin-bottom: 90px;
+
+        }
+
+
+        .story:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .story.reverse {
+
+            grid-template-columns:
+                0.85fr 1fr;
+
+        }
+
+
+        .story.reverse .story-image {
+
+            order: -1;
+
+        }
+
+
+        /* =========================
+           STORY TEXT
+        ========================= */
+
+        .story-text {
+
+            min-width: 0;
+
+        }
+
+
+        .story-number {
+
+            margin-bottom: 12px;
+
+            color:
+                var(--accent-color);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .story-text h3 {
+
+            margin:
+                0 0 20px;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(27px, 4vw, 36px);
+
+            font-weight: normal;
+
+            line-height: 1.2;
+
+        }
+
+
+        .story-text p {
+
+            margin:
+                0 0 20px;
+
+            color:
+                var(--muted-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+        }
+
+
+        .story-text p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           STORY IMAGE
+        ========================= */
+
+        .story-image {
+
+            overflow: hidden;
+
+            border:
+                1px solid var(--border-color);
+
+            background:
+                var(--light-color);
+
+        }
+
+
+        .story-image img {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            aspect-ratio:
+                4 / 3;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.5s ease;
+
+        }
+
+
+        .story-image:hover img {
+
+            transform:
+                scale(1.03);
+
+        }
+
+
+        /* =========================
+           QUOTE
+        ========================= */
+
+        .quote {
+
+            max-width: 900px;
+
+            margin:
+                80px auto;
+
+            padding:
+                50px 40px;
+
+            border-top:
+                1px solid var(--border-color);
+
+            border-bottom:
+                1px solid var(--border-color);
+
+            text-align: center;
+
+        }
+
+
+        .quote p {
+
+            margin: 0;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(22px, 3vw, 32px);
+
+            line-height: 1.6;
+
+            font-style: italic;
+
+        }
+
+
+        .quote span {
+
+            display: block;
+
+            margin-top: 20px;
+
+            color:
+                var(--accent-color);
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline {
+
+            position: relative;
+
+            max-width: 900px;
+
+            margin:
+                0 auto;
+
+            padding-left: 45px;
+
+        }
+
+
+        .timeline::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            bottom: 0;
+
+            left: 10px;
+
+            width: 1px;
+
+            background:
+                var(--border-color);
+
+        }
+
+
+        .timeline-item {
+
+            position: relative;
+
+            margin-bottom: 60px;
+
+        }
+
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .timeline-dot {
+
+            position: absolute;
+
+            top: 5px;
+
+            left: -42px;
+
+            width: 15px;
+
+            height: 15px;
+
+            border:
+                1px solid var(--accent-color);
+
+            background:
+                var(--light-color);
+
+            border-radius: 50%;
+
+        }
+
+
+        .timeline-date {
+
+            margin-bottom: 10px;
+
+            color:
+                var(--accent-color);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .timeline-item h3 {
+
+            margin:
+                0 0 12px;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 27px;
+
+            font-weight: normal;
+
+        }
+
+
+        .timeline-item p {
+
+            max-width: 780px;
+
+            margin: 0;
+
+            color:
+                var(--muted-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =========================
+           LEGACY
+        ========================= */
+
+        .legacy {
+
+            background:
+                var(--primary-color);
+
+            color:
+                var(--light-color);
+
+        }
+
+
+        .legacy .section-heading h2 {
+
+            color:
+                var(--light-color);
+
+        }
+
+
+        .legacy .section-intro {
+
+            color:
+                #E8DED2;
+
+        }
+
+
+        .legacy-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .legacy-card {
+
+            padding:
+                35px;
+
+            border:
+                1px solid rgba(242, 233, 228, 0.18);
+
+            background:
+                rgba(255, 255, 255, 0.03);
+
+            transition:
+                transform 0.25s ease,
+                background-color 0.25s ease;
+
+        }
+
+
+        .legacy-card:hover {
+
+            transform:
+                translateY(-4px);
+
+            background:
+                rgba(255, 255, 255, 0.06);
+
+        }
+
+
+        .legacy-card-number {
+
+            margin-bottom: 18px;
+
+            color:
+                var(--accent-color);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .legacy-card h3 {
+
+            margin:
+                0 0 15px;
+
+            color:
+                var(--light-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 24px;
+
+            font-weight: normal;
+
+        }
+
+
+        .legacy-card p {
+
+            margin: 0;
+
+            color:
+                #E8DED2;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           REFERENCES
+        ========================= */
+
+        .reference {
+
+            display: block;
+
+            padding:
+                22px;
+
+            border:
+                1px solid var(--border-color);
+
+            background:
+                var(--light-color);
+
+            color:
+                var(--muted-color);
+
+            text-decoration: none;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background-color 0.25s ease;
+
+        }
+
+
+        .reference:hover {
+
+            transform:
+                translateY(-3px);
+
+            background:
+                var(--secondary-color);
+
+            box-shadow:
+                0 8px 25px rgba(33, 26, 22, 0.08);
+
+        }
+
+
+        .reference strong {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color:
+                var(--primary-color);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 16px;
+
+            font-weight: normal;
+
+        }
+
+
+        .reference span {
+
+            display: block;
+
+            color:
+                var(--muted-color);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           BACK LINK
+        ========================= */
+
+        .back-container {
+
+            margin-top: 55px;
+
+            text-align: center;
+
+        }
+
+
+        .back-link {
+
+            display: inline-block;
+
+            padding:
+                13px 24px;
+
+            border:
+                1px solid var(--accent-color);
+
+            color:
+                var(--primary-color);
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+
+        }
+
+
+        .back-link:hover {
+
+            background:
+                var(--accent-color);
+
+            color:
+                var(--light-color);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero-container {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 45px;
+
+                padding:
+                    100px 30px;
+
+            }
+
+
+            .hero-content {
+
+                max-width: 800px;
+
+                text-align: center;
+
+                margin: 0 auto;
+
+            }
+
+
+            .hero-description {
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+            }
+
+
+            .hero-panel {
+
+                max-width: 650px;
+
+                width: 100%;
+
+                margin: 0 auto;
+
+            }
+
+
+            .story,
+            .story.reverse {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 35px;
+
+            }
+
+
+            .story.reverse .story-image {
+
+                order: 0;
+
+            }
+
+
+            .legacy-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .hero {
+
+                min-height: auto;
+
+            }
+
+
+            .hero-container {
+
+                padding:
+                    90px 20px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    52px;
+
+            }
+
+
+            .hero-description {
+
+                font-size:
+                    16px;
+
+            }
+
+
+            .hero-panel {
+
+                padding:
+                    28px;
+
+            }
+
+
+            .section {
+
+                padding:
+                    75px 20px;
+
+            }
+
+
+            .section-heading {
+
+                margin-bottom:
+                    45px;
+
+            }
+
+
+            .section-heading h2 {
+
+                font-size:
+                    34px;
+
+            }
+
+
+            .story {
+
+                margin-bottom:
+                    65px;
+
+            }
+
+
+            .story-text h3 {
+
+                font-size:
+                    28px;
+
+            }
+
+
+            .story-text p {
+
+                font-size:
+                    15px;
+
+            }
+
+
+            .quote {
+
+                margin:
+                    60px auto;
+
+                padding:
+                    35px 20px;
+
+            }
+
+
+            .quote p {
+
+                font-size:
+                    21px;
+
+            }
+
+
+            .timeline {
+
+                padding-left:
+                    35px;
+
+            }
+
+
+            .timeline::before {
+
+                left:
+                    5px;
+
+            }
+
+
+            .timeline-dot {
+
+                left:
+                    -36px;
+
+                width:
+                    13px;
+
+                height:
+                    13px;
+
+            }
+
+
+            .timeline-item h3 {
+
+                font-size:
+                    24px;
+
+            }
+
+
+            .timeline-item p {
+
+                font-size:
+                    15px;
+
+            }
+
+
+            .reference-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .legacy-card {
+
+                padding:
+                    28px;
+
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .hero-container {
+
+                padding:
+                    75px 18px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    45px;
+
+            }
+
+
+            .hero-panel {
+
+                padding:
+                    23px;
+
+            }
+
+
+            .section {
+
+                padding:
+                    65px 18px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <div id="header-container"></div>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main>
+
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <section class="hero">
+
+            <div class="hero-container">
+
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        The Final Chapter
+                    </div>
+
+
+                    <h1>
+                        Death &
+                        <span>Final Journey</span>
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        From his departure from Dapitan to his final
+                        days in Fort Santiago, José Rizal's last journey
+                        transformed an exile into one of the most enduring
+                        figures of Philippine history.
+
+                    </p>
+
+
+                    <div class="hero-date">
+                        July — December 1896
+                    </div>
+
+                </div>
+
+
+                <div class="hero-panel">
+
+                    <div class="hero-panel-label">
+                        December 30, 1896
+                    </div>
+
+
+                    <h2>
+                        The Final Morning
+                    </h2>
+
+
+                    <p>
+
+                        Rizal left Fort Santiago for Bagumbayan,
+                        accompanied by soldiers, Lieutenant Taviel de
+                        Andrade, and Jesuit priests. His execution became
+                        one of the defining moments in the history of
+                        Filipino nationalism.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DAPITAN
+        ========================= -->
+
+        <section class="section">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        01 · Dapitan
+                    </div>
+
+
+                    <h2>
+                        The Journey Begins
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        Before leaving Dapitan, Rizal was already aware
+                        of the growing revolutionary movement in the
+                        Philippines. His final journey began with a
+                        decision to leave exile and serve as a physician
+                        in Cuba.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            01 · THE KATIPUNAN
+                        </div>
+
+
+                        <h3>
+                            The Katipunan and Pio Valenzuela
+                        </h3>
+
+
+                        <p>
+
+                            In June 1896, Pio Valenzuela visited Rizal in
+                            Dapitan as an emissary of the Katipunan.
+                            Valenzuela informed him about the organization's
+                            plans for an armed revolution and discussed the
+                            possibility of rescuing Rizal from exile.
+
+                        </p>
+
+
+                        <p>
+
+                            Rizal opposed an immediate armed uprising.
+                            He believed that the movement was not yet
+                            sufficiently prepared in terms of resources,
+                            organization, and popular support.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/valenzuela-dapitan.png" alt="Rizal and Pio Valenzuela in Dapitan">
+
+                    </div>
+
+                </div>
+
+
+                <div class="story reverse">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            02 · DEPARTURE
+                        </div>
+
+
+                        <h3>
+                            Leaving Dapitan
+                        </h3>
+
+
+                        <p>
+
+                            At midnight on July 31, 1896, Rizal left
+                            Dapitan aboard the steamer <em>España</em>.
+                            His departure was emotional after four years
+                            in exile, during which he had formed close
+                            relationships with the people of Dapitan.
+
+                        </p>
+
+
+                        <p>
+
+                            The ship stopped at several ports before
+                            reaching Manila. It arrived in Dumaguete on
+                            August 1, where Rizal spent time with former
+                            acquaintances and friends before continuing
+                            toward Cebu, Iloilo, Capiz, and Romblon.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/rizal-departure-dapitan.png" alt="Rizal's departure from Dapitan">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             VOYAGE
+        ========================= -->
+
+        <section class="section light">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        02 · The Voyage
+                    </div>
+
+
+                    <h2>
+                        From Manila to Spain
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        What began as a journey toward Cuba gradually
+                        became a political ordeal as the situation in
+                        the Philippines deteriorated and Rizal became
+                        associated with the revolutionary movement.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            01 · MANILA BAY
+                        </div>
+
+
+                        <h3>
+                            Manila Bay
+                        </h3>
+
+
+                        <p>
+
+                            The <em>España</em> arrived at Manila Bay on
+                            August 6, 1896. Rizal intended to continue his
+                            journey to Spain before proceeding to Cuba,
+                            where he was expected to serve as a physician.
+
+                        </p>
+
+
+                        <p>
+
+                            He missed the mail steamer
+                            <em>Isla de Luzon</em>, which had departed for
+                            Spain the previous day. Rizal was subsequently
+                            transferred to the Spanish cruiser
+                            <em>Castilla</em> as a guest while another ship
+                            was sought for his journey.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/castilla.png" alt="Spanish cruiser Castilla">
+
+                    </div>
+
+                </div>
+
+
+                <div class="story reverse">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            02 · ISLA DE PANAY
+                        </div>
+
+
+                        <h3>
+                            The Isla de Panay
+                        </h3>
+
+
+                        <p>
+
+                            On September 3, 1896, Rizal left Manila aboard
+                            the <em>Isla de Panay</em>, bound for Barcelona.
+                            His intention remained to continue to Cuba and
+                            serve as a physician.
+
+                        </p>
+
+
+                        <p>
+
+                            On September 7, the ship reached Singapore.
+                            Filipinos there warned Rizal about the worsening
+                            political situation and encouraged him to remain
+                            in the British colony, where they believed he
+                            would be safer.
+
+                        </p>
+
+
+                        <p>
+
+                            Rizal nevertheless continued toward Spain,
+                            placing his confidence in the promises and
+                            protection of the Spanish government.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/isla-de-panay.png" alt="The Isla de Panay">
+
+                    </div>
+
+                </div>
+
+
+                <div class="quote">
+
+                    <p>
+
+                        His journey was no longer simply a voyage toward
+                        Cuba. It had become a journey shaped by the
+                        political crisis surrounding the Philippine
+                        Revolution.
+
+                    </p>
+
+
+                    <span>
+                        Rizal's Final Journey · 1896
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ARREST
+        ========================= -->
+
+        <section class="section">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        03 · Arrest
+                    </div>
+
+
+                    <h2>
+                        A Voyage of Exile
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        Rizal reached Barcelona on October 5, 1896, but
+                        instead of continuing to Cuba, he was ordered to
+                        return to the Philippines under military custody.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            01 · MONTJUÏC
+                        </div>
+
+
+                        <h3>
+                            Montjuïc
+                        </h3>
+
+
+                        <p>
+
+                            Rizal learned that he had been accused of
+                            being involved in the revolution. His intended
+                            medical service in Cuba was replaced by a
+                            forced return to the Philippines.
+
+                        </p>
+
+
+                        <p>
+
+                            On October 6, he was taken to the Montjuïc
+                            prison-fortress in Barcelona. He was informed
+                            that he would be returned to Manila aboard
+                            the <em>Colón</em>.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/montjuic.png" alt="Montjuïc prison-fortress in Barcelona">
+
+                    </div>
+
+                </div>
+
+
+                <div class="story reverse">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            02 · RETURN
+                        </div>
+
+
+                        <h3>
+                            Return to Manila
+                        </h3>
+
+
+                        <p>
+
+                            The <em>Colón</em> arrived in Manila on
+                            November 3, 1896. Rizal was taken to Fort
+                            Santiago, where he would spend the final
+                            weeks of his life.
+
+                        </p>
+
+
+                        <p>
+
+                            His journey had begun in Dapitan with the
+                            intention of serving as a physician in Cuba.
+                            Instead, he returned to the Philippines as
+                            a political prisoner.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/fort-santiago.png" alt="Fort Santiago">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRIAL
+        ========================= -->
+
+        <section class="section light">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        04 · Fort Santiago
+                    </div>
+
+
+                    <h2>
+                        The Trial
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        From November 3 to December 29, Rizal remained
+                        confined at Fort Santiago while facing accusations
+                        connected to the revolutionary movement.
+
+                    </p>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+
+                        <div class="timeline-date">
+                            November 3, 1896
+                        </div>
+
+
+                        <h3>
+                            Arrival at Fort Santiago
+                        </h3>
+
+
+                        <p>
+
+                            Rizal was brought to Fort Santiago and
+                            confined there as the Spanish colonial
+                            government prepared its case against him.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+
+                        <div class="timeline-date">
+                            The Accusations
+                        </div>
+
+
+                        <h3>
+                            Rebellion, Sedition, and Illegal Societies
+                        </h3>
+
+
+                        <p>
+
+                            The accusations ultimately centered on
+                            rebellion, sedition, and the formation or
+                            organization of illegal societies. Rizal
+                            denied responsibility for the armed uprising.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+
+                        <div class="timeline-date">
+                            December 26, 1896
+                        </div>
+
+
+                        <h3>
+                            The Court-Martial
+                        </h3>
+
+
+                        <p>
+
+                            Rizal's court-martial was held at the
+                            Cuartel de España in Manila. He was defended
+                            by Lieutenant Taviel de Andrade, while Rizal
+                            also prepared a supplemental defense
+                            addressing the accusations against him.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+
+                        <div class="timeline-date">
+                            December 29, 1896
+                        </div>
+
+
+                        <h3>
+                            The Sentence
+                        </h3>
+
+
+                        <p>
+
+                            At 6:00 a.m., Captain Rafael Dominguez read
+                            the death sentence to Rizal inside Fort
+                            Santiago. He was informed that his execution
+                            would take place the following morning at
+                            Bagumbayan.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FINAL HOURS
+        ========================= -->
+
+        <section class="section">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        05 · Final Hours
+                    </div>
+
+
+                    <h2>
+                        Letters, Family, and Farewell
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        Rizal's final hours were deeply personal. Alongside
+                        the political circumstances surrounding his death,
+                        he spent his remaining time writing, receiving
+                        visitors, and preparing messages for the people
+                        closest to him.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            01 · HIS FAMILY
+                        </div>
+
+
+                        <h3>
+                            His Family
+                        </h3>
+
+
+                        <p>
+
+                            Rizal's mother, Teodora Alonso, and several
+                            of his sisters were able to visit him during
+                            his final hours. These meetings revealed the
+                            personal dimension of a final chapter often
+                            remembered primarily for its political meaning.
+
+                        </p>
+
+
+                        <p>
+
+                            Rizal also wrote letters to members of his
+                            family and to his close friend Ferdinand
+                            Blumentritt. His final writings reflected
+                            his awareness of the approaching end of his
+                            life and his concern for those he would
+                            leave behind.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/family-fort-santiago.png"
+                            alt="Rizal's final days at Fort Santiago">
+
+                    </div>
+
+                </div>
+
+
+                <div class="story reverse">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            02 · MI ÚLTIMO ADIÓS
+                        </div>
+
+
+                        <h3>
+                            Mi Último Adiós
+                        </h3>
+
+
+                        <p>
+
+                            Among the most famous works associated with
+                            Rizal's final days is <em>Mi Último Adiós</em>,
+                            or <em>My Last Farewell</em>.
+
+                        </p>
+
+
+                        <p>
+
+                            The manuscript was kept hidden and eventually
+                            given to his family. The poem became one of
+                            the most enduring expressions of Rizal's
+                            attachment to the Philippines, his willingness
+                            to sacrifice, and his hope for the country's
+                            future.
+
+                        </p>
+
+
+                        <p>
+
+                            It is therefore better understood as a
+                            reflection of national identity, sacrifice,
+                            and love for the country rather than merely
+                            a personal farewell.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/mi-ultimo-adios.png"
+                            alt="Manuscript associated with Mi Último Adiós">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FINAL MORNING
+        ========================= -->
+
+        <section class="section light">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        06 · December 30
+                    </div>
+
+
+                    <h2>
+                        The Final Morning
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        On December 30, 1896, Rizal left Fort Santiago
+                        for Bagumbayan. The final procession became one
+                        of the most remembered moments in Philippine
+                        history.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            01 · BAGUMBAYAN
+                        </div>
+
+
+                        <h3>
+                            The Walk to Bagumbayan
+                        </h3>
+
+
+                        <p>
+
+                            At approximately 6:30 a.m., Rizal began the
+                            final walk from Fort Santiago toward Bagumbayan.
+                            He was accompanied by soldiers, Lieutenant
+                            Taviel de Andrade, and Jesuit priests.
+
+                        </p>
+
+
+                        <p>
+
+                            The journey is best understood as a historical
+                            procession rather than simply a march to his
+                            execution. People gathered along the route and
+                            around the execution ground, while contemporary
+                            accounts describe Rizal as calm and composed.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/final-walk.png" alt="Rizal's final procession toward Bagumbayan">
+
+                    </div>
+
+                </div>
+
+
+                <div class="quote">
+
+                    <p>
+
+                        December 30, 1896 became more than the date of
+                        Rizal's death. It became a defining moment in
+                        the history of Filipino nationalism.
+
+                    </p>
+
+
+                    <span>
+                        Bagumbayan · December 30, 1896
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             AFTERMATH
+        ========================= -->
+
+        <section class="section">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        07 · Aftermath
+                    </div>
+
+
+                    <h2>
+                        Burial and Memory
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        Following his death, the colonial authorities
+                        attempted to keep Rizal's burial place concealed.
+                        Instead, the secrecy surrounding his remains
+                        contributed to the growth of his symbolic
+                        importance.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            01 · PACO CEMETERY
+                        </div>
+
+
+                        <h3>
+                            Paco Cemetery
+                        </h3>
+
+
+                        <p>
+
+                            Rizal's body was secretly buried at Paco
+                            Cemetery in Manila. The authorities initially
+                            concealed the location and did not publicly
+                            identify the grave.
+
+                        </p>
+
+
+                        <p>
+
+                            His sister Narcisa eventually located the
+                            burial place and arranged for a marker
+                            bearing the initials <strong>R.P.J.</strong>
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/paco-cemetery.png" alt="Paco Cemetery">
+
+                    </div>
+
+                </div>
+
+
+                <div class="story reverse">
+
+
+                    <div class="story-text">
+
+                        <div class="story-number">
+                            02 · NATIONAL MONUMENT
+                        </div>
+
+
+                        <h3>
+                            From Secret Grave to National Monument
+                        </h3>
+
+
+                        <p>
+
+                            Rizal's remains were exhumed in 1898 and were
+                            later transferred to the monument at Luneta.
+
+                        </p>
+
+
+                        <p>
+
+                            The attempt to conceal his burial place could
+                            not prevent his death from becoming a powerful
+                            symbol. Instead, Rizal's execution strengthened
+                            his status as a martyr and contributed to the
+                            emotional and nationalist force surrounding
+                            the Philippine Revolution.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="story-image">
+
+                        <img src="../../images/death/rizal-monument.png" alt="Rizal Monument at Luneta">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LEGACY
+        ========================= -->
+
+        <section class="section legacy">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        08 · Legacy
+                    </div>
+
+
+                    <h2>
+                        A Final Journey, A Lasting Legacy
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        Rizal's final journey illustrates the dramatic
+                        transformation of his position between July and
+                        December 1896. He left Dapitan as an exiled
+                        physician and returned to the Philippines as
+                        a political prisoner.
+
+                    </p>
+
+                </div>
+
+
+                <div class="legacy-grid">
+
+
+                    <article class="legacy-card">
+
+                        <div class="legacy-card-number">
+                            01 · THE PHYSICIAN
+                        </div>
+
+
+                        <h3>
+                            The Physician
+                        </h3>
+
+
+                        <p>
+
+                            Rizal's original purpose was to continue his
+                            medical service in Cuba. His commitment to
+                            medicine remained part of his identity
+                            throughout his journey.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="legacy-card">
+
+                        <div class="legacy-card-number">
+                            02 · THE PRISONER
+                        </div>
+
+
+                        <h3>
+                            The Prisoner
+                        </h3>
+
+
+                        <p>
+
+                            Political circumstances transformed his
+                            intended journey into imprisonment, trial,
+                            and eventual execution in Manila.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="legacy-card">
+
+                        <div class="legacy-card-number">
+                            03 · THE MARTYR
+                        </div>
+
+
+                        <h3>
+                            The Martyr
+                        </h3>
+
+
+                        <p>
+
+                            His death gave new symbolic force to his
+                            writings and ideas and helped establish Rizal
+                            as one of the central figures of Filipino
+                            nationalism.
+
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             REFERENCES
+        ========================= -->
+
+        <!-- =========================
+     REFERENCES
+========================= -->
+
+        <section class="section references">
+
+            <div class="section-container">
+
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        References
+                    </div>
+
+
+                    <h2>
+                        Sources
+                    </h2>
+
+
+                    <div class="section-divider"></div>
+
+
+                    <p class="section-intro">
+
+                        The following sources were consulted for the
+                        historical information presented on this page.
+
+                    </p>
+
+                </div>
+
+
+                <div class="reference-list">
+
+
+                    <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/ang-pagdalaw-ni-valenzuela-sa-dapitan"
+                        class="reference" target="_blank" rel="noopener noreferrer">
+
+                        <strong>
+                            National Historical Commission of the Philippines
+                        </strong>
+
+                        <span>
+                            Ang Pagdalaw ni Valenzuela sa Dapitan
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://www.scribd.com/doc/61249755/Chapter-23" class="reference" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <strong>
+                            Scribd
+                        </strong>
+
+                        <span>
+                            Chapter 23
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://www.slideshare.net/slideshow/rizal-chapter-23-last-trip-abroad/46529732"
+                        class="reference" target="_blank" rel="noopener noreferrer">
+
+                        <strong>
+                            SlideShare
+                        </strong>
+
+                        <span>
+                            Rizal Chapter 23: Last Trip Abroad
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://www.studocu.com/ph/document/dalubhasaan-ng-lungsod-ng-lucena/bs-accountancy/bsa-2b-rizal-life-and-works-chapter-23-last-trip-abroad/148130349"
+                        class="reference" target="_blank" rel="noopener noreferrer">
+
+                        <strong>
+                            Studocu
+                        </strong>
+
+                        <span>
+                            BSA 2B Rizal Life and Works: Chapter 23
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://askrizal.app/atlas/life/trial-and-execution" class="reference" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <strong>
+                            Ask Rizal / Rizal Atlas
+                        </strong>
+
+                        <span>
+                            Life, Trial and Execution
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://intramuros.gov.ph/mnr/" class="reference" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <strong>
+                            Intramuros Administration
+                        </strong>
+
+                        <span>
+                            Museo ni Rizal
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/prison-cell-of-jose-rizal/"
+                        class="reference" target="_blank" rel="noopener noreferrer">
+
+                        <strong>
+                            National Historical Commission of the Philippines
+                        </strong>
+
+                        <span>
+                            Prison Cell of Jose Rizal
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://npdc.gov.ph/rizal-park/light-and-sound-complex/" class="reference" target="_blank"
+                        rel="noopener noreferrer">
+
+                        <strong>
+                            National Parks Development Committee
+                        </strong>
+
+                        <span>
+                            Rizal Park Light and Sound Complex
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://philippinediaryproject.com/1896/12/30/december-30-1896" class="reference"
+                        target="_blank" rel="noopener noreferrer">
+
+                        <strong>
+                            Philippine Diary Project
+                        </strong>
+
+                        <span>
+                            December 30, 1896
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/rizals-execution-site"
+                        class="reference" target="_blank" rel="noopener noreferrer">
+
+                        <strong>
+                            National Historical Commission of the Philippines
+                        </strong>
+
+                        <span>
+                            Rizal's Execution Site
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/jose-rizal-paco-cemetery"
+                        class="reference" target="_blank" rel="noopener noreferrer">
+
+                        <strong>
+                            National Historical Commission of the Philippines
+                        </strong>
+
+                        <span>
+                            Jose Rizal — Paco Cemetery
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/jose-rizal-1861-1896-5"
+                        class="reference" target="_blank" rel="noopener noreferrer">
+
+                        <strong>
+                            National Historical Commission of the Philippines
+                        </strong>
+
+                        <span>
+                            Jose Rizal (1861–1896)
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+
+                <div class="back-container">
+
+                    <a href="../index.html" class="back-link">
+                        ← Return to Rizal
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <div id="footer-container"></div>
+
+
+    <!-- =========================
+         INJECTORS
+    ========================= -->
+
+    <script src="../../js/injector/injectHeader.js"></script>
+
+    <script src="../../js/injector/injectFooter.js"></script>
+
+
+</body>
+
+</html>

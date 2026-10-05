@@ -1,0 +1,598 @@
+<header class="site-header" id="site-header">
+
+    <div class="header-container">
+
+        <a href="../../html/index.html" class="site-logo">
+
+            <img
+                src="../../images/rizal.png"
+                alt="José Rizal"
+                class="logo-image"
+            >
+
+            <div class="logo-text">
+
+                <span class="logo-main">
+                    JOSÉ RIZAL
+                </span>
+
+                <span class="logo-subtitle">
+                    Life & Works
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="site-nav">
+
+            <a href="../../html/index.html">
+                Home
+            </a>
+
+
+            <div class="nav-dropdown" id="rizal-dropdown">
+
+                <button
+                    class="dropdown-toggle"
+                    id="rizal-dropdown-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                >
+                    <span>Rizal</span>
+
+                    <span class="dropdown-arrow">
+                       ▼
+                    </span>
+                </button>
+
+
+                <div
+                    class="dropdown-menu"
+                    id="rizal-dropdown-menu"
+                >
+
+                    <a href="../../html/pages/childhood.html">
+                        Childhood
+                    </a>
+
+                    <a href="../../html/pages/education.html">
+                        Education
+                    </a>
+
+                    <a href="../../html/pages/travels.html">
+                        Travels
+                    </a>
+
+                    <a href="../../html/pages/works.html">
+                        Works
+                    </a>
+
+                    <a href="../../html/pages/exile.html">
+                        Exile
+                    </a>
+
+                    <a href="../../html/pages/death.html">
+                        Death
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="../../html/pages/gallery.html">
+                Gallery
+            </a>
+
+            <a href="../../html/pages/references.html">
+                References
+            </a>
+
+            <a href="../../html/pages/about.html">
+                About
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<link
+    rel="stylesheet"
+    href="../../css/colors.css"
+>
+
+
+<style>
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-header {
+
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        z-index: 1000;
+
+        background: var(--primary-color);
+
+        border-bottom:
+            1px solid
+            var(--border-color);
+
+        transform: translateY(0);
+
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+
+    }
+
+
+    .site-header.hidden {
+
+        transform:
+            translateY(-100%);
+
+    }
+
+
+    /* =========================
+       HEADER CONTAINER
+    ========================= */
+
+    .header-container {
+
+        width: 100%;
+
+        max-width: 1200px;
+
+        height: 80px;
+
+        margin: 0 auto;
+
+        padding: 0 30px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+    }
+
+
+    /* =========================
+       LOGO
+    ========================= */
+
+    .site-logo {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        color: var(--light-color);
+
+        text-decoration: none;
+
+    }
+
+
+    .logo-image {
+
+        width: 48px;
+        height: 48px;
+
+        object-fit: cover;
+
+        border-radius: 50%;
+
+        border:
+            2px solid
+            var(--accent-color);
+
+    }
+
+
+    .logo-text {
+
+        display: flex;
+
+        flex-direction: column;
+
+    }
+
+
+    .logo-main {
+
+        color: var(--light-color);
+
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+
+        font-size: 22px;
+
+        font-weight: bold;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .logo-subtitle {
+
+        margin-top: 3px;
+
+        color: var(--border-color);
+
+        font-size: 11px;
+
+        letter-spacing: 3px;
+
+        text-transform: uppercase;
+
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .site-nav {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 28px;
+
+    }
+
+
+    .site-nav > a {
+
+        position: relative;
+
+        color: var(--light-color);
+
+        text-decoration: none;
+
+        font-size: 14px;
+
+        letter-spacing: 0.5px;
+
+        transition:
+            color 0.25s ease;
+
+    }
+
+
+    .site-nav > a:hover {
+
+        color: var(--accent-color);
+
+    }
+
+
+    /* =========================
+       RIZAL DROPDOWN
+    ========================= */
+
+    .nav-dropdown {
+
+        position: relative;
+
+    }
+
+
+    .dropdown-toggle {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        padding: 0;
+
+        color: var(--light-color);
+
+        background: none;
+
+        border: none;
+
+        font-family: inherit;
+
+        font-size: 14px;
+
+        letter-spacing: 0.5px;
+
+        cursor: pointer;
+
+        transition:
+            color 0.25s ease;
+
+    }
+
+
+    .dropdown-toggle:hover {
+
+        color: var(--accent-color);
+
+    }
+
+
+    /* =========================
+       DROPDOWN ARROW
+    ========================= */
+
+    .dropdown-arrow {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 12px;
+        height: 12px;
+
+        font-family:
+            Arial,
+            sans-serif;
+
+        font-size: 15px;
+
+        line-height: 1;
+
+        transform-origin: center;
+
+        transition:
+            transform 0.25s ease;
+
+    }
+
+
+    .nav-dropdown.open
+    .dropdown-arrow {
+
+        transform:
+            rotate(180deg);
+
+    }
+
+
+    /* =========================
+       DROPDOWN MENU
+    ========================= */
+
+    .dropdown-menu {
+
+        position: absolute;
+
+        top: calc(100% + 20px);
+
+        left: 50%;
+
+        min-width: 180px;
+
+        padding: 8px 0;
+
+        background:
+            var(--light-color);
+
+        border:
+            1px solid
+            var(--border-color);
+
+        box-shadow:
+            0 8px 25px
+            rgba(33, 26, 22, 0.18);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform:
+            translate(-50%, -8px);
+
+        transition:
+            opacity 0.2s ease,
+            visibility 0.2s ease,
+            transform 0.2s ease;
+
+    }
+
+
+    .nav-dropdown.open
+    .dropdown-menu {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform:
+            translate(-50%, 0);
+
+    }
+
+/* =========================
+   DROPDOWN LINKS
+========================= */
+
+.dropdown-menu a {
+
+    position: relative;
+
+    display: block;
+
+    padding: 11px 18px;
+
+    color: var(--text-color);
+
+    font-size: 13px;
+
+    white-space: nowrap;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+/* =========================
+   DROPDOWN UNDERLINE
+========================= */
+
+.dropdown-menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 18px;
+
+    bottom: 6px;
+
+    width: 25px;
+
+    height: 1px;
+
+    background:
+        var(--accent-color);
+
+    transform-origin: left center;
+
+    transition:
+        width 0.25s ease;
+
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.dropdown-menu a:hover {
+
+    color:
+        var(--primary-color);
+
+    background:
+        var(--secondary-color);
+
+}
+
+
+.dropdown-menu a:hover::after {
+
+    width: calc(100% - 36px);
+
+}
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        .header-container {
+
+            height: auto;
+
+            padding:
+                18px 20px;
+
+            flex-direction: column;
+
+        }
+
+
+        .site-nav {
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .site-nav > a,
+        .dropdown-toggle {
+
+            font-size: 12px;
+
+        }
+
+
+        .dropdown-menu {
+
+            top:
+                calc(100% + 12px);
+
+        }
+
+    }
+
+
+    @media (max-width: 500px) {
+
+        .logo-main {
+
+            font-size: 18px;
+
+        }
+
+
+        .logo-image {
+
+            width: 42px;
+            height: 42px;
+
+        }
+
+
+        .logo-subtitle {
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .site-nav {
+
+            gap: 12px;
+
+        }
+
+    }
+
+</style>

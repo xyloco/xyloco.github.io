@@ -1,0 +1,10 @@
+:root {
+    --primary-color: #5A3E2B;      /* Deep archival brown */
+    --secondary-color: #F3EBDD;    /* Aged paper */
+    --accent-color: #8C6A43;       /* Antique gold / wood */
+    --dark-color: #211A16;         /* Ink / near-black */
+    --light-color: #FFFDF7;        /* Warm paper white */
+    --text-color: #2F2924;         /* Dark brown text */
+    --muted-color: #76695D;        /* Faded ink */
+    --border-color: #D5C5AD;       /* Old paper border */
+}

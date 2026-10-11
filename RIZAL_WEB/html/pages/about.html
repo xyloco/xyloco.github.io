@@ -58,7 +58,7 @@
             text-align: center;
             background:
                 linear-gradient(rgba(39, 27, 22, 0.78), rgba(39, 27, 22, 0.9)),
-                var(--primary-color) url("../../images/rizal-background.png") center/cover no-repeat;
+                var(--primary-color) url("../../images/rizal-background.png") center / cover no-repeat;
         }
 
         .about-hero::before {
@@ -108,7 +108,8 @@
             background: var(--accent-color);
         }
 
-        .about-intro {
+        .about-intro,
+        .reflection-section {
             padding: 75px 25px;
             background: var(--light-color);
         }
@@ -173,7 +174,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0;
         }
 
         .team-card {
@@ -295,11 +295,6 @@
             transform: translateX(-50%);
         }
 
-        .reflection-section {
-            padding: 80px 25px;
-            background: var(--light-color);
-        }
-
         .reflection-card {
             position: relative;
             display: block;
@@ -327,7 +322,8 @@
             outline-offset: 4px;
         }
 
-        .reflection-card-label {
+        .reflection-card-label,
+        .modal-label {
             display: block;
             margin-bottom: 12px;
             color: var(--primary-color);
@@ -414,16 +410,6 @@
             color: var(--light-color);
         }
 
-        .modal-label {
-            display: block;
-            margin-bottom: 12px;
-            color: var(--primary-color);
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
         .modal-panel h2 {
             margin: 0 0 10px;
             color: var(--primary-color);
@@ -452,10 +438,6 @@
 
         .modal-content p:last-child {
             margin-bottom: 0;
-        }
-
-        .modal-content strong {
-            color: var(--primary-color);
         }
 
         .about-footer-note {
@@ -498,10 +480,7 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .team-branch::before {
-                display: none;
-            }
-
+            .team-branch::before,
             .team-branch .team-card::before {
                 display: none;
             }
@@ -664,10 +643,10 @@
                         <article class="team-card">
                             <div class="team-icon" aria-hidden="true">P</div>
                             <span class="team-role">Team Member</span>
-                            <h3>Patrick</h3>
+                            <h3>Patrick Glen Tabag</h3>
                             <p>
-                                Supports the team with assigned project
-                                responsibilities and contributions.
+                                Contributes to the project through collaboration,
+                                research, and assigned tasks related to the website.
                             </p>
                         </article>
 
@@ -721,19 +700,19 @@
                     <span class="section-label">A Student's Perspective</span>
                     <h2>Reflections on Rizal's Legacy</h2>
                     <p>
-                        Read a student's reflection on Rizal's courage,
-                        education, sacrifices, and continuing influence.
+                        Read a student's reflection on Rizal's final journey,
+                        sacrifices, patriotism, and continuing influence.
                     </p>
                 </div>
 
                 <button class="reflection-card" id="openReflection" type="button" aria-haspopup="dialog"
                     aria-controls="reflectionModal">
                     <span class="reflection-card-label">Student Reflection</span>
-                    <h3>Reflection on Rizal's Kabayanihan</h3>
+                    <h3>Reflection on Rizal's Final Journey</h3>
                     <p>
-                        A personal reflection on how Rizal used knowledge,
-                        courage, and education to fight injustice and how
-                        students today can honor his legacy through their actions.
+                        A reflection by Patrick Glen Tabag on Rizal's position
+                        regarding revolution, his final journey, and the lessons
+                        his patriotism offers to students today.
                     </p>
                     <span class="reflection-card-action">Read the full reflection →</span>
                 </button>
@@ -756,58 +735,41 @@
                 aria-label="Close reflection">&times;</button>
 
             <span class="modal-label">A Student's Perspective</span>
-            <h2 id="reflectionTitle">Reflection on Rizal's Kabayanihan</h2>
+
+            <h2 id="reflectionTitle">Reflection on Rizal's Final Journey</h2>
+
             <p class="modal-author" id="reflectionAuthor">
-                Camacho, Irish Shayne C.
+                Patrick Glen Tabag
             </p>
 
             <div class="modal-content">
                 <p>
-                    Dr. José Rizal is a great example of a Filipino hero because
-                    he used his knowledge, talents, and courage to fight for the
-                    rights of his fellow Filipinos. He did not rely on weapons
-                    to become a hero. Instead, he used his knowledge to expose
-                    the abuses and injustices that his fellow Filipinos
-                    experienced during the Spanish colonial period. He showed
-                    that we do not actually need weapons to fight for ourselves
-                    or for our freedom. Words and education can also be powerful
-                    tools for change and justice.
+                    Learning about the events of José Rizal’s life before he was
+                    killed was indeed an eye-opener for me, as I understood the
+                    sacrifices that he made for the country. Although Rizal
+                    believed that the time was ripe for revolution, he believed
+                    that an armed uprising should not begin without enough
+                    preparation and support. It was also fascinating to see his
+                    journey as a doctor and a patriot who did not abandon his
+                    duty as a physician even when his country was in dire need
+                    of a leader. Still, Rizal did not fail to disappoint as the
+                    events surrounding his arrest and the unfair trial that led
+                    to his execution revealed the injustice that he was subjected
+                    to by the Spanish authorities.
                 </p>
 
                 <p>
-                    As a second-year college student, I learned from Dr. José
-                    Rizal that education should not only be used to achieve
-                    personal success. We can also use our knowledge and ideas
-                    to understand the problems in our community and help our
-                    fellow Filipinos. His life reminds me that standing up for
-                    ourselves and other people requires courage. It can be
-                    difficult, and it may put us in a dangerous position, but
-                    we need to be brave and willing to make sacrifices for the
-                    betterment of our lives.
-                </p>
-
-                <p>
-                    Rizal's sacrifice also teaches me to appreciate the freedom
-                    and opportunities we have today. He dedicated much of his
-                    life to fighting for the dignity and welfare of Filipinos,
-                    even though his actions placed him in danger. Without him
-                    and our other brave heroes, our country's history might
-                    have unfolded differently. His execution on December 30,
-                    1896, reminds us of the great sacrifices made by people
-                    who fought for our country.
-                </p>
-
-                <p>
-                    I believe that we can honor Rizal by being responsible
-                    students, respecting other people, respecting our history,
-                    learning from the past, visiting historical places to pay
-                    our respects, and using our knowledge to help improve our
-                    community. We do not have to become famous to make a
-                    difference, and we do not need weapons to stand up for
-                    justice. We can use our knowledge to do so. For me, true
-                    <strong>kabayanihan</strong> begins with loving and
-                    respecting our country and showing that love through our
-                    everyday actions.
+                    Perhaps the most intriguing part was observing the life of
+                    a patriot who had accepted death as a fate but continued to
+                    express his love for the Philippines, as evident in his poem
+                    Mi Ultimo Adiós. Rizal, who realized that his time had come,
+                    made sure to signify the importance of freedom in his
+                    countrymen’s lives, even before his death. His story teaches
+                    us to cherish the sacrifices of Rizal and other national
+                    heroes who devoted their lives to gaining the country’s
+                    independence. As a student, I promise to honor the national
+                    hero not only by remembering his death but also by following
+                    his example of patriotism, education, and service to the nation.
                 </p>
             </div>
         </article>
@@ -816,82 +778,87 @@
     <div id="footer-container"></div>
 
     <script>
-        const reflectionModal = document.getElementById("reflectionModal");
-        const openReflectionButton = document.getElementById("openReflection");
-        const closeReflectionButton = document.getElementById("closeReflection");
-        const reflectionPanel = reflectionModal.querySelector(".modal-panel");
+        (function () {
+            const reflectionModal = document.getElementById("reflectionModal");
+            const openReflectionButton = document.getElementById("openReflection");
+            const closeReflectionButton = document.getElementById("closeReflection");
+            const reflectionPanel = reflectionModal.querySelector(".modal-panel");
 
-        let previousFocus = null;
+            let previousFocus = null;
 
-        function openReflection() {
-            previousFocus = document.activeElement;
+            function openReflection() {
+                previousFocus = document.activeElement;
 
-            reflectionModal.classList.add("is-open");
-            reflectionModal.setAttribute("aria-hidden", "false");
-            document.body.classList.add("modal-open");
+                reflectionModal.classList.add("is-open");
+                reflectionModal.setAttribute("aria-hidden", "false");
+                document.body.classList.add("modal-open");
 
-            closeReflectionButton.focus();
-        }
-
-        function closeReflection() {
-            reflectionModal.classList.remove("is-open");
-            reflectionModal.setAttribute("aria-hidden", "true");
-            document.body.classList.remove("modal-open");
-
-            if (previousFocus) {
-                previousFocus.focus();
-            }
-        }
-
-        openReflectionButton.addEventListener("click", openReflection);
-        closeReflectionButton.addEventListener("click", closeReflection);
-
-        reflectionModal.addEventListener("click", function (event) {
-            if (event.target === reflectionModal) {
-                closeReflection();
-            }
-        });
-
-        document.addEventListener("keydown", function (event) {
-            if (!reflectionModal.classList.contains("is-open")) {
-                return;
+                closeReflectionButton.focus();
             }
 
-            if (event.key === "Escape") {
-                closeReflection();
-                return;
+            function closeReflection() {
+                reflectionModal.classList.remove("is-open");
+                reflectionModal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("modal-open");
+
+                if (previousFocus) {
+                    previousFocus.focus();
+                }
             }
 
-            if (event.key === "Tab") {
-                const focusableElements = reflectionPanel.querySelectorAll(
-                    'button:not([disabled]), a[href], input:not([disabled]), ' +
-                    'select:not([disabled]), textarea:not([disabled]), ' +
-                    '[tabindex]:not([tabindex="-1"])'
-                );
+            openReflectionButton.addEventListener("click", openReflection);
+            closeReflectionButton.addEventListener("click", closeReflection);
 
-                const focusable = Array.from(focusableElements);
+            reflectionModal.addEventListener("click", function (event) {
+                if (event.target === reflectionModal) {
+                    closeReflection();
+                }
+            });
 
-                if (focusable.length === 0) {
-                    event.preventDefault();
-                    reflectionPanel.focus();
+            document.addEventListener("keydown", function (event) {
+                if (!reflectionModal.classList.contains("is-open")) {
                     return;
                 }
 
-                const firstElement = focusable[0];
-                const lastElement = focusable[focusable.length - 1];
-
-                if (event.shiftKey && document.activeElement === firstElement) {
-                    event.preventDefault();
-                    lastElement.focus();
-                } else if (
-                    !event.shiftKey &&
-                    document.activeElement === lastElement
-                ) {
-                    event.preventDefault();
-                    firstElement.focus();
+                if (event.key === "Escape") {
+                    closeReflection();
+                    return;
                 }
-            }
-        });
+
+                if (event.key === "Tab") {
+                    const focusableElements = reflectionPanel.querySelectorAll(
+                        'button:not([disabled]), a[href], input:not([disabled]), ' +
+                        'select:not([disabled]), textarea:not([disabled]), ' +
+                        '[tabindex]:not([tabindex="-1"])'
+                    );
+
+                    const focusable = Array.from(focusableElements);
+
+                    if (focusable.length === 0) {
+                        event.preventDefault();
+                        reflectionPanel.focus();
+                        return;
+                    }
+
+                    const firstElement = focusable[0];
+                    const lastElement = focusable[focusable.length - 1];
+
+                    if (
+                        event.shiftKey &&
+                        document.activeElement === firstElement
+                    ) {
+                        event.preventDefault();
+                        lastElement.focus();
+                    } else if (
+                        !event.shiftKey &&
+                        document.activeElement === lastElement
+                    ) {
+                        event.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            });
+        })();
     </script>
 
     <script src="../../js/injector/injectHeader.js"></script>

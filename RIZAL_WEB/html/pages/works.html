@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore the literary, historical, political, and artistic works of Dr. José Rizal.">
+    <title>Works of José Rizal — José Rizal: Life &amp; Works</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    <style>
+        :root {
+            --works-paper: var(--light-color, #F2E9E4);
+            --works-primary: var(--primary-color, #C89D7C);
+            --works-accent: var(--accent-color, #8B5E3C);
+            --works-ink: var(--text-color, #30251F);
+            --works-muted: var(--muted-color, #75665D);
+            --works-border: var(--border-color, #DCC8B8);
+            --works-card: #FFFCF8;
+            --works-deep: #38271F;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--works-paper);
+            color: var(--works-ink);
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #75472E;
+            text-underline-offset: 3px;
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            color: #40281B;
+        }
+
+        #header-container,
+        #footer-container {
+            width: 100%;
+        }
+
+        .works-hero {
+            position: relative;
+            min-height: 440px;
+            display: grid;
+            place-items: center;
+            padding: clamp(54px, 9vw, 110px) 20px;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(44, 31, 24, .94), rgba(92, 58, 39, .86)),
+                radial-gradient(circle at 80% 20%, #C89D7C, #38271F 65%);
+            color: #FFF9F3;
+            text-align: center;
+        }
+
+        .works-hero::before {
+            content: '✦';
+            position: absolute;
+            font-size: clamp(180px, 35vw, 440px);
+            color: rgba(255, 255, 255, .045);
+            right: 4%;
+            top: -30%;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            width: min(100%, 1000px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            text-transform: uppercase;
+            letter-spacing: .22em;
+            font: 700 .78rem/1.4 Arial, sans-serif;
+            color: #E8C8AD;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 7vw, 5.4rem);
+            line-height: 1.04;
+            font-weight: 500;
+        }
+
+        .hero-subtitle {
+            max-width: 740px;
+            margin: 24px auto 0;
+            color: #F3E4D8;
+            font-size: clamp(1rem, 2.2vw, 1.25rem);
+        }
+
+        .hero-rule {
+            width: 82px;
+            height: 2px;
+            margin: 28px auto 0;
+            background: #D8AB83;
+        }
+
+        .page-wrap {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .intro {
+            padding: clamp(42px, 7vw, 78px) 0 32px;
+        }
+
+        .section-kicker {
+            color: var(--works-accent);
+            font: 700 .76rem/1.4 Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            margin: 0 0 8px;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.6rem);
+            line-height: 1.2;
+            margin: 0 0 18px;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: clamp(1.18rem, 2.5vw, 1.48rem);
+            line-height: 1.3;
+            margin: 0 0 9px;
+        }
+
+        p {
+            margin: 0 0 14px;
+        }
+
+        .intro-copy {
+            max-width: 850px;
+            font-size: 1.08rem;
+        }
+
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin: 26px 0 0;
+        }
+
+        .quick-nav a {
+            display: inline-block;
+            padding: 8px 13px;
+            border: 1px solid var(--works-border);
+            border-radius: 999px;
+            background: rgba(255, 252, 248, .72);
+            text-decoration: none;
+            font: 600 .83rem/1.3 Arial, sans-serif;
+        }
+
+        .work-section {
+            padding: 38px 0 46px;
+            border-top: 1px solid var(--works-border);
+        }
+
+        .section-lead {
+            max-width: 800px;
+            color: var(--works-muted);
+            margin-bottom: 24px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .work-card {
+            min-width: 0;
+            padding: clamp(18px, 3vw, 27px);
+            border: 1px solid var(--works-border);
+            border-radius: 13px;
+            background: var(--works-card);
+            box-shadow: 0 8px 22px rgba(58, 39, 27, .045);
+        }
+
+        .work-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .work-meta {
+            margin-bottom: 10px;
+            color: var(--works-muted);
+            font: 700 .75rem/1.4 Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        .work-card .links {
+            margin-top: 12px;
+            font: 600 .88rem/1.6 Arial, sans-serif;
+        }
+
+        .feature-card {
+            background: #F6E8DC;
+            border-color: #D4B398;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            margin: 0 5px 6px 0;
+            border-radius: 4px;
+            background: #EAD7C6;
+            color: #553824;
+            font: 700 .72rem/1.3 Arial, sans-serif;
+        }
+
+        .timeline {
+            list-style: none;
+            margin: 24px 0 0;
+            padding: 0 0 0 22px;
+            border-left: 2px solid var(--works-primary);
+        }
+
+        .timeline li {
+            position: relative;
+            padding: 0 0 23px 18px;
+        }
+
+        .timeline li:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            left: -29px;
+            top: 7px;
+            background: var(--works-accent);
+            border: 3px solid var(--works-paper);
+        }
+
+        .timeline strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .note {
+            margin: 20px 0 0;
+            padding: 17px 19px;
+            border-left: 4px solid var(--works-accent);
+            background: rgba(255, 252, 248, .7);
+            color: var(--works-muted);
+        }
+
+        .source-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px 24px;
+            padding-left: 21px;
+        }
+
+        .source-list li {
+            padding-left: 3px;
+        }
+
+        .page-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 30px 0 54px;
+            border-top: 1px solid var(--works-border);
+        }
+
+        .page-navigation a {
+            display: inline-block;
+            padding: 10px 15px;
+            border: 1px solid var(--works-border);
+            border-radius: 7px;
+            text-decoration: none;
+            background: var(--works-card);
+        }
+
+        .small-note {
+            color: var(--works-muted);
+            font-size: .91rem;
+        }
+
+        @media (max-width: 760px) {
+
+            .work-grid,
+            .source-list {
+                grid-template-columns: 1fr;
+            }
+
+            .page-wrap {
+                width: calc(100% - 30px);
+            }
+
+            .works-hero {
+                min-height: 370px;
+            }
+
+            .work-section {
+                padding: 30px 0 36px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .page-wrap {
+                width: calc(100% - 24px);
+            }
+
+            .work-card {
+                padding: 17px;
+            }
+
+            .quick-nav a {
+                font-size: .78rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="works-hero" aria-labelledby="works-title">
+            <div class="hero-inner">
+                <p class="eyebrow">José Rizal: Life &amp; Works</p>
+                <h1 id="works-title">The Works of Dr. José Rizal</h1>
+                <p class="hero-subtitle">
+                    Novels, essays, poetry, plays, letters, historical research, translations, and creative work that
+                    challenged colonial injustice and helped shape Filipino national consciousness.
+                </p>
+                <div class="hero-rule"></div>
+            </div>
+        </section>
+
+        <div class="page-wrap">
+            <section class="intro" id="overview">
+                <p class="section-kicker">A writer beyond the novels</p>
+                <h2>Words as a means of awakening</h2>
+
+                <div class="intro-copy">
+                    <p>
+                        Dr. José Rizal (1861–1896) was a novelist, poet, essayist, historian, translator, and visual
+                        artist. He wrote primarily in Spanish, while also producing work in Tagalog and other languages.
+                        His writing exposed abuses under Spanish colonial rule, argued for education and civic dignity,
+                        and encouraged Filipinos to understand their history and identity.
+                    </p>
+
+                    <p>
+                        His two best-known novels, <em>Noli Me Tángere</em> and <em>El Filibusterismo</em>, are central
+                        to his legacy, but they are only part of a much wider body of work. Rizal also wrote political
+                        and cultural essays, poems, plays, letters, and annotations to an early Spanish history of the
+                        Philippines. He translated literature, collected folklore, and made paintings, sketches, and
+                        sculptures.
+                        <a href="https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/philippine-literature-in-spanish/"
+                            target="_blank" rel="noopener noreferrer">The National Commission for Culture and the Arts
+                            discusses Rizal within Philippine literature in Spanish.</a>
+                    </p>
+                </div>
+
+                <nav class="quick-nav" aria-label="On this page">
+                    <a href="#novels">Novels</a>
+                    <a href="#essays">Essays &amp; political writings</a>
+                    <a href="#poetry">Poetry</a>
+                    <a href="#plays">Plays &amp; drama</a>
+                    <a href="#letters">Letters &amp; speeches</a>
+                    <a href="#history">History &amp; folklore</a>
+                    <a href="#translations">Translations</a>
+                    <a href="#other-work">Art &amp; other work</a>
+                    <a href="#sources">Sources</a>
+                </nav>
+            </section>
+
+            <section class="work-section" id="novels">
+                <p class="section-kicker">Fiction</p>
+                <h2>The two major novels</h2>
+                <p class="section-lead">
+                    Rizal used fiction to make the realities of colonial society visible to readers. The novels are
+                    linked, but their tones and conclusions differ.
+                </p>
+
+                <div class="work-grid">
+                    <article class="work-card feature-card">
+                        <div class="work-meta">Berlin, 1887 · First novel</div>
+                        <h3><em>Noli Me Tángere</em> — “Touch Me Not”</h3>
+                        <p>
+                            The novel follows Crisóstomo Ibarra as he returns to the Philippines after studying in
+                            Europe and tries to improve his community. Through Ibarra, María Clara, Elias, Sisa, and
+                            others, Rizal portrays clerical abuse, racial prejudice, corruption, unequal justice, and
+                            the suffering of ordinary Filipinos. The title comes from a Latin expression meaning “Touch
+                            me not.”
+                        </p>
+                        <p>
+                            <strong>Why it matters:</strong> Rather than simply attacking individuals, the novel reveals
+                            social structures that allow injustice to continue. It helped readers discuss conditions
+                            that colonial authorities often preferred to keep unchallenged.
+                        </p>
+                        <div class="links">
+                            <a href="https://intramuros.gov.ph/mnr/" target="_blank"
+                                rel="noopener noreferrer">Intramuros Administration: Rizal and social equality</a> ·
+                            <a href="https://www.joserizal.com/works/" target="_blank" rel="noopener noreferrer">Works
+                                and reading guides</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card feature-card">
+                        <div class="work-meta">Ghent, 1891 · Second novel</div>
+                        <h3><em>El Filibusterismo</em> — “The Reign of Greed”</h3>
+                        <p>
+                            The darker sequel returns to a society still shaped by oppression. Ibarra reappears as
+                            Simoun, a wealthy jeweler who seeks to bring down the colonial order through a plot for
+                            violent upheaval. The novel explores revenge, despair, political manipulation, education,
+                            and the moral costs of pursuing freedom through destructive means.
+                        </p>
+                        <p>
+                            <strong>Why it matters:</strong> The novel deepens the questions raised by <em>Noli Me
+                                Tángere</em> and asks what happens when reform is denied and anger turns toward revenge.
+                        </p>
+                        <div class="links">
+                            <a href="https://intramuros.gov.ph/mnr/" target="_blank"
+                                rel="noopener noreferrer">Intramuros Administration: Rizal and social equality</a> ·
+                            <a href="https://www.joserizal.com/works/" target="_blank" rel="noopener noreferrer">Works
+                                and reading guides</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">Unfinished novel · Written in the 1890s</div>
+                        <h3><em>Makamisa</em></h3>
+                        <p>
+                            <em>Makamisa</em> is the title commonly associated with a fragment of an unfinished novel
+                            discovered among Rizal’s papers. Because the manuscript is incomplete, it should not be
+                            treated as a finished third novel in the same sense as <em>Noli Me Tángere</em> and <em>El
+                                Filibusterismo</em>. Its surviving pages nevertheless offer a glimpse of Rizal’s
+                            continuing literary plans.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Overview of Rizal’s complete works and Makamisa</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="work-section" id="essays">
+                <p class="section-kicker">Public argument and reform</p>
+                <h2>Essays and political writings</h2>
+                <p class="section-lead">
+                    Rizal’s essays addressed patriotism, colonial policy, education, social prejudice, history, and the
+                    future of the Philippines. Many appeared in reformist publications, including <em>La
+                        Solidaridad</em>.
+                </p>
+
+                <div class="work-grid">
+                    <article class="work-card">
+                        <div class="work-meta">1882 · Essay</div>
+                        <h3><em>El Amor Patrio</em> / “Love of Country”</h3>
+                        <p>
+                            Often identified as Rizal’s first published essay, it presents patriotism as a serious duty
+                            grounded in concern for one’s homeland. It was published in <em>Diariong Tagalog</em> under
+                            the pen name Laong Laan.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Work overview and context</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">1889–1890 · Four-part essay</div>
+                        <h3><em>Filipinas Dentro de Cien Años</em> / “The Philippines a Century Hence”</h3>
+                        <p>
+                            Rizal examines the country’s past under Spanish rule and considers possible futures. He
+                            warns that a government that refuses meaningful reforms risks losing its hold on the colony.
+                            The essay is a historical and political argument about colonial power and national destiny.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Work overview and context</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">1890 · Five-part essay</div>
+                        <h3><em>Sobre la Indolencia de los Filipinos</em> / “The Indolence of the Filipinos”</h3>
+                        <p>
+                            Rizal challenges the colonial stereotype that Filipinos were naturally lazy. He argues that
+                            social and economic conditions—including abusive governance, disrupted trade, and lack of
+                            opportunity—helped produce the conditions described as indolence. He treats the issue as a
+                            historical and political problem rather than an inherent national trait.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/read/" target="_blank" rel="noopener noreferrer">Reading
+                                portal for Rizal’s writings</a> ·
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Context and overview</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">1889 · Letter / public statement</div>
+                        <h3><em>Sa Mga Kababaihang Taga-Malolos</em> / “To the Young Women of Malolos”</h3>
+                        <p>
+                            Written after young women in Malolos, Bulacan, sought permission to establish a school where
+                            they could study Spanish, the letter praises their determination and emphasizes education,
+                            independent judgment, dignity, and the role of women in society.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Work overview and context</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">1884 · Speech</div>
+                        <h3>Toast to Juan Luna and Félix Resurrección Hidalgo</h3>
+                        <p>
+                            Delivered in Madrid to honor Filipino artists Juan Luna and Félix Resurrección Hidalgo after
+                            their success in an art exhibition. Rizal used the occasion to celebrate Filipino talent and
+                            argue for equality and shared human dignity beyond race and nationality.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Work overview and context</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">Other essays and articles</div>
+                        <h3>Writings for <em>La Solidaridad</em></h3>
+                        <p>
+                            Rizal contributed articles and commentary to the reform movement’s newspaper. His public
+                            writing advocated reforms, representation, civil rights, education, and an end to abuses.
+                            The works belong to a wider conversation among Filipino reformists in Europe and the
+                            Philippines.
+                        </p>
+                        <div class="links">
+                            <a href="https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/philippine-literature-in-spanish/"
+                                target="_blank" rel="noopener noreferrer">NCCA: Philippine literature in Spanish</a> ·
+                            <a href="https://intramuros.gov.ph/mnr/" target="_blank"
+                                rel="noopener noreferrer">Intramuros Administration: Rizal and social equality</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="work-section" id="poetry">
+                <p class="section-kicker">Verse and feeling</p>
+                <h2>Poems</h2>
+                <p class="section-lead">
+                    Rizal’s poems reflect youthful ambition, love of country, friendship, memory, exile, and his final
+                    farewell. Titles may appear in Spanish, Tagalog, or English translation.
+                </p>
+
+                <div class="work-grid">
+                    <article class="work-card">
+                        <div class="work-meta">1879 · Prize-winning poem</div>
+                        <h3><em>A la Juventud Filipina</em> / “To the Filipino Youth”</h3>
+                        <p>
+                            Written for a literary contest when Rizal was a young student, the poem calls on Filipino
+                            youth to develop their talents and use knowledge and creativity for the good of the
+                            homeland. It is frequently remembered for its faith in the potential of the younger
+                            generation.
+                        </p>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">1886 · Germany</div>
+                        <h3><em>A las Flores de Heidelberg</em> / “To the Flowers of Heidelberg”</h3>
+                        <p>
+                            Written while Rizal was in Heidelberg, the poem addresses flowers as messengers that might
+                            carry his affection and longing back to the Philippines. It connects the beauty of a place
+                            abroad with homesickness and national feeling.
+                        </p>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">1895 · Dapitan</div>
+                        <h3><em>Mi Retiro</em> / “My Retreat”</h3>
+                        <p>
+                            This reflective poem describes Rizal’s life in exile at Dapitan, including the natural
+                            surroundings and the quiet he found there, while also expressing the distance between
+                            himself and his homeland.
+                        </p>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">Dapitan period</div>
+                        <h3><em>Himno a Talisay</em> / “Hymn to Talisay”</h3>
+                        <p>
+                            Written for the boys who studied with Rizal in Talisay, Dapitan, the hymn celebrates
+                            learning, useful work, discipline, and a life shaped by community and nature.
+                        </p>
+                    </article>
+
+                    <article class="work-card feature-card">
+                        <div class="work-meta">1896 · Final poem</div>
+                        <h3><em>Mi Último Adiós</em> / “My Last Farewell”</h3>
+                        <p>
+                            Written shortly before Rizal’s execution on December 30, 1896, this farewell poem expresses
+                            love for the Philippines, acceptance of sacrifice, and hope that the country may one day be
+                            free. The manuscript was left with his family. The poem became one of the most enduring
+                            texts associated with his life and death.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Poem overview and publication history</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">Other well-known poems</div>
+                        <h3>Selected additional poetry</h3>
+                        <p>
+                            Other poems associated with Rizal include <em>Mi Primera Inspiración</em> (“My First
+                            Inspiration”), <em>Canto del Viajero</em> (“Song of the Wanderer”), <em>Un Recuerdo a Mi
+                                Pueblo</em> (“Memories of My Town”), <em>A Josefina</em> (“To Josephine”),
+                            <em>Kundiman</em>, <em>Me Piden Versos</em> (“They Ask Me for Verses”), <em>Por la Educación
+                                Recibe Lustre la Patria</em> (“Through Education the Motherland Receives Light”), and
+                            <em>Adiós a Leonor</em> (“Farewell to Leonor”). Titles and translations vary across
+                            editions.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Further poetry listings</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="work-section" id="plays">
+                <p class="section-kicker">Drama and performance</p>
+                <h2>Plays and dramatic works</h2>
+
+                <div class="work-grid">
+                    <article class="work-card">
+                        <div class="work-meta">1880 · Literary contest</div>
+                        <h3><em>El Consejo de los Dioses</em> / “The Council of the Gods”</h3>
+                        <p>
+                            An allegorical play written for a contest honoring Miguel de Cervantes. Its classical
+                            subject gave Rizal a way to display his literary learning and skill in dramatic composition.
+                        </p>
+                    </article>
+
+                    <article class="work-card">
+                        <div class="work-meta">1880 · Ateneo performance</div>
+                        <h3><em>Junto al Pasig</em> / “Beside the Pasig”</h3>
+                        <p>
+                            A short dramatic work written for performance at the Ateneo Municipal de Manila. It combines
+                            religious and symbolic elements and shows Rizal’s involvement in student theatre as well as
+                            poetry and prose.
+                        </p>
+                    </article>
+                </div>
+
+                <p class="note">
+                    Rizal wrote and participated in literary forms beyond the two novels. The categories on this page
+                    are organized for learning; some works have variant titles, translations, or disputed publication
+                    details across editions.
+                </p>
+            </section>
+
+            <section class="work-section" id="letters">
+                <p class="section-kicker">Personal writing and public occasions</p>
+                <h2>Letters, speeches, and correspondence</h2>
+
+                <div class="work-grid">
+                    <article class="work-card">
+                        <h3>Letters to family</h3>
+                        <p>
+                            Rizal’s correspondence with his parents, siblings, and other relatives records his studies,
+                            travels, financial concerns, health, hopes, and experiences abroad and in exile. These
+                            letters also help historians reconstruct the circumstances in which he wrote and worked.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.elib.gov.ph/results.php?f=subject&q=Jose+Rizal+--+Works"
+                                target="_blank" rel="noopener noreferrer">Philippine eLib catalogue: Rizal’s letters and
+                                writings</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3>Letters to fellow reformists</h3>
+                        <p>
+                            Rizal corresponded with Filipino intellectuals and reformists, discussing political ideas,
+                            publications, personal matters, and the movement for reform. The correspondence is an
+                            important source for understanding the relationships behind the Propaganda Movement.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.elib.gov.ph/results.php?f=subject&q=Jose+Rizal+--+Works"
+                                target="_blank" rel="noopener noreferrer">Philippine eLib catalogue</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3>Speeches and commemorative addresses</h3>
+                        <p>
+                            Rizal’s speeches—including the toast honoring Luna and Hidalgo—show how he used public
+                            occasions to defend Filipino ability and dignity. These texts should be read in their
+                            historical context and not separated from the reformist debates of the period.
+                        </p>
+                        <div class="links">
+                            <a href="https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/philippine-literature-in-spanish/"
+                                target="_blank" rel="noopener noreferrer">NCCA literary history</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="work-section" id="history">
+                <p class="section-kicker">Recovering the past</p>
+                <h2>Historical research, annotation, and folklore</h2>
+
+                <div class="work-grid">
+                    <article class="work-card feature-card">
+                        <div class="work-meta">Paris, 1890 · Historical edition</div>
+                        <h3>Annotations to Antonio de Morga’s <em>Sucesos de las Islas Filipinas</em></h3>
+                        <p>
+                            Rizal prepared an annotated edition of Antonio de Morga’s 1609 account of the Philippines.
+                            His notes challenged colonial assumptions and highlighted evidence of Filipino society,
+                            culture, trade, and political life before Spanish rule. The project was part of his effort
+                            to encourage Filipinos to study their history critically.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Historical background and further reading</a> ·
+                            <a href="https://www.elib.gov.ph/results.php?f=subject&q=Jose+Rizal+--+Works"
+                                target="_blank" rel="noopener noreferrer">Philippine eLib catalogue</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3>“The Monkey and the Turtle”</h3>
+                        <p>
+                            Rizal documented and illustrated a version of the Philippine folktale commonly known as “The
+                            Monkey and the Turtle.” Its publication helped bring Philippine folklore to an international
+                            scholarly audience and reflects his interest in local storytelling and cultural heritage.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Folklore and illustration overview</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3>Ethnographic and linguistic interests</h3>
+                        <p>
+                            Rizal collected words, stories, and observations about Philippine life and languages. His
+                            interests in language and culture supported his wider effort to document Filipino identity
+                            rather than allow it to be defined only by colonial accounts.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.elib.gov.ph/results.php?f=subject&q=Jose+Rizal+--+Works"
+                                target="_blank" rel="noopener noreferrer">Research catalogue</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="work-section" id="translations">
+                <p class="section-kicker">Literature across languages</p>
+                <h2>Translations and adaptations</h2>
+
+                <div class="work-grid">
+                    <article class="work-card">
+                        <h3>Friedrich Schiller’s <em>William Tell</em></h3>
+                        <p>
+                            Rizal translated Schiller’s drama into Tagalog. The story of resistance to tyranny resonated
+                            with his interest in liberty and civic courage, while the translation helped make European
+                            literature accessible to Filipino readers in their own language.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Translation overview</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3>Hans Christian Andersen’s tales</h3>
+                        <p>
+                            Rizal translated selected tales associated with Andersen into Tagalog. These efforts show
+                            his interest in bringing literature to new readers and in developing written literary
+                            expression in a Philippine language.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Translation and folklore overview</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="work-section" id="other-work">
+                <p class="section-kicker">A multidisciplinary mind</p>
+                <h2>Art, science, education, and community projects</h2>
+
+                <div class="work-grid">
+                    <article class="work-card">
+                        <h3>Paintings, sketches, and sculpture</h3>
+                        <p>
+                            Rizal made drawings, paintings, and sculptural works, including figures modeled in clay and
+                            carved in wood. His visual art reflects the same careful observation and curiosity found in
+                            his writing. Individual objects are preserved or documented in museums and historical
+                            collections.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Overview of art and creative work</a> ·
+                            <a href="https://intramuros.gov.ph/mnr/" target="_blank" rel="noopener noreferrer">Museo ni
+                                Rizal / Intramuros Administration</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3>Relief map of Mindanao</h3>
+                        <p>
+                            During his exile in Dapitan, Rizal helped create a relief map of Mindanao in the town plaza.
+                            The project combined geography, practical design, education, and public service,
+                            illustrating how his work extended beyond writing.
+                        </p>
+                        <div class="links">
+                            <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                                rel="noopener noreferrer">Overview and historical context</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3>Teaching in Talisay, Dapitan</h3>
+                        <p>
+                            Rizal established a small school for boys during his exile. Its practical approach included
+                            academic subjects, physical activity, and useful skills. Although teaching is not a literary
+                            work, it belongs to the wider body of work through which Rizal put his educational ideas
+                            into practice.
+                        </p>
+                        <div class="links">
+                            <a href="https://intramuros.gov.ph/mnr/" target="_blank" rel="noopener noreferrer">Museo ni
+                                Rizal / Intramuros Administration</a>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3>Medical and scientific observations</h3>
+                        <p>
+                            Rizal trained and worked as an ophthalmologist and pursued scientific interests alongside
+                            his literary life. His professional medical work and observations are part of his broader
+                            intellectual contribution, though they should be distinguished from his novels, poems, and
+                            essays.
+                        </p>
+                        <div class="links">
+                            <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/jose-rizal-1861-1896-7/"
+                                target="_blank" rel="noopener noreferrer">NHCP historical marker record</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="work-section" id="timeline">
+                <p class="section-kicker">Selected chronology</p>
+                <h2>How Rizal’s works developed</h2>
+
+                <ul class="timeline">
+                    <li>
+                        <strong>1879 — “To the Filipino Youth”</strong>
+                        Rizal’s award-winning poem expresses confidence in the potential of Filipino youth.
+                    </li>
+                    <li>
+                        <strong>1880 — Student drama</strong>
+                        <em>El Consejo de los Dioses</em> and <em>Junto al Pasig</em> show his early work in theatre and
+                        allegory.
+                    </li>
+                    <li>
+                        <strong>1882 — “Love of Country”</strong>
+                        His essay writing begins to reach readers through the reformist press.
+                    </li>
+                    <li>
+                        <strong>1887 — <em>Noli Me Tángere</em></strong>
+                        The first novel presents a searching critique of colonial society.
+                    </li>
+                    <li>
+                        <strong>1889–1890 — Essays and historical research</strong>
+                        Rizal writes “The Philippines a Century Hence,” “The Indolence of the Filipinos,” and his
+                        annotations to Morga’s history.
+                    </li>
+                    <li>
+                        <strong>1891 — <em>El Filibusterismo</em></strong>
+                        The sequel explores the consequences of oppression and the dangers of revenge.
+                    </li>
+                    <li>
+                        <strong>1892–1896 — Dapitan and final writings</strong>
+                        Rizal continues educational, artistic, and community work during exile and writes <em>Mi Último
+                            Adiós</em> before his execution.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="work-section" id="significance">
+                <p class="section-kicker">Why his works remain important</p>
+                <h2>Literature, reform, and national consciousness</h2>
+
+                <p>
+                    Rizal’s works matter not only because of their literary quality but because they challenged readers
+                    to examine power, inequality, education, history, and responsibility to the community. His novels
+                    and essays helped circulate reformist ideas, while his poems and letters reveal the personal hopes
+                    and costs behind that public work. His historical research encouraged Filipinos to look critically
+                    at their past, and his translations and teaching reflected a belief that knowledge should reach
+                    beyond a small educated circle.
+                </p>
+
+                <p>
+                    The Philippine government formally recognized the importance of studying Rizal’s life and writings
+                    through
+                    <a href="https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/14242" target="_blank"
+                        rel="noopener noreferrer">Republic Act No. 1425, commonly called the Rizal Law</a>,
+                    which specifically names <em>Noli Me Tángere</em> and <em>El Filibusterismo</em>.
+                </p>
+            </section>
+
+            <section class="work-section" id="sources">
+                <p class="section-kicker">Further reading and references</p>
+                <h2>Sources</h2>
+                <p class="section-lead">
+                    Use these links to verify historical context, explore catalogues, and continue reading about Rizal’s
+                    works. This page is a broad educational guide rather than a claim to reproduce every surviving
+                    manuscript, letter, or artwork.
+                </p>
+
+                <ol class="source-list">
+                    <li>
+                        <a href="https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/philippine-literature-in-spanish/"
+                            target="_blank" rel="noopener noreferrer">National Commission for Culture and the Arts —
+                            Philippine Literature in Spanish</a>
+                    </li>
+                    <li>
+                        <a href="https://intramuros.gov.ph/mnr/" target="_blank" rel="noopener noreferrer">Intramuros
+                            Administration — Museo ni Rizal and Rizal’s writings</a>
+                    </li>
+                    <li>
+                        <a href="https://www.elib.gov.ph/results.php?f=subject&q=Jose+Rizal+--+Works" target="_blank"
+                            rel="noopener noreferrer">Philippine eLib — catalogue search for José Rizal’s works</a>
+                    </li>
+                    <li>
+                        <a href="https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/14242" target="_blank"
+                            rel="noopener noreferrer">Supreme Court E-Library — Republic Act No. 1425</a>
+                    </li>
+                    <li>
+                        <a href="https://issuances-library.senate.gov.ph/legislative%2Bissuances/Republic%20Act%20No.%201425"
+                            target="_blank" rel="noopener noreferrer">Senate of the Philippines — Republic Act No.
+                            1425</a>
+                    </li>
+                    <li>
+                        <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/jose-rizal-1861-1896-7/"
+                            target="_blank" rel="noopener noreferrer">National Historical Commission of the Philippines
+                            — José Rizal historical marker record</a>
+                    </li>
+                    <li>
+                        <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                            rel="noopener noreferrer">The Complete Works of José Rizal — overview of literary and
+                            artistic work</a>
+                    </li>
+                    <li>
+                        <a href="https://www.joserizal.com/works/" target="_blank" rel="noopener noreferrer">José Rizal
+                            — works and reading guides</a>
+                    </li>
+                    <li>
+                        <a href="https://www.joserizal.com/read/" target="_blank" rel="noopener noreferrer">José Rizal —
+                            reading portal for selected texts</a>
+                    </li>
+                </ol>
+
+                <p class="small-note">
+                    Note: English titles are translations of works often originally written in Spanish or Tagalog.
+                    Dates, spellings, and translations may differ by edition. Where a work survives only as a fragment
+                    or where bibliographic details vary, this page identifies that limitation instead of presenting
+                    uncertain information as settled fact.
+                </p>
+            </section>
+
+            <nav class="page-navigation" aria-label="Page navigation">
+                <a href="education.html">← Previous: Education</a>
+                <a href="exile.html">Next: Exile →</a>
+            </nav>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../../js/injector/injectHeader.js"></script>
+    <script src="../../js/injector/injectFooter.js"></script>
+</body>
+
+</html>

@@ -42,32 +42,40 @@
             position: relative;
             min-height: 480px;
             padding: 150px 30px 100px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
             overflow: hidden;
+
             background:
-                linear-gradient(rgba(39, 27, 22, 0.78),
-                    rgba(39, 27, 22, 0.88)),
-                var(--primary-color), url("../../images/rizal-background.png");
+                linear-gradient(rgba(39, 27, 22, 0.68),
+                    rgba(39, 27, 22, 0.82)),
+                url("../../images/education/education-hero.png");
+
+            background-size: cover;
+            background-position: center 35%;
+            background-repeat: no-repeat;
         }
 
         .education-hero::before {
             content: "";
             position: absolute;
             inset: 0;
+
             background:
                 radial-gradient(circle at 50% 40%,
                     rgba(200, 157, 124, 0.18),
                     transparent 65%);
+
             pointer-events: none;
         }
 
-        .hero-content {
+        .education-hero .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 850px;
         }
 
         .hero-label {

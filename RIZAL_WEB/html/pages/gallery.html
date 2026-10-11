@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery — José Rizal: Life &amp; Works</title>
+
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 400px;
+            padding: 145px 30px 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            background:
+                linear-gradient(rgba(39, 27, 22, 0.78), rgba(39, 27, 22, 0.88)),
+                var(--primary-color) url("../../images/rizal-background.png") center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(200, 157, 124, 0.18), transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .hero-label,
+        .section-label {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0 0 24px;
+            color: var(--light-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 5.5vw, 66px);
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e8dcd4;
+            font-size: 17px;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            margin: 30px auto 0;
+            background: var(--accent-color);
+        }
+
+        .page-section {
+            padding: 75px 30px 90px;
+            background: var(--secondary-color);
+        }
+
+        .section-container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: normal;
+            line-height: 1.3;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted-color);
+            font-size: 15px;
+        }
+
+        .gallery-count {
+            margin-top: 20px;
+            color: var(--muted-color);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .gallery-item {
+            position: relative;
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            min-width: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            background: var(--light-color);
+            cursor: zoom-in;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .gallery-item:hover {
+            z-index: 1;
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 22px rgba(33, 26, 22, 0.15);
+        }
+
+        .gallery-item:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 3px;
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item.image-missing img {
+            visibility: hidden;
+        }
+
+        .gallery-item.image-missing::after {
+            content: "Image unavailable";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            color: var(--muted-color);
+            font-size: 11px;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        .empty-gallery {
+            display: none;
+            padding: 45px 20px;
+            border: 1px dashed var(--border-color);
+            color: var(--muted-color);
+            text-align: center;
+        }
+
+        .empty-gallery.visible {
+            display: block;
+        }
+
+        .page-navigation {
+            padding: 40px 30px;
+            background: var(--light-color);
+        }
+
+        .page-navigation-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .page-nav-link {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .page-nav-link:hover {
+            color: var(--light-color);
+            background: var(--primary-color);
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 65px 75px;
+            background: rgba(15, 12, 10, 0.96);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .lightbox.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-image {
+            display: block;
+            max-width: 100%;
+            max-height: calc(100vh - 130px);
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            box-shadow: 0 10px 45px rgba(0, 0, 0, 0.35);
+            user-select: none;
+        }
+
+        .lightbox-close,
+        .lightbox-arrow {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-close {
+            top: 20px;
+            right: 25px;
+            width: 44px;
+            height: 44px;
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .lightbox-arrow {
+            top: 50%;
+            width: 45px;
+            height: 55px;
+            font-size: 30px;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-prev {
+            left: 18px;
+        }
+
+        .lightbox-next {
+            right: 18px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #e8dcd4;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        body.lightbox-open {
+            overflow: hidden;
+        }
+
+        @media (max-width: 1100px) {
+            .gallery-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 750px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 9px;
+            }
+
+            .page-section {
+                padding: 65px 22px;
+            }
+
+            .lightbox {
+                padding: 60px 50px;
+            }
+
+            .lightbox-prev {
+                left: 8px;
+            }
+
+            .lightbox-next {
+                right: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 350px;
+                padding: 120px 22px 65px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .page-section {
+                padding: 50px 15px 65px;
+            }
+
+            .section-heading {
+                margin-bottom: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 7px;
+            }
+
+            .page-navigation {
+                padding: 30px 20px;
+            }
+
+            .page-navigation-inner {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .page-nav-link {
+                text-align: center;
+            }
+
+            .lightbox {
+                padding: 55px 40px;
+            }
+
+            .lightbox-image {
+                max-height: calc(100vh - 110px);
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+            }
+
+            .lightbox-arrow {
+                width: 32px;
+                height: 45px;
+                font-size: 24px;
+            }
+
+            .lightbox-prev {
+                left: 4px;
+            }
+
+            .lightbox-next {
+                right: 4px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-label">The Life &amp; Works of José Rizal</span>
+                <h1>Gallery</h1>
+                <p>
+                    Explore photographs, portraits, historical places,
+                    documents, and other images connected to the life
+                    and legacy of Dr. José Rizal.
+                </p>
+                <div class="hero-divider"></div>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">Visual Archives</span>
+                    <h2>Explore the Collection</h2>
+                    <p>
+                        Select any image to view it in a larger format.
+                    </p>
+                    <div class="gallery-count" id="gallery-count">
+                        Loading images...
+                    </div>
+                </div>
+
+                <div class="gallery-grid" id="gallery-grid"></div>
+
+                <div class="empty-gallery" id="empty-gallery">
+                    No images were found. Check the image paths in
+                    the gallery script.
+                </div>
+            </div>
+        </section>
+
+        <section class="page-navigation">
+            <div class="page-navigation-inner">
+                <a class="page-nav-link" href="death.html">
+                    ← Death &amp; Final Journey
+                </a>
+                <a class="page-nav-link" href="about.html">
+                    About This Project →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image viewer">
+            &times;
+        </button>
+
+        <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous image">
+            &#8249;
+        </button>
+
+        <img class="lightbox-image" id="lightbox-image" src="" alt="Expanded gallery image">
+
+        <button class="lightbox-arrow lightbox-next" id="lightbox-next" type="button" aria-label="Next image">
+            &#8250;
+        </button>
+
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <script>
+        const galleryImages = [
+            "../../images/rizal.png",
+            "../../images/rizal-background.png",
+
+            // Add the rest of your image paths below.
+            // Include images from any subfolder inside images/.
+            // Example: "../../images/childhood/rizal-childhood.jpg",
+            // Example: "../../images/education/ateneo.jpg",
+            // Example: "../../images/travels/rizal-europe.jpg",
+            // Example: "../../images/works/noli-me-tangere.jpg",
+            // Example: "../../images/exile/rizal-dapitan.jpg",
+            // Example: "../../images/death/rizal-final-journey.png"
+        ];
+
+        const galleryGrid = document.getElementById("gallery-grid");
+        const galleryCount = document.getElementById("gallery-count");
+        const emptyGallery = document.getElementById("empty-gallery");
+
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightbox-image");
+        const lightboxCounter = document.getElementById("lightbox-counter");
+
+        const closeButton = document.getElementById("lightbox-close");
+        const previousButton = document.getElementById("lightbox-prev");
+        const nextButton = document.getElementById("lightbox-next");
+
+        let validImages = [];
+        let currentIndex = 0;
+        let previousFocus = null;
+
+        function createGallery() {
+            galleryGrid.replaceChildren();
+            validImages = [];
+
+            galleryImages.forEach((src) => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "gallery-item";
+                button.setAttribute("aria-label", "View image");
+
+                const image = document.createElement("img");
+                image.src = src;
+                image.alt = "";
+                image.loading = "lazy";
+                image.decoding = "async";
+
+                image.addEventListener("load", () => {
+                    button.classList.remove("image-missing");
+                });
+
+                image.addEventListener("error", () => {
+                    button.classList.add("image-missing");
+                });
+
+                button.appendChild(image);
+
+                button.addEventListener("click", () => {
+                    const index = validImages.findIndex(
+                        (item) => item.src === src
+                    );
+
+                    if (index !== -1) {
+                        openLightbox(index);
+                    }
+                });
+
+                galleryGrid.appendChild(button);
+                validImages.push({ src, button, image });
+            });
+
+            updateGallery();
+        }
+
+        function updateGallery() {
+            const availableImages = validImages.filter(
+                (item) => item.image.complete &&
+                    item.image.naturalWidth > 0
+            );
+
+            galleryCount.textContent =
+                availableImages.length + " image" +
+                (availableImages.length === 1 ? "" : "s");
+
+            emptyGallery.classList.toggle(
+                "visible",
+                availableImages.length === 0 &&
+                validImages.every((item) => item.image.complete)
+            );
+        }
+
+        function getAvailableImages() {
+            return validImages.filter(
+                (item) => item.image.naturalWidth > 0
+            );
+        }
+
+        function openLightbox(index) {
+            const availableImages = getAvailableImages();
+
+            if (!availableImages.length) return;
+
+            previousFocus = document.activeElement;
+            currentIndex = index;
+
+            showImage();
+
+            lightbox.style.display = "flex";
+            document.body.classList.add("lightbox-open");
+
+            requestAnimationFrame(() => {
+                lightbox.classList.add("open");
+            });
+
+            closeButton.focus();
+        }
+
+        function showImage() {
+            const availableImages = getAvailableImages();
+
+            if (!availableImages.length) return;
+
+            currentIndex = (
+                (currentIndex % availableImages.length) +
+                availableImages.length
+            ) % availableImages.length;
+
+            const selected = availableImages[currentIndex];
+
+            lightboxImage.src = selected.src;
+            lightboxImage.alt = "Gallery image " +
+                (currentIndex + 1);
+
+            lightboxCounter.textContent =
+                (currentIndex + 1) + " / " + availableImages.length;
+
+            previousButton.style.display =
+                availableImages.length > 1 ? "flex" : "none";
+
+            nextButton.style.display =
+                availableImages.length > 1 ? "flex" : "none";
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("open");
+            document.body.classList.remove("lightbox-open");
+
+            lightbox.style.display = "none";
+            lightboxImage.src = "";
+
+            if (previousFocus && previousFocus.isConnected) {
+                previousFocus.focus();
+            }
+        }
+
+        function showPrevious() {
+            currentIndex--;
+            showImage();
+        }
+
+        function showNext() {
+            currentIndex++;
+            showImage();
+        }
+
+        closeButton.addEventListener("click", closeLightbox);
+        previousButton.addEventListener("click", showPrevious);
+        nextButton.addEventListener("click", showNext);
+
+        lightbox.addEventListener("click", (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (!lightbox.classList.contains("open")) return;
+
+            if (event.key === "Escape") {
+                closeLightbox();
+            } else if (event.key === "ArrowLeft") {
+                showPrevious();
+            } else if (event.key === "ArrowRight") {
+                showNext();
+            } else if (event.key === "Tab") {
+                const focusable = [
+                    closeButton,
+                    previousButton,
+                    nextButton
+                ].filter((button) =>
+                    button.style.display !== "none"
+                );
+
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+
+                if (event.shiftKey &&
+                    document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey &&
+                    document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
+        galleryGrid.addEventListener("click", updateGallery);
+
+        createGallery();
+    </script>
+
+    <script src="../../js/injector/injectHeader.js"></script>
+    <script src="../../js/injector/injectFooter.js"></script>
+</body>
+
+</html>

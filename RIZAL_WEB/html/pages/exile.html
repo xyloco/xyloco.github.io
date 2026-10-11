@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exile — José Rizal: Life &amp; Works</title>
+
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 480px;
+            padding: 145px 30px 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            background:
+                linear-gradient(rgba(39, 27, 22, 0.78), rgba(39, 27, 22, 0.88)),
+                var(--primary-color) url("../../images/rizal-background.png") center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(200, 157, 124, 0.18), transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .hero-label,
+        .section-label {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0 0 24px;
+            color: var(--light-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 5.5vw, 66px);
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e8dcd4;
+            font-size: 17px;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            margin: 30px auto 0;
+            background: var(--accent-color);
+        }
+
+        .introduction {
+            padding: 75px 30px;
+            background: var(--light-color);
+        }
+
+        .intro-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .intro-content h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(27px, 4vw, 36px);
+            font-weight: normal;
+            line-height: 1.3;
+        }
+
+        .intro-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .intro-highlight {
+            margin-top: 30px;
+            padding: 25px 30px;
+            border-left: 4px solid var(--primary-color);
+            background: var(--secondary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 19px;
+            font-style: italic;
+        }
+
+        .page-section {
+            padding: 85px 30px;
+        }
+
+        .section-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: normal;
+            line-height: 1.3;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted-color);
+            font-size: 15px;
+        }
+
+        .timeline-section {
+            background: var(--secondary-color);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            left: 19px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+            padding-left: 60px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 28px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            background: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--border-color);
+        }
+
+        .timeline-card {
+            padding: 30px 32px;
+            background: var(--light-color);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(33, 26, 22, 0.08);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .timeline-card h3 {
+            margin: 0 0 14px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            font-weight: normal;
+            line-height: 1.4;
+        }
+
+        .timeline-card p {
+            margin: 0 0 15px;
+            font-size: 15px;
+        }
+
+        .timeline-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-card strong {
+            color: var(--primary-color);
+        }
+
+        .history-note {
+            margin-top: 20px;
+            padding: 16px 20px;
+            background: rgba(200, 157, 124, 0.14);
+            border-left: 3px solid var(--accent-color);
+            font-size: 14px;
+        }
+
+        .learning-section {
+            background: var(--light-color);
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .learning-card {
+            padding: 28px;
+            background: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(33, 26, 22, 0.07);
+        }
+
+        .learning-number {
+            display: block;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 34px;
+            line-height: 1;
+        }
+
+        .learning-card h3 {
+            margin: 0 0 12px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .learning-card p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .references-section {
+            background: var(--secondary-color);
+        }
+
+        .references-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .reference-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 25px;
+            background: var(--light-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            text-decoration: none;
+            overflow-wrap: anywhere;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .reference-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(33, 26, 22, 0.07);
+        }
+
+        .reference-type {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .reference-card h3 {
+            margin: 0 0 10px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .reference-card p {
+            margin: 0 0 15px;
+            font-size: 14px;
+        }
+
+        .reference-url {
+            margin-top: auto;
+            color: var(--primary-color);
+            font-size: 13px;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .page-navigation {
+            padding: 40px 30px;
+            background: var(--light-color);
+        }
+
+        .page-navigation-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .page-nav-link {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .page-nav-link:hover {
+            color: var(--light-color);
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 850px) {
+            .learning-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .references-list {
+                grid-template-columns: 1fr;
+            }
+
+            .page-section {
+                padding: 70px 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 400px;
+                padding: 125px 22px 70px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .introduction {
+                padding: 55px 22px;
+            }
+
+            .intro-highlight {
+                padding: 20px;
+                font-size: 17px;
+            }
+
+            .page-section {
+                padding: 60px 20px;
+            }
+
+            .section-heading {
+                margin-bottom: 35px;
+            }
+
+            .timeline::before {
+                left: 11px;
+            }
+
+            .timeline-item {
+                padding-left: 35px;
+            }
+
+            .timeline-dot {
+                left: 2px;
+                width: 19px;
+                height: 19px;
+            }
+
+            .timeline-card {
+                padding: 24px 20px;
+            }
+
+            .timeline-card h3 {
+                font-size: 22px;
+            }
+
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-navigation {
+                padding: 30px 20px;
+            }
+
+            .page-navigation-inner {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .page-nav-link {
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-label">The Life &amp; Works of José Rizal</span>
+                <h1>Exile in Dapitan</h1>
+                <p>
+                    From his forced departure from Manila to his years of teaching,
+                    treating patients, and serving the community, Rizal's exile
+                    became an important chapter in his life and his service to the
+                    Filipino people.
+                </p>
+                <div class="hero-divider"></div>
+            </div>
+        </section>
+
+        <section class="introduction">
+            <div class="intro-content">
+                <h2>Four Years of Service and Reflection</h2>
+
+                <p>
+                    Dr. José Rizal's exile in Dapitan began in July 1892, following
+                    his arrest by Spanish colonial authorities in Manila. The
+                    government regarded his writings, reformist activities, and
+                    influence among Filipinos as threats to its authority. Instead
+                    of receiving a judicial trial, Rizal was sent to Dapitan in
+                    Mindanao, where he remained for approximately four years.
+                </p>
+
+                <p>
+                    Although separated from the principal centers of political
+                    activity, Rizal continued to serve the community. He treated
+                    patients as an ophthalmologist, taught boys without charging
+                    tuition, improved public spaces, studied nature, and worked on
+                    practical projects. His years in Dapitan also brought personal
+                    challenges, including religious restrictions, changes in
+                    supervision, and his relationship with Josephine Bracken.
+                </p>
+
+                <p>
+                    His exile eventually became connected to the growing
+                    revolutionary movement. In 1896, Pío Valenzuela visited Rizal
+                    on behalf of the Katipunan to seek his advice about the proposed
+                    revolution. Rizal questioned whether the movement was adequately
+                    prepared for an armed uprising.
+                </p>
+
+                <div class="intro-highlight">
+                    Exile did not end Rizal's service to his country. In Dapitan,
+                    he demonstrated how education, medicine, scientific knowledge,
+                    and civic responsibility could improve the lives of others.
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section timeline-section" id="return">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">June–July 1892</span>
+                    <h2>Return to the Philippines and Arrest</h2>
+                    <p>
+                        Rizal returned despite the risks, hoping to help his family
+                        and continue working toward peaceful reform.
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">June 26, 1892</span>
+                            <h3>Arrival in Manila</h3>
+                            <p>
+                                Rizal arrived in Manila with his sister Lucia after
+                                traveling from Hong Kong. He stayed at the Hotel de
+                                Oriente and met Governor-General Eulogio Despujol.
+                                During this period, he hoped to address the
+                                difficulties faced by his family, who had suffered
+                                persecution connected to the land dispute in Calamba,
+                                Laguna.
+                            </p>
+                            <p>
+                                Rizal knew that returning to the Philippines was
+                                dangerous. His writings and reformist activities had
+                                already attracted the attention of Spanish officials,
+                                and his movements were closely watched.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">July 3, 1892</span>
+                            <h3>Founding of La Liga Filipina</h3>
+                            <p>
+                                Rizal founded <strong>La Liga Filipina</strong> at
+                                the home of Doroteo Ongjunco in Tondo, Manila. The
+                                civic organization aimed to unite Filipinos, promote
+                                mutual assistance, encourage education and economic
+                                development, and pursue improvements through peaceful
+                                and lawful means.
+                            </p>
+                            <p>
+                                The organization reflected Rizal's belief that
+                                collective effort and civic responsibility could
+                                strengthen Filipino society. Its founding occurred
+                                only days before his arrest.
+                            </p>
+                            <div class="history-note">
+                                La Liga Filipina sought social improvement through
+                                unity and cooperation. It was a civic organization,
+                                not an armed revolutionary group.
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item" id="arrest">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">July 6, 1892</span>
+                            <h3>Arrest over the Pobres Frailes Leaflets</h3>
+                            <p>
+                                During a meeting at Malacañan Palace, Governor-General
+                                Despujol confronted Rizal with five printed leaflets
+                                titled <em>Pobres Frailes</em>, meaning “Poor Friars.”
+                                The leaflets criticized Dominican friars and
+                                reportedly made sarcastic references to their vow
+                                of poverty and financial difficulties.
+                            </p>
+                            <p>
+                                The papers were reportedly discovered among bedding
+                                and luggage brought from Hong Kong. Rizal explained
+                                that the bedding belonged to his sister Lucia and
+                                questioned why incriminating leaflets would have
+                                been hidden there. His explanation did not prevent
+                                the authorities from ordering his arrest.
+                            </p>
+                            <p>
+                                Spanish officials accused Rizal of promoting ideas
+                                hostile to religion and the colonial government.
+                                They also viewed his writings, including
+                                <em>El Filibusterismo</em>, as threats to the
+                                established political and religious order.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">July 7, 1892</span>
+                            <h3>The Official Exile Order</h3>
+                            <p>
+                                The colonial administration issued an order
+                                deporting Rizal to Dapitan in Zamboanga, Mindanao.
+                                The order was published in the
+                                <em>Gaceta de Manila</em>, the official government
+                                gazette.
+                            </p>
+                            <p>
+                                Rizal was exiled through an administrative decision
+                                rather than a conviction following a criminal trial.
+                                The authorities sought to remove him from Manila
+                                and restrict his influence over the growing reform
+                                movement.
+                            </p>
+                            <div class="history-note">
+                                Rizal's arrest followed shortly after the founding
+                                of La Liga Filipina. Both the organization and the
+                                accusations involving the leaflets formed part of
+                                the wider political circumstances surrounding his exile.
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section learning-section" id="arrival">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">July 17, 1892</span>
+                    <h2>Arrival and Life in Dapitan</h2>
+                    <p>
+                        Rizal's new home became a place of learning, medical
+                        service, scientific work, and community development.
+                    </p>
+                </div>
+
+                <div class="learning-grid">
+                    <article class="learning-card">
+                        <span class="learning-number">01</span>
+                        <h3>Captain Ricardo Carnicero</h3>
+                        <p>
+                            Rizal arrived in Dapitan under the supervision of
+                            Captain Ricardo Carnicero. He was allowed to live in
+                            the town rather than remain confined to a prison cell.
+                            He was offered accommodation at the commandant's
+                            residence or at the parish priest's house.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">02</span>
+                        <h3>Religious Restrictions</h3>
+                        <p>
+                            Fr. Antonio Obach required Rizal to retract his
+                            religious and Masonic beliefs, participate in church
+                            rites, and demonstrate conduct acceptable to the
+                            colonial religious authorities if he wished to stay
+                            at the priest's residence.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">03</span>
+                        <h3>A Tribute to Carnicero</h3>
+                        <p>
+                            Rizal developed a cordial relationship with Carnicero.
+                            For the captain's birthday on August 26, 1892, Rizal
+                            composed a poem known as
+                            <em>A Don Ricardo Carnicero</em> and made a bust in
+                            his honor.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">04</span>
+                        <h3>The Lottery Winnings</h3>
+                        <p>
+                            Rizal and his companions won a government lottery
+                            with ticket number 9736. The prize, commonly
+                            recorded as 20,000 pesos, gave him additional
+                            resources for his residence and community projects.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">05</span>
+                        <h3>A New Commandant</h3>
+                        <p>
+                            On May 4, 1893, Captain Juan Sitges replaced
+                            Carnicero. Rizal's living arrangements changed,
+                            and he was assigned a house near the military
+                            headquarters rather than continuing under the
+                            previous arrangement.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">06</span>
+                        <h3>Visits from the Jesuits</h3>
+                        <p>
+                            Fr. Francisco de Paula Sánchez, one of Rizal's former
+                            Ateneo professors, visited Dapitan and attempted to
+                            persuade him to return to the Catholic Church.
+                            Their discussions reflected continuing religious
+                            tensions during Rizal's exile.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section timeline-section" id="talisay">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">Education and Community Service</span>
+                    <h2>Rizal's Work in Talisay</h2>
+                    <p>
+                        Rizal used his knowledge and resources to improve
+                        education, healthcare, and everyday life in Dapitan.
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">A Home in Talisay</span>
+                            <h3>Building His Residence</h3>
+                            <p>
+                                Rizal used part of his lottery winnings to acquire
+                                land and develop a property in Talisay, outside
+                                the town proper of Dapitan. His residence included
+                                a modest octagonal house constructed from bamboo
+                                and nipa.
+                            </p>
+                            <p>
+                                The property became his home and workplace, where
+                                he could receive patients, teach students, study
+                                nature, and continue his intellectual pursuits.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Education</span>
+                            <h3>A School for Boys</h3>
+                            <p>
+                                Rizal established a school for boys in Talisay and
+                                provided education without charging tuition. His
+                                teaching combined academic subjects with discipline,
+                                physical activity, practical work, and character
+                                development.
+                            </p>
+                            <p>
+                                He believed education should prepare students to
+                                become capable and responsible members of society.
+                                His approach emphasized useful knowledge rather
+                                than memorization alone.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Medical Service</span>
+                            <h3>Treating Patients</h3>
+                            <p>
+                                Rizal continued practicing medicine in Dapitan,
+                                particularly treating eye conditions as an
+                                ophthalmologist. Residents and visitors sought
+                                his assistance, allowing him to use his medical
+                                training to help the community.
+                            </p>
+                            <p>
+                                His medical work was a practical expression of
+                                his commitment to service, even while he remained
+                                under colonial supervision.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Public Improvement</span>
+                            <h3>Cleaning and Lighting the Town</h3>
+                            <p>
+                                Rizal helped improve Dapitan's public spaces,
+                                including the town plaza. He participated in
+                                cleaning the area and supported the use of
+                                coconut-oil lamps to provide lighting at night.
+                            </p>
+                            <p>
+                                These projects reflected his belief that community
+                                progress could begin with cooperation and practical
+                                improvements to everyday life.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Geography and Science</span>
+                            <h3>The Relief Map of Mindanao</h3>
+                            <p>
+                                Rizal helped create a relief map of Mindanao in
+                                Dapitan's plaza. The project demonstrated his
+                                interest in geography and his ability to turn
+                                scientific knowledge into a public educational
+                                resource.
+                            </p>
+                            <p>
+                                He also studied the natural environment, collected
+                                specimens, and maintained connections with scholars
+                                abroad. His scientific interests continued despite
+                                the restrictions of exile.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Family Life</span>
+                            <h3>Accommodation for Relatives</h3>
+                            <p>
+                                Rizal arranged space on his property for female
+                                members of his family who were permitted to visit
+                                him. Captain Carnicero also wrote to the
+                                governor-general requesting permission for Rizal's
+                                mother and sisters to join him.
+                            </p>
+                            <p>
+                                These arrangements helped Rizal maintain family
+                                connections while living far from Manila.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section learning-section" id="josephine">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">Personal Life</span>
+                    <h2>Rizal and Josephine Bracken</h2>
+                    <p>
+                        Alongside his work in the community, Rizal experienced
+                        an important personal relationship during his exile.
+                    </p>
+                </div>
+
+                <div class="learning-grid">
+                    <article class="learning-card">
+                        <span class="learning-number">01</span>
+                        <h3>Their First Meeting</h3>
+                        <p>
+                            Josephine Bracken, an eighteen-year-old Irish woman,
+                            came to Dapitan with her companion seeking medical
+                            assistance for her adoptive father, George Taufer.
+                            During the visit, she met Rizal, and they developed
+                            a close relationship.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">02</span>
+                        <h3>Life Together in Dapitan</h3>
+                        <p>
+                            Josephine remained with Rizal for a period during
+                            his exile. Their relationship became an important
+                            part of his personal life while he continued teaching,
+                            practicing medicine, and serving the community.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">03</span>
+                        <h3>Obstacles to Marriage</h3>
+                        <p>
+                            Rizal and Josephine sought to marry through Catholic
+                            rites. Fr. Antonio Obach required Rizal to make a
+                            religious retraction before agreeing to the marriage
+                            under church procedures. Their relationship also
+                            faced social difficulties and the suspicions of some
+                            relatives and acquaintances.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section timeline-section" id="katipunan">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">1895–1896</span>
+                    <h2>The Katipunan and the Revolution</h2>
+                    <p>
+                        Rizal's exile brought him into contact with the
+                        revolutionary movement, even though he questioned
+                        whether an armed uprising was adequately prepared.
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">A Suspicious Visitor</span>
+                            <h3>Pablo Mercado</h3>
+                            <p>
+                                A man using the name Pablo Mercado visited Rizal
+                                and claimed to be a relative. Historical accounts
+                                describe the visitor as a suspected spy who
+                                approached Rizal under a false identity.
+                            </p>
+                            <p>
+                                The episode reflects the surveillance and mistrust
+                                surrounding Rizal during his exile. Details about
+                                the visitor's identity vary across accounts and
+                                should be considered in their historical context.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">June 1896</span>
+                            <h3>Pío Valenzuela's Visit</h3>
+                            <p>
+                                Pío Valenzuela, an emissary of Andrés Bonifacio
+                                and the Katipunan, visited Rizal in Dapitan to
+                                seek his advice about the proposed revolution.
+                                They discussed the possibility of helping Rizal
+                                escape from exile.
+                            </p>
+                            <p>
+                                Rizal opposed an immediate armed uprising because
+                                he believed the revolutionaries needed sufficient
+                                weapons, resources, and preparation. He was
+                                concerned that an unprepared revolt would bring
+                                suffering without achieving its goals.
+                            </p>
+                            <div class="history-note">
+                                Rizal's opposition to an immediate uprising
+                                reflected his assessment of the movement's
+                                preparedness. It did not mean that he approved
+                                of colonial oppression.
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">July 1, 1896</span>
+                            <h3>Permission to Serve in Cuba</h3>
+                            <p>
+                                Rizal offered to serve as a military doctor in
+                                Cuba, where a revolution and a yellow fever
+                                epidemic had created a need for medical personnel.
+                                Governor-General Ramón Blanco approved his request
+                                on July 1, 1896.
+                            </p>
+                            <p>
+                                Rizal subsequently departed Dapitan aboard the
+                                steamer <em>España</em> on July 31, 1896. His
+                                departure marked the end of approximately four
+                                years of exile. Residents of Dapitan reportedly
+                                expressed sadness as he left the community he had
+                                served.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section learning-section" id="departure">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">August–September 1896</span>
+                    <h2>Leaving Dapitan</h2>
+                    <p>
+                        Rizal's departure coincided with the outbreak of the
+                        Philippine Revolution, changing the circumstances of
+                        his journey to Spain.
+                    </p>
+                </div>
+
+                <div class="learning-grid">
+                    <article class="learning-card">
+                        <span class="learning-number">01</span>
+                        <h3>Arrival in Manila Bay</h3>
+                        <p>
+                            Rizal arrived in Manila Bay on August 6, 1896.
+                            The <em>Isla de Luzón</em>, which he expected to
+                            board for onward travel, had already departed.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">02</span>
+                        <h3>Aboard the Castilla</h3>
+                        <p>
+                            Rizal was transferred to the Spanish cruiser
+                            <em>Castilla</em>, where he remained until
+                            September 2, 1896. Meanwhile, the colonial
+                            government was responding to the growing
+                            revolutionary movement.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">03</span>
+                        <h3>Discovery of the Katipunan</h3>
+                        <p>
+                            In August 1896, information about the Katipunan
+                            reached Spanish authorities after Teodoro Patiño
+                            disclosed details of the organization to
+                            Fr. Mariano Gil. Arrests and government action
+                            followed.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">04</span>
+                        <h3>The Cry of Pugad Lawin</h3>
+                        <p>
+                            On August 26, 1896, Bonifacio and the Katipunan
+                            initiated the uprising associated with the Cry
+                            of Pugad Lawin, a major turning point in the
+                            Philippine Revolution.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">05</span>
+                        <h3>State of War</h3>
+                        <p>
+                            Governor-General Blanco declared a state of war
+                            in eight provinces: Manila, Bulacan, Cavite,
+                            Batangas, Laguna, Pampanga, Nueva Ecija, and
+                            Tarlac. The conflict intensified as Rizal awaited
+                            onward passage.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">06</span>
+                        <h3>Transfer to the Isla de Panay</h3>
+                        <p>
+                            On September 2, 1896, Rizal was transferred from
+                            the <em>Castilla</em> to the steamer
+                            <em>Isla de Panay</em>, which was bound for
+                            Barcelona, Spain. His political difficulties,
+                            however, were far from over.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section timeline-section" id="timeline">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">Historical Overview</span>
+                    <h2>Timeline of Rizal's Exile</h2>
+                    <p>
+                        Review the major events that defined Rizal's years
+                        in Dapitan and his departure in 1896.
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">June 26, 1892</span>
+                            <h3>Rizal Returns to Manila</h3>
+                            <p>
+                                Rizal arrives from Hong Kong with his sister Lucia
+                                and meets Governor-General Despujol.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">July 3, 1892</span>
+                            <h3>La Liga Filipina Is Founded</h3>
+                            <p>
+                                Rizal establishes a civic organization promoting
+                                unity, mutual assistance, education, and peaceful reform.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">July 6–7, 1892</span>
+                            <h3>Arrest and Exile Order</h3>
+                            <p>
+                                Spanish authorities arrest Rizal and issue an
+                                administrative order sending him to Dapitan.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">July 17, 1892</span>
+                            <h3>Arrival in Dapitan</h3>
+                            <p>
+                                Rizal begins his exile under the supervision of
+                                Captain Ricardo Carnicero.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">August 26, 1892</span>
+                            <h3>Birthday Tribute to Carnicero</h3>
+                            <p>
+                                Rizal composes a poem for Carnicero's birthday
+                                and makes a bust in his honor.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">May 4, 1893</span>
+                            <h3>Captain Juan Sitges Takes Over</h3>
+                            <p>
+                                Sitges replaces Carnicero, and Rizal's living
+                                arrangements change.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">1893–1895</span>
+                            <h3>Education and Community Service</h3>
+                            <p>
+                                Rizal teaches students, treats patients, studies
+                                nature, and works on community improvements in Dapitan.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">June 1896</span>
+                            <h3>Pío Valenzuela Visits Rizal</h3>
+                            <p>
+                                Valenzuela consults Rizal about the proposed
+                                revolution and the possibility of helping him escape.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">July 1 and 31, 1896</span>
+                            <h3>Approval and Departure</h3>
+                            <p>
+                                Blanco approves Rizal's request to serve in Cuba
+                                on July 1. Rizal leaves Dapitan aboard the
+                                <em>España</em> on July 31.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <div class="timeline-card">
+                            <span class="timeline-year">August–September 1896</span>
+                            <h3>Manila Bay and Spain-Bound Passage</h3>
+                            <p>
+                                Rizal stays aboard the <em>Castilla</em> before
+                                transferring to the <em>Isla de Panay</em> for
+                                the journey to Barcelona.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section learning-section" id="significance">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">Historical Significance</span>
+                    <h2>The Legacy of Rizal's Exile</h2>
+                    <p>
+                        The Dapitan years demonstrate how Rizal continued to
+                        contribute to his country despite restrictions on his freedom.
+                    </p>
+                </div>
+
+                <div class="learning-grid">
+                    <article class="learning-card">
+                        <span class="learning-number">01</span>
+                        <h3>Education as Service</h3>
+                        <p>
+                            By teaching boys without charging tuition, Rizal
+                            showed his belief that knowledge should help develop
+                            capable, responsible individuals.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">02</span>
+                        <h3>Practical Compassion</h3>
+                        <p>
+                            His medical practice allowed him to serve people
+                            directly, demonstrating that professional knowledge
+                            could be used for the welfare of the community.
+                        </p>
+                    </article>
+
+                    <article class="learning-card">
+                        <span class="learning-number">03</span>
+                        <h3>Limits of Colonial Rule</h3>
+                        <p>
+                            His arrest without a judicial trial and his forced
+                            removal from Manila revealed how the colonial
+                            administration restricted political dissent.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="intro-highlight">
+                    Rizal's years in Dapitan were not simply a period of isolation.
+                    They became a testament to his continued commitment to
+                    education, scientific inquiry, community improvement, and
+                    the dignity of the Filipino people.
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section references-section" id="references">
+            <div class="section-container">
+                <div class="section-heading">
+                    <span class="section-label">Further Reading</span>
+                    <h2>References and Historical Resources</h2>
+                    <p>
+                        Explore these resources for additional information about
+                        Rizal's exile, arrest, and final journey.
+                    </p>
+                </div>
+
+                <div class="references-list">
+                    <a class="reference-card" href="https://www.joserizal.com/life/why-rizal-was-exiled-to-dapitan/"
+                        target="_blank" rel="noopener noreferrer">
+                        <span class="reference-type">Historical Article</span>
+                        <h3>Why Rizal Was Exiled to Dapitan</h3>
+                        <p>
+                            A discussion of the circumstances and reasons
+                            associated with Rizal's exile.
+                        </p>
+                        <span class="reference-url">Read the article ↗</span>
+                    </a>
+
+                    <a class="reference-card"
+                        href="https://www.slideshare.net/slideshow/jose-rizals-exile-trial-and-execution/266618869"
+                        target="_blank" rel="noopener noreferrer">
+                        <span class="reference-type">Educational Presentation</span>
+                        <h3>José Rizal's Exile, Trial and Execution</h3>
+                        <p>
+                            A presentation covering Rizal's exile and the
+                            historical events connected with his final years.
+                        </p>
+                        <span class="reference-url">View the presentation ↗</span>
+                    </a>
+
+                    <a class="reference-card" href="https://philhistoricsites.nhcp.gov.ph/" target="_blank"
+                        rel="noopener noreferrer">
+                        <span class="reference-type">Historical Resource</span>
+                        <h3>National Historical Commission of the Philippines</h3>
+                        <p>
+                            Historical markers and resources about important
+                            people, places, and events in Philippine history.
+                        </p>
+                        <span class="reference-url">Visit the NHCP website ↗</span>
+                    </a>
+
+                    <a class="reference-card" href="https://www.britannica.com/biography/Jose-Rizal" target="_blank"
+                        rel="noopener noreferrer">
+                        <span class="reference-type">Biography</span>
+                        <h3>Encyclopaedia Britannica — José Rizal</h3>
+                        <p>
+                            A biographical overview of Rizal's life, writings,
+                            reformist activities, and historical significance.
+                        </p>
+                        <span class="reference-url">Read the biography ↗</span>
+                    </a>
+                </div>
+
+                <div class="history-note">
+                    <strong>Historical note:</strong> This page distinguishes
+                    accusations made by Spanish colonial authorities from
+                    established historical events. Dates and details may vary
+                    between historical accounts, particularly concerning the
+                    interpretation of Rizal's political activities and the
+                    circumstances of his exile.
+                </div>
+            </div>
+        </section>
+
+        <section class="page-navigation">
+            <div class="page-navigation-inner">
+                <a class="page-nav-link" href="works.html">
+                    ← Works of Rizal
+                </a>
+                <a class="page-nav-link" href="death.html">
+                    Death &amp; Final Journey →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../../js/injector/injectHeader.js"></script>
+    <script src="../../js/injector/injectFooter.js"></script>
+</body>
+
+</html>

@@ -512,21 +512,8 @@
         <div class="lightbox-counter" id="lightbox-counter"></div>
     </div>
 
+
     <script>
-        const galleryImages = [
-            "../../images/rizal.png",
-            "../../images/rizal-background.png",
-
-            // Add the rest of your image paths below.
-            // Include images from any subfolder inside images/.
-            // Example: "../../images/childhood/rizal-childhood.jpg",
-            // Example: "../../images/education/ateneo.jpg",
-            // Example: "../../images/travels/rizal-europe.jpg",
-            // Example: "../../images/works/noli-me-tangere.jpg",
-            // Example: "../../images/exile/rizal-dapitan.jpg",
-            // Example: "../../images/death/rizal-final-journey.png"
-        ];
-
         const galleryGrid = document.getElementById("gallery-grid");
         const galleryCount = document.getElementById("gallery-count");
         const emptyGallery = document.getElementById("empty-gallery");
@@ -539,39 +526,122 @@
         const previousButton = document.getElementById("lightbox-prev");
         const nextButton = document.getElementById("lightbox-next");
 
+        let galleryImages = [];
         let validImages = [];
         let currentIndex = 0;
         let previousFocus = null;
+
+        const imageExtensions = [
+            ".png", ".jpg", ".jpeg", ".webp",
+            ".gif", ".bmp", ".avif", ".svg"
+        ];
+
+        async function scanImageFolder(folderHandle, path = "") {
+            const images = [];
+
+            for await (const [name, handle] of folderHandle.entries()) {
+                if (handle.kind === "directory") {
+                    const nestedImages = await scanImageFolder(
+                        handle,
+                        path + name + "/"
+                    );
+
+                    images.push(...nestedImages);
+                } else if (
+                    handle.kind === "file" &&
+                    imageExtensions.some(extension =>
+                        name.toLowerCase().endsWith(extension)
+                    )
+                ) {
+                    const file = await handle.getFile();
+                    const url = URL.createObjectURL(file);
+
+                    images.push({
+                        src: url,
+                        name: name,
+                        path: path + name
+                    });
+                }
+            }
+
+            return images;
+        }
+
+        async function selectImageFolder() {
+            if (!("showDirectoryPicker" in window)) {
+                galleryCount.textContent =
+                    "Your browser does not support folder selection. " +
+                    "Use a Chromium-based browser or a static image manifest.";
+
+                emptyGallery.textContent =
+                    "Unable to scan the images folder automatically.";
+                emptyGallery.classList.add("visible");
+                return;
+            }
+
+            try {
+                galleryCount.textContent = "Select your images folder...";
+
+                const folderHandle = await window.showDirectoryPicker({
+                    mode: "read"
+                });
+
+                galleryGrid.replaceChildren();
+                galleryImages = [];
+                validImages = [];
+
+                galleryImages = await scanImageFolder(folderHandle);
+
+                galleryImages.sort((a, b) =>
+                    a.path.localeCompare(b.path, undefined, {
+                        numeric: true,
+                        sensitivity: "base"
+                    })
+                );
+
+                createGallery();
+
+            } catch (error) {
+                if (error.name === "AbortError") {
+                    galleryCount.textContent =
+                        "Folder selection cancelled.";
+                    return;
+                }
+
+                console.error("Unable to scan images:", error);
+
+                galleryCount.textContent =
+                    "Unable to read the selected folder.";
+            }
+        }
 
         function createGallery() {
             galleryGrid.replaceChildren();
             validImages = [];
 
-            galleryImages.forEach((src) => {
+            galleryImages.forEach((item) => {
                 const button = document.createElement("button");
                 button.type = "button";
                 button.className = "gallery-item";
                 button.setAttribute("aria-label", "View image");
 
                 const image = document.createElement("img");
-                image.src = src;
+                image.src = item.src;
                 image.alt = "";
                 image.loading = "lazy";
                 image.decoding = "async";
 
-                image.addEventListener("load", () => {
-                    button.classList.remove("image-missing");
-                });
-
+                image.addEventListener("load", updateGallery);
                 image.addEventListener("error", () => {
                     button.classList.add("image-missing");
+                    updateGallery();
                 });
 
                 button.appendChild(image);
 
                 button.addEventListener("click", () => {
                     const index = validImages.findIndex(
-                        (item) => item.src === src
+                        entry => entry.src === item.src
                     );
 
                     if (index !== -1) {
@@ -580,39 +650,39 @@
                 });
 
                 galleryGrid.appendChild(button);
-                validImages.push({ src, button, image });
+                validImages.push({
+                    src: item.src,
+                    button,
+                    image,
+                    path: item.path
+                });
             });
 
             updateGallery();
         }
 
-        function updateGallery() {
-            const availableImages = validImages.filter(
-                (item) => item.image.complete &&
-                    item.image.naturalWidth > 0
-            );
-
-            galleryCount.textContent =
-                availableImages.length + " image" +
-                (availableImages.length === 1 ? "" : "s");
-
-            emptyGallery.classList.toggle(
-                "visible",
-                availableImages.length === 0 &&
-                validImages.every((item) => item.image.complete)
+        function getAvailableImages() {
+            return validImages.filter(
+                item => item.image.naturalWidth > 0
             );
         }
 
-        function getAvailableImages() {
-            return validImages.filter(
-                (item) => item.image.naturalWidth > 0
+        function updateGallery() {
+            const availableImages = getAvailableImages();
+
+            galleryCount.textContent =
+                availableImages.length + " image" +
+                (availableImages.length === 1 ? "" : "s") +
+                " loaded";
+
+            emptyGallery.classList.toggle(
+                "visible",
+                galleryImages.length === 0
             );
         }
 
         function openLightbox(index) {
-            const availableImages = getAvailableImages();
-
-            if (!availableImages.length) return;
+            if (!getAvailableImages().length) return;
 
             previousFocus = document.activeElement;
             currentIndex = index;
@@ -634,16 +704,15 @@
 
             if (!availableImages.length) return;
 
-            currentIndex = (
-                (currentIndex % availableImages.length) +
-                availableImages.length
-            ) % availableImages.length;
+            currentIndex =
+                ((currentIndex % availableImages.length) +
+                    availableImages.length) %
+                availableImages.length;
 
             const selected = availableImages[currentIndex];
 
             lightboxImage.src = selected.src;
-            lightboxImage.alt = "Gallery image " +
-                (currentIndex + 1);
+            lightboxImage.alt = selected.path;
 
             lightboxCounter.textContent =
                 (currentIndex + 1) + " / " + availableImages.length;
@@ -658,7 +727,6 @@
         function closeLightbox() {
             lightbox.classList.remove("open");
             document.body.classList.remove("lightbox-open");
-
             lightbox.style.display = "none";
             lightboxImage.src = "";
 
@@ -681,13 +749,13 @@
         previousButton.addEventListener("click", showPrevious);
         nextButton.addEventListener("click", showNext);
 
-        lightbox.addEventListener("click", (event) => {
+        lightbox.addEventListener("click", event => {
             if (event.target === lightbox) {
                 closeLightbox();
             }
         });
 
-        document.addEventListener("keydown", (event) => {
+        document.addEventListener("keydown", event => {
             if (!lightbox.classList.contains("open")) return;
 
             if (event.key === "Escape") {
@@ -701,9 +769,7 @@
                     closeButton,
                     previousButton,
                     nextButton
-                ].filter((button) =>
-                    button.style.display !== "none"
-                );
+                ].filter(button => button.style.display !== "none");
 
                 const first = focusable[0];
                 const last = focusable[focusable.length - 1];
@@ -722,8 +788,9 @@
 
         galleryGrid.addEventListener("click", updateGallery);
 
-        createGallery();
+        selectImageFolder();
     </script>
+
 
     <script src="../../js/injector/injectHeader.js"></script>
     <script src="../../js/injector/injectFooter.js"></script>

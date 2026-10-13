@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hero &amp; Actions — José Rizal: Life &amp; Works</title>
+
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 400px;
+            padding: 145px 30px 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            background:
+                linear-gradient(rgba(39, 27, 22, 0.78), rgba(39, 27, 22, 0.88)),
+                var(--primary-color) url("../../images/rizal-background.png") center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(200, 157, 124, 0.18), transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .hero-label,
+        .section-label {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0 0 24px;
+            color: var(--light-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(34px, 5.5vw, 66px);
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            max-width: 740px;
+            margin: 0 auto;
+            color: #e8dcd4;
+            font-size: 17px;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            margin: 30px auto 0;
+            background: var(--accent-color);
+        }
+
+        .page-section {
+            padding: 75px 30px 90px;
+            background: var(--secondary-color);
+        }
+
+        .section-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            max-width: 780px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: normal;
+            line-height: 1.3;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted-color);
+            font-size: 15px;
+        }
+
+        .content-section {
+            position: relative;
+            margin-bottom: 28px;
+            padding: 35px 38px;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-color);
+            background: var(--light-color);
+            box-shadow: 0 5px 20px rgba(33, 26, 22, 0.04);
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-section h3 {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: normal;
+            line-height: 1.4;
+        }
+
+        .content-section p {
+            margin: 0 0 18px;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-section strong {
+            color: var(--primary-color);
+        }
+
+        .content-section a,
+        .references a {
+            color: var(--primary-color);
+            text-decoration-color: var(--accent-color);
+            text-underline-offset: 4px;
+            overflow-wrap: anywhere;
+        }
+
+        .content-section a:hover,
+        .references a:hover {
+            color: var(--muted-color);
+        }
+
+        .references {
+            margin-top: 55px;
+            padding: 35px;
+            border-top: 2px solid var(--accent-color);
+            background: var(--light-color);
+        }
+
+        .references h3 {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 26px;
+            font-weight: normal;
+        }
+
+        .references p {
+            margin: 0 0 18px;
+            color: var(--muted-color);
+            font-size: 14px;
+        }
+
+        .references ul {
+            margin: 0;
+            padding-left: 22px;
+        }
+
+        .references li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .page-navigation {
+            padding: 40px 30px;
+            background: var(--light-color);
+        }
+
+        .page-navigation-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .page-nav-link {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .page-nav-link:hover {
+            color: var(--light-color);
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 750px) {
+            .page-section {
+                padding: 60px 22px 70px;
+            }
+
+            .content-section {
+                padding: 28px 25px;
+            }
+
+            .references {
+                padding: 28px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 350px;
+                padding: 120px 22px 65px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .page-section {
+                padding: 50px 15px 60px;
+            }
+
+            .section-heading {
+                margin-bottom: 32px;
+            }
+
+            .content-section {
+                padding: 24px 19px;
+            }
+
+            .content-section p {
+                font-size: 14px;
+            }
+
+            .references {
+                padding: 25px 19px;
+            }
+
+            .page-navigation {
+                padding: 30px 20px;
+            }
+
+            .page-navigation-inner {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .page-nav-link {
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-label">The Life &amp; Works of José Rizal</span>
+
+                <h1>Experiences, Ideas, Choices &amp; Actions</h1>
+
+                <p>
+                    Discover how José Rizal's personal experiences, education,
+                    beliefs, and decisions shaped his dedication to justice,
+                    reform, and the future of the Philippines.
+                </p>
+
+                <div class="hero-divider"></div>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <span class="section-label">Understanding the National Hero</span>
+                    <h2>The Making of a Filipino Patriot</h2>
+                    <p>
+                        Rizal's life demonstrates how personal experiences,
+                        intellectual development, principled decisions, and
+                        meaningful actions can contribute to social change.
+                    </p>
+                </div>
+
+                <article class="content-section">
+                    <span class="section-label">01 — Experiences</span>
+                    <h3>Experiences That Shaped His Beliefs</h3>
+
+                    <p>
+                        José Rizal's childhood and education played an important
+                        role in shaping his understanding of society and colonial
+                        injustice. Born in Calamba, Laguna, on June 19, 1861,
+                        he grew up in a family that valued education, discipline,
+                        literature, and learning. His mother, <strong>Teodora Alonso</strong>,
+                        served as his first teacher and introduced him to reading
+                        and literature at an early age.
+                    </p>
+
+                    <p>
+                        One of the most significant experiences of his childhood
+                        was his mother's imprisonment in 1871. Teodora was accused
+                        of participating in an alleged attempt to poison her
+                        brother's wife. She was arrested, forced to travel from
+                        Calamba to the provincial jail in Santa Cruz, Laguna,
+                        and detained for approximately two years, with some
+                        accounts reporting two and a half years, before her
+                        eventual acquittal. This ordeal exposed Rizal to the
+                        consequences of an unfair colonial justice system and
+                        likely contributed to his growing awareness of abuses
+                        of authority.
+                    </p>
+
+                    <p>
+                        Rizal continued his studies in Manila, attending the
+                        Ateneo Municipal de Manila and the University of Santo
+                        Tomas. In 1882, he traveled to Spain to pursue further
+                        studies. His time in Europe, including his stays in
+                        Spain, France, and Germany, exposed him to new
+                        intellectual traditions, scientific developments, and
+                        discussions about liberty, equality, citizenship, and
+                        government. These experiences broadened his perspective
+                        and helped him examine the conditions of Filipinos
+                        under Spanish colonial rule.
+                    </p>
+
+                    <p>
+                        Through education, travel, and observation, Rizal
+                        developed a deeper understanding of the social and
+                        political challenges facing his country. His experiences
+                        encouraged him to use his knowledge and talents to
+                        advocate for a more just and enlightened society.
+                    </p>
+                </article>
+
+                <article class="content-section">
+                    <span class="section-label">02 — Ideas</span>
+                    <h3>Ideas About Education, Equality, and Reform</h3>
+
+                    <p>
+                        Rizal believed that <strong>education was essential to
+                            the improvement of individuals and society</strong>.
+                        He wanted Filipinos to have opportunities to acquire
+                        knowledge, develop critical thinking, understand their
+                        rights, and participate meaningfully in their country's
+                        future. He demonstrated this belief during his exile
+                        in Dapitan, where he established a school and taught
+                        young students.
+                    </p>
+
+                    <p>
+                        He also challenged the discrimination and prejudices
+                        directed at Filipinos during Spanish colonial rule.
+                        Through his essays and novels, Rizal questioned the
+                        abuses of certain colonial officials and religious
+                        authorities, the unequal treatment of Filipinos, and
+                        the obstacles that prevented people from receiving
+                        justice.
+                    </p>
+
+                    <p>
+                        Rizal supported peaceful reforms, greater representation,
+                        and equal treatment under the law. As a member of the
+                        Propaganda Movement, he helped bring attention to
+                        Philippine conditions and advocated reforms through
+                        writing, public discussion, and intellectual exchange.
+                        He believed that people could work toward social
+                        progress by becoming informed, questioning injustice,
+                        and cooperating for the common good.
+                    </p>
+
+                    <p>
+                        His ideas were expressed in essays such as
+                        <strong>The Indolence of the Filipino</strong> and
+                        <strong>The Philippines a Century Hence</strong>.
+                        Rather than accepting negative stereotypes about
+                        Filipinos, he examined the historical and social
+                        circumstances that contributed to the country's
+                        difficulties and considered the possible consequences
+                        of continued colonial oppression.
+                    </p>
+                </article>
+
+                <article class="content-section">
+                    <span class="section-label">03 — Choices</span>
+                    <h3>Decisions Guided by His Principles</h3>
+
+                    <p>
+                        Rizal's decisions reflected his commitment to peaceful
+                        reform, civic cooperation, and national improvement.
+                        On July 3, 1892, he founded <strong>La Liga Filipina</strong>,
+                        an organization intended to unite Filipinos and promote
+                        mutual assistance, economic development, education,
+                        and peaceful social reform. Its founding demonstrated
+                        his belief that organized cooperation could help
+                        address the problems facing Philippine society.
+                    </p>
+
+                    <p>
+                        Only days after the organization was established,
+                        Rizal was arrested and subsequently exiled to Dapitan.
+                        Despite his separation from Manila's political and
+                        intellectual circles, he continued serving others
+                        through medical practice, teaching, scientific
+                        interests, and community projects. His years in
+                        exile demonstrated that his commitment to the
+                        improvement of society extended beyond political
+                        writing.
+                    </p>
+
+                    <p>
+                        Rizal did not join the armed revolution that began
+                        in 1896. He disagreed with the uprising's timing and
+                        approach, believing that the country needed further
+                        preparation and that education and peaceful reform
+                        were essential to lasting progress. However, his
+                        position should not be reduced to a simple rejection
+                        of Philippine independence: his writings increasingly
+                        questioned colonial rule and explored the country's
+                        political future.
+                    </p>
+
+                    <p>
+                        His choices reveal a person who sought to act according
+                        to his convictions, even when those convictions brought
+                        him into conflict with colonial authorities and
+                        revolutionary contemporaries. They also demonstrate
+                        the complexity of his political beliefs during a
+                        period of profound change.
+                    </p>
+                </article>
+
+                <article class="content-section">
+                    <span class="section-label">04 — Actions</span>
+                    <h3>Turning Ideas Into Meaningful Action</h3>
+
+                    <p>
+                        Rizal transformed his observations and beliefs into
+                        action primarily through literature, journalism,
+                        education, and public service. His novel
+                        <strong><em>Noli Me Tangere</em> (1887)</strong>
+                        exposed abuses, social inequality, and the suffering
+                        experienced by Filipinos under colonial rule.
+                        Its sequel, <strong><em>El Filibusterismo</em> (1891)</strong>,
+                        presented a darker examination of injustice,
+                        oppression, and the consequences of a society
+                        resistant to meaningful reform.
+                    </p>
+
+                    <p>
+                        Rizal also contributed essays to
+                        <strong><em>La Solidaridad</em></strong>, a newspaper
+                        associated with the Propaganda Movement. In
+                        <em>The Indolence of the Filipino</em>, he challenged
+                        the claim that Filipinos were inherently lazy by
+                        examining the historical and economic conditions
+                        that discouraged productivity. In
+                        <em>The Philippines a Century Hence</em>, he considered
+                        the country's political future and warned about
+                        the consequences of continued injustice and the
+                        refusal to introduce reforms.
+                    </p>
+
+                    <p>
+                        During his exile in Dapitan from 1892 to 1896,
+                        Rizal continued to put his beliefs into practice.
+                        He treated patients, taught students, conducted
+                        scientific investigations, and participated in
+                        projects that benefited the local community.
+                        These activities reflected his conviction that
+                        knowledge should serve practical purposes and
+                        improve people's lives.
+                    </p>
+
+                    <p>
+                        Rizal was arrested, tried by a Spanish military
+                        court, and executed on <strong>December 30, 1896</strong>,
+                        at Bagumbayan in Manila. His execution made him
+                        an enduring symbol of courage, sacrifice, and
+                        the struggle for justice. His final poem,
+                        <strong><em>Mi Último Adiós</em> (My Last Farewell)</strong>,
+                        expressed his profound attachment to his homeland
+                        and became one of the most significant works
+                        associated with his legacy.
+                    </p>
+
+                    <p>
+                        Through his writings, educational efforts, and
+                        service to others, Rizal demonstrated how ideas
+                        could be transformed into actions that influenced
+                        public consciousness and helped shape the
+                        development of Filipino nationalism.
+                    </p>
+                </article>
+
+                <section class="references" id="references">
+                    <h3>References and Further Reading</h3>
+
+                    <p>
+                        The following sources provide additional information
+                        about Rizal's biography, education, political ideas,
+                        reform movement, and historical legacy.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <a href="https://www.joserizal.com/life/rizal-biography/" target="_blank"
+                                rel="noopener noreferrer">
+                                José Rizal — Biography, Life, Works, Exile, and Death
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.britannica.com/topic/Propaganda-Movement" target="_blank"
+                                rel="noopener noreferrer">
+                                Encyclopaedia Britannica — Propaganda Movement
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.msc.edu.ph/centennial/rizal.html" target="_blank"
+                                rel="noopener noreferrer">
+                                Philippine History — José Rizal
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://intramuros.gov.ph/mnr/" target="_blank" rel="noopener noreferrer">
+                                Intramuros Administration — Museo ni Rizal
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.joserizal.com/history/propaganda-movement/" target="_blank"
+                                rel="noopener noreferrer">
+                                The Propaganda Movement — Aims, Leaders, and La Solidaridad
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.joserizal.com/life/rizal-timeline/" target="_blank"
+                                rel="noopener noreferrer">
+                                José Rizal — Timeline of His Life
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+
+            </div>
+        </section>
+
+        <section class="page-navigation">
+            <div class="page-navigation-inner">
+                <a class="page-nav-link" href="travels.html">
+                    ← Rizal's Travels
+                </a>
+
+                <a class="page-nav-link" href="about.html">
+                    About This Project →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../../js/injector/injectHeader.js"></script>
+    <script src="../../js/injector/injectFooter.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>References — José Rizal: Life &amp; Works</title>
+
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            padding: 70px 24px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(20, 15, 12, 0.68),
+                    rgba(20, 15, 12, 0.78)),
+                url("../../images/rizal-background.png") center 35% / cover no-repeat;
+            color: #F2E9E4;
+        }
+
+        .hero-label {
+            margin: 0 0 12px;
+            color: #D8B99C;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(36px, 6vw, 66px);
+            font-weight: normal;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 20px auto 0;
+            font-size: clamp(14px, 2vw, 17px);
+            line-height: 1.9;
+            color: #E8DCD2;
+        }
+
+        .hero-divider {
+            width: 70px;
+            height: 2px;
+            margin-top: 26px;
+            background: #D8B99C;
+        }
+
+        .references-intro {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 55px 24px 25px;
+            text-align: center;
+        }
+
+        .section-label {
+            margin: 0 0 10px;
+            color: var(--secondary-color);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .references-intro h2 {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: normal;
+        }
+
+        .references-intro p {
+            max-width: 780px;
+            margin: 0 auto;
+            color: var(--muted-color);
+            font-size: 15px;
+        }
+
+        .reference-index {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 1100px;
+            margin: 25px auto 0;
+        }
+
+        .reference-index a {
+            display: inline-block;
+            padding: 9px 14px;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .reference-index a:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .references-container {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+            padding: 25px 24px 75px;
+        }
+
+        .reference-section {
+            margin-bottom: 50px;
+            scroll-margin-top: 35px;
+        }
+
+        .reference-section-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 22px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .reference-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--accent-color);
+            color: var(--primary-color);
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .reference-section-header h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: clamp(21px, 3vw, 28px);
+            font-weight: normal;
+        }
+
+        .reference-section-header p {
+            margin: 3px 0 0;
+            color: var(--muted-color);
+            font-size: 13px;
+        }
+
+        .reference-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .reference-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 22px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.35);
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .reference-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 22px rgba(40, 25, 15, 0.06);
+        }
+
+        .reference-type {
+            display: inline-block;
+            align-self: flex-start;
+            margin-bottom: 10px;
+            padding: 4px 8px;
+            background: rgba(200, 157, 124, 0.15);
+            color: var(--secondary-color);
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .reference-card h3 {
+            margin: 0 0 9px;
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 1.45;
+        }
+
+        .reference-card p {
+            margin: 0 0 15px;
+            color: var(--muted-color);
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .reference-card a {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-top: auto;
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .reference-card a:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .reference-card a span {
+            flex-shrink: 0;
+        }
+
+        .reference-note {
+            margin-top: 45px;
+            padding: 24px;
+            border-left: 3px solid var(--accent-color);
+            background: rgba(200, 157, 124, 0.10);
+        }
+
+        .reference-note h3 {
+            margin: 0 0 8px;
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .reference-note p {
+            margin: 0;
+            color: var(--muted-color);
+            font-size: 13px;
+        }
+
+        .back-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 13px 24px;
+            border: 1px solid var(--accent-color);
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            background: var(--accent-color);
+            color: var(--light-color);
+        }
+
+        @media (max-width: 700px) {
+            .reference-list {
+                grid-template-columns: 1fr;
+            }
+
+            .references-container {
+                padding-right: 18px;
+                padding-left: 18px;
+            }
+
+            .references-intro {
+                padding-right: 18px;
+                padding-left: 18px;
+            }
+
+            .reference-index {
+                gap: 8px;
+            }
+
+            .reference-index a {
+                padding: 8px 10px;
+                font-size: 10px;
+            }
+
+            .reference-section-header {
+                gap: 12px;
+            }
+
+            .reference-number {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero">
+            <p class="hero-label">José Rizal: Life &amp; Works</p>
+            <h1>References</h1>
+            <p>
+                A collection of sources consulted and discussed throughout this
+                website's exploration of the life, education, travels, literary
+                works, exile, and final journey of Dr. José Rizal.
+            </p>
+            <div class="hero-divider"></div>
+        </section>
+
+        <section class="references-intro">
+            <p class="section-label">Research and Documentation</p>
+            <h2>Sources Behind the Story</h2>
+            <p>
+                The following collection brings together the reference websites
+                and materials that appeared in our previous work on this project.
+                It includes historical institutions, educational resources,
+                digital libraries, biographical websites, and materials related
+                to Rizal's final journey. Select a source to open the original
+                website or document.
+            </p>
+
+            <nav class="reference-index" aria-label="Reference categories">
+                <a href="#biography">Biography</a>
+                <a href="#education">Education</a>
+                <a href="#travels">Travels</a>
+                <a href="#works">Literary Works</a>
+                <a href="#exile">Exile</a>
+                <a href="#death">Death</a>
+                <a href="#institutions">Institutions</a>
+                <a href="#digital-libraries">Digital Libraries</a>
+            </nav>
+        </section>
+
+        <div class="references-container">
+
+            <section class="reference-section" id="biography">
+                <div class="reference-section-header">
+                    <div class="reference-number">01</div>
+                    <div>
+                        <h2>Biography and Historical Background</h2>
+                        <p>Rizal's life, historical context, and the Philippine reform movement.</p>
+                    </div>
+                </div>
+
+                <div class="reference-list">
+                    <article class="reference-card">
+                        <span class="reference-type">Biography</span>
+                        <h3>Encyclopaedia Britannica — José Rizal</h3>
+                        <p>
+                            A biographical overview of Rizal's life, education,
+                            writings, reformist ideas, and historical significance.
+                        </p>
+                        <a href="https://www.britannica.com/biography/Jose-Rizal" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open source
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">History</span>
+                        <h3>Encyclopaedia Britannica — Propaganda Movement</h3>
+                        <p>
+                            Background on the reform movement associated with
+                            Filipino intellectuals seeking political and social change.
+                        </p>
+                        <a href="https://www.britannica.com/topic/Propaganda-Movement" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open source
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Biography</span>
+                        <h3>José Rizal — Biography</h3>
+                        <p>
+                            A biographical resource previously referenced while
+                            preparing the website's life-history content.
+                        </p>
+                        <a href="https://www.joserizal.com/life/rizal-biography/" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open source
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Historical Record</span>
+                        <h3>National Historical Commission of the Philippines</h3>
+                        <p>
+                            The NHCP provides historical information, heritage
+                            resources, and documentation relating to Philippine history.
+                        </p>
+                        <a href="https://nhcp.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit NHCP
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Historical Registry</span>
+                        <h3>José Rizal (1861–1896) — Historical Site Registry</h3>
+                        <p>
+                            A historical registry entry associated with the life
+                            and legacy of José Rizal.
+                        </p>
+                        <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/jose-rizal-1861-1896-7/"
+                            target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open registry entry
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="reference-section" id="education">
+                <div class="reference-section-header">
+                    <div class="reference-number">02</div>
+                    <div>
+                        <h2>Education and Intellectual Development</h2>
+                        <p>Rizal's schooling, studies abroad, and intellectual background.</p>
+                    </div>
+                </div>
+
+                <div class="reference-list">
+                    <article class="reference-card">
+                        <span class="reference-type">Biography</span>
+                        <h3>Encyclopaedia Britannica — José Rizal</h3>
+                        <p>
+                            Biographical background relevant to Rizal's early
+                            education, university studies, and academic development.
+                        </p>
+                        <a href="https://www.britannica.com/biography/Jose-Rizal" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open source
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Government</span>
+                        <h3>Official Gazette of the Republic of the Philippines</h3>
+                        <p>
+                            An official government resource for Philippine history,
+                            historical documents, and national commemorations.
+                        </p>
+                        <a href="https://www.officialgazette.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit Official Gazette
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Education and Culture</span>
+                        <h3>UNESCO</h3>
+                        <p>
+                            An international organization with resources concerning
+                            education, culture, documentary heritage, and history.
+                        </p>
+                        <a href="https://www.unesco.org/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit UNESCO
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="reference-section" id="travels">
+                <div class="reference-section-header">
+                    <div class="reference-number">03</div>
+                    <div>
+                        <h2>Travels and Experiences Abroad</h2>
+                        <p>Rizal's journeys, studies, observations, and experiences outside the Philippines.</p>
+                    </div>
+                </div>
+
+                <div class="reference-list">
+                    <article class="reference-card">
+                        <span class="reference-type">Biography</span>
+                        <h3>José Rizal — Early Life</h3>
+                        <p>
+                            A biographical page previously included among the
+                            sources for Rizal's life and development.
+                        </p>
+                        <a href="https://www.joserizal.com/life/early-life/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open source
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Historical Organization</span>
+                        <h3>National Commission for Culture and the Arts</h3>
+                        <p>
+                            Philippine cultural and historical resources relevant
+                            to national heritage and the country's historical figures.
+                        </p>
+                        <a href="https://ncca.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit NCCA
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Museum and Heritage</span>
+                        <h3>British Museum</h3>
+                        <p>
+                            Museum collections and research resources that may
+                            provide broader historical and cultural context.
+                        </p>
+                        <a href="https://www.britishmuseum.org/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit British Museum
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Biography and Works</span>
+                        <h3>José Rizal — Main Website</h3>
+                        <p>
+                            A previously referenced website containing biographical
+                            and literary materials about Rizal.
+                        </p>
+                        <a href="https://www.joserizal.com/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit website
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="reference-section" id="works">
+                <div class="reference-section-header">
+                    <div class="reference-number">04</div>
+                    <div>
+                        <h2>Literary Works and Writings</h2>
+                        <p>Rizal's novels, essays, poetry, letters, and other written contributions.</p>
+                    </div>
+                </div>
+
+                <div class="reference-list">
+                    <article class="reference-card">
+                        <span class="reference-type">Literary Collection</span>
+                        <h3>José Rizal — Works</h3>
+                        <p>
+                            A collection previously used as a reference for
+                            Rizal's literary output and written contributions.
+                        </p>
+                        <a href="https://www.joserizal.com/works/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open works collection
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Complete Works</span>
+                        <h3>Rizal Complete Works</h3>
+                        <p>
+                            A previously referenced resource for exploring
+                            Rizal's writings and literary works.
+                        </p>
+                        <a href="https://www.joserizal.com/works/rizal-complete-works/" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open collection
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Digital Reading</span>
+                        <h3>José Rizal — Reading Resources</h3>
+                        <p>
+                            A reading page previously referenced during the
+                            preparation of the website's literary section.
+                        </p>
+                        <a href="https://www.joserizal.com/read/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open reading resources
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Government Library</span>
+                        <h3>Philippine eLib — Search for José Rizal's Works</h3>
+                        <p>
+                            A catalog search for materials associated with
+                            José Rizal and his literary works.
+                        </p>
+                        <a href="https://www.elib.gov.ph/results.php?f=subject&amp;q=Jose+Rizal+--+Works"
+                            target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open catalog search
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Judicial Library</span>
+                        <h3>Supreme Court of the Philippines — eLibrary</h3>
+                        <p>
+                            A digital legal and historical library previously
+                            referenced for documentary materials.
+                        </p>
+                        <a href="https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/14242" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open document
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Government Archive</span>
+                        <h3>Senate of the Philippines — Legislative Library</h3>
+                        <p>
+                            The Senate's legislative library was previously
+                            mentioned among possible sources for historical and
+                            documentary research.
+                        </p>
+                        <a href="https://issuances-library.senate.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit library
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Cultural Institution</span>
+                        <h3>National Commission for Culture and the Arts</h3>
+                        <p>
+                            A source previously included in the site's references
+                            for Philippine culture, history, and literature.
+                        </p>
+                        <a href="https://ncca.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit NCCA
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="reference-section" id="exile">
+                <div class="reference-section-header">
+                    <div class="reference-number">05</div>
+                    <div>
+                        <h2>Exile in Dapitan</h2>
+                        <p>Rizal's years in exile, community activities, and continued service.</p>
+                    </div>
+                </div>
+
+                <div class="reference-list">
+                    <article class="reference-card">
+                        <span class="reference-type">Biography and History</span>
+                        <h3>José Rizal — Main Website</h3>
+                        <p>
+                            A previously referenced biographical resource for
+                            researching Rizal's life, including his period in exile.
+                        </p>
+                        <a href="https://www.joserizal.com/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit website
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">National History</span>
+                        <h3>National Historical Commission of the Philippines</h3>
+                        <p>
+                            Historical and heritage resources for further research
+                            into Rizal's life and the places associated with him.
+                        </p>
+                        <a href="https://nhcp.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit NHCP
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Museum</span>
+                        <h3>Museo ni Rizal — Intramuros</h3>
+                        <p>
+                            A museum resource associated with the preservation
+                            and interpretation of Rizal's life and legacy.
+                        </p>
+                        <a href="https://intramuros.gov.ph/mnr/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit museum website
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="reference-section" id="death">
+                <div class="reference-section-header">
+                    <div class="reference-number">06</div>
+                    <div>
+                        <h2>Final Journey, Trial, and Execution</h2>
+                        <p>Sources previously discussed for Rizal's final months and December 30, 1896.</p>
+                    </div>
+                </div>
+
+                <div class="reference-list">
+                    <article class="reference-card">
+                        <span class="reference-type">Museum and Heritage</span>
+                        <h3>Museo ni Rizal — Intramuros Administration</h3>
+                        <p>
+                            Museum and heritage information connected to Rizal
+                            and his historical legacy.
+                        </p>
+                        <a href="https://intramuros.gov.ph/mnr/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open museum website
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Historical Site</span>
+                        <h3>Rizal's Execution Site — NHCP Registry</h3>
+                        <p>
+                            A historical registry entry for the site associated
+                            with Rizal's execution.
+                        </p>
+                        <a href="https://philhistoricsites.nhcp.gov.ph/registry_database/rizals-execution-site"
+                            target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open historical registry
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Historical Site</span>
+                        <h3>José Rizal–Paco Cemetery — NHCP Registry</h3>
+                        <p>
+                            The NHCP registry was previously referenced in
+                            connection with historical locations associated
+                            with Rizal's life and legacy.
+                        </p>
+                        <a href="https://philhistoricsites.nhcp.gov.ph/registry_database" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Browse historical registry
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">National Park</span>
+                        <h3>Rizal Park Light and Sound Complex — NPDC</h3>
+                        <p>
+                            Information from the National Parks Development
+                            Committee about the Rizal Park Light and Sound Complex.
+                        </p>
+                        <a href="https://npdc.gov.ph/rizal-park/light-and-sound-complex/" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open source
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Historical Diary</span>
+                        <h3>Philippine Diary Project — December 30, 1896</h3>
+                        <p>
+                            A historical diary project page for December 30, 1896,
+                            the date of Rizal's execution.
+                        </p>
+                        <a href="https://philippinediaryproject.com/1896/12/30/december-30-1896" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Read historical entry
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Historical Reading</span>
+                        <h3>Chapter 23 — Scribd</h3>
+                        <p>
+                            A chapter resource previously referenced while
+                            preparing the section about Rizal's final journey.
+                        </p>
+                        <a href="https://www.scribd.com/doc/61249755/Chapter-23" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open document
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Educational Presentation</span>
+                        <h3>Rizal Chapter 23: Last Trip Abroad — SlideShare</h3>
+                        <p>
+                            An educational presentation previously discussed
+                            as a reference for Rizal's last trip abroad.
+                        </p>
+                        <a href="https://www.slideshare.net/slideshow/rizal-chapter-23-last-trip-abroad/46529732"
+                            target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open presentation
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Historical Atlas</span>
+                        <h3>Ask Rizal — Trial and Execution</h3>
+                        <p>
+                            A Rizal-focused historical atlas page concerning
+                            the trial and execution period.
+                        </p>
+                        <a href="https://askrizal.app/atlas/life/trial-and-execution" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open historical atlas
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="reference-section" id="institutions">
+                <div class="reference-section-header">
+                    <div class="reference-number">07</div>
+                    <div>
+                        <h2>Historical, Cultural, and Government Institutions</h2>
+                        <p>Institutional resources previously mentioned across the project.</p>
+                    </div>
+                </div>
+
+                <div class="reference-list">
+                    <article class="reference-card">
+                        <span class="reference-type">Philippine History</span>
+                        <h3>National Historical Commission of the Philippines</h3>
+                        <p>
+                            Official historical and heritage resources.
+                        </p>
+                        <a href="https://nhcp.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit NHCP
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Arts and Culture</span>
+                        <h3>National Commission for Culture and the Arts</h3>
+                        <p>
+                            Resources concerning Philippine arts, culture,
+                            heritage, and history.
+                        </p>
+                        <a href="https://ncca.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit NCCA
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Heritage Administration</span>
+                        <h3>Intramuros Administration</h3>
+                        <p>
+                            Historical information and heritage resources
+                            related to Intramuros and Museo ni Rizal.
+                        </p>
+                        <a href="https://intramuros.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit Intramuros
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Government</span>
+                        <h3>Official Gazette of the Republic of the Philippines</h3>
+                        <p>
+                            Official government publications and national
+                            historical materials.
+                        </p>
+                        <a href="https://www.officialgazette.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit Official Gazette
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">National Parks</span>
+                        <h3>National Parks Development Committee</h3>
+                        <p>
+                            Information about Rizal Park and related national
+                            park programs and facilities.
+                        </p>
+                        <a href="https://npdc.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit NPDC
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">International Organization</span>
+                        <h3>UNESCO</h3>
+                        <p>
+                            International resources concerning education,
+                            culture, history, and heritage.
+                        </p>
+                        <a href="https://www.unesco.org/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit UNESCO
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="reference-section" id="digital-libraries">
+                <div class="reference-section-header">
+                    <div class="reference-number">08</div>
+                    <div>
+                        <h2>Digital Libraries and Additional Reading</h2>
+                        <p>Online catalogs, archives, and educational materials mentioned during research.</p>
+                    </div>
+                </div>
+
+                <div class="reference-list">
+                    <article class="reference-card">
+                        <span class="reference-type">Digital Library</span>
+                        <h3>Philippine eLib</h3>
+                        <p>
+                            A digital library catalog for discovering Philippine
+                            publications and materials related to Rizal.
+                        </p>
+                        <a href="https://www.elib.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit Philippine eLib
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Legal and Historical Documents</span>
+                        <h3>Supreme Court of the Philippines — eLibrary</h3>
+                        <p>
+                            A searchable digital library of legal materials,
+                            official documents, and related publications.
+                        </p>
+                        <a href="https://elibrary.judiciary.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit eLibrary
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Government Publications</span>
+                        <h3>Senate of the Philippines — Legislative Library</h3>
+                        <p>
+                            An online resource previously mentioned in connection
+                            with legislative and historical publications.
+                        </p>
+                        <a href="https://issuances-library.senate.gov.ph/" target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Visit Senate Library
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Educational Material</span>
+                        <h3>Scribd — Chapter 23</h3>
+                        <p>
+                            A previously referenced educational reading.
+                            Access to the full document may depend on the platform.
+                        </p>
+                        <a href="https://www.scribd.com/doc/61249755/Chapter-23" target="_blank"
+                            rel="noopener noreferrer">
+                            <span>↗</span> Open reading
+                        </a>
+                    </article>
+
+                    <article class="reference-card">
+                        <span class="reference-type">Educational Presentation</span>
+                        <h3>SlideShare — Last Trip Abroad</h3>
+                        <p>
+                            A presentation previously referenced for research
+                            into Rizal's last trip abroad.
+                        </p>
+                        <a href="https://www.slideshare.net/slideshow/rizal-chapter-23-last-trip-abroad/46529732"
+                            target="_blank" rel="noopener noreferrer">
+                            <span>↗</span> Open presentation
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <div class="reference-note">
+                <h3>A Note on Source Verification</h3>
+                <p>
+                    Some entries aregeneral institutional portals rather than 
+                    individual publications, and third-party educational materials 
+                    may change or become unavailable. It is important to check this
+                    references page before using our website as an official source 
+                    for any rizal based works.
+                </p>
+            </div>
+
+            <div class="back-container">
+                <a href="../index.html" class="back-link">
+                    ← Return to Home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../../js/injector/injectHeader.js"></script>
+    <script src="../../js/injector/injectFooter.js"></script>
+
+</body>
+
+</html>

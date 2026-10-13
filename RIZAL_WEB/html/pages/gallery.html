@@ -514,83 +514,102 @@
 
 
     <script>
-        const galleryGrid = document.getElementById("gallery-grid");
-        const galleryCount = document.getElementById("gallery-count");
-        const emptyGallery = document.getElementById("empty-gallery");
+        const IMAGE_ROOT = "../../images/";
 
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImage = document.getElementById("lightbox-image");
-        const lightboxCounter = document.getElementById("lightbox-counter");
-
-        const closeButton = document.getElementById("lightbox-close");
-        const previousButton = document.getElementById("lightbox-prev");
-        const nextButton = document.getElementById("lightbox-next");
-
-        let galleryImages = [];
-        let validImages = [];
-        let currentIndex = 0;
-        let previousFocus = null;
-
-        const imageExtensions = [
-            ".png", ".jpg", ".jpeg", ".webp",
-            ".gif", ".bmp", ".avif", ".svg"
-        ];
-
-        async function scanImageFolder(folderHandle, path = "") {
+        async function scanImageFolderAutomatically(folderUrl = IMAGE_ROOT, visited = new Set()) {
             const images = [];
+            const normalizedUrl = new URL(folderUrl, document.baseURI).href;
 
-            for await (const [name, handle] of folderHandle.entries()) {
-                if (handle.kind === "directory") {
-                    const nestedImages = await scanImageFolder(
-                        handle,
-                        path + name + "/"
+            if (visited.has(normalizedUrl)) {
+                return images;
+            }
+
+            visited.add(normalizedUrl);
+
+            try {
+                const response = await fetch(normalizedUrl);
+
+                if (!response.ok) {
+                    console.warn("Unable to access folder:", normalizedUrl);
+                    return images;
+                }
+
+                const html = await response.text();
+                const documentPage = new DOMParser().parseFromString(html, "text/html");
+                const links = [...documentPage.querySelectorAll("a[href]")];
+
+                const subfolders = [];
+                const imageUrls = [];
+
+                for (const link of links) {
+                    const href = link.getAttribute("href");
+
+                    if (!href || href.startsWith("#") || href.startsWith("?")) {
+                        continue;
+                    }
+
+                    let url;
+
+                    try {
+                        url = new URL(href, normalizedUrl);
+                    } catch {
+                        continue;
+                    }
+
+                    if (url.origin !== location.origin) {
+                        continue;
+                    }
+
+                    if (!url.pathname.startsWith(new URL(IMAGE_ROOT, document.baseURI).pathname)) {
+                        continue;
+                    }
+
+                    const name = decodeURIComponent(
+                        url.pathname.split("/").filter(Boolean).pop() || ""
                     );
 
-                    images.push(...nestedImages);
-                } else if (
-                    handle.kind === "file" &&
-                    imageExtensions.some(extension =>
-                        name.toLowerCase().endsWith(extension)
-                    )
-                ) {
-                    const file = await handle.getFile();
-                    const url = URL.createObjectURL(file);
+                    if (
+                        name === "." ||
+                        name === ".." ||
+                        name.toLowerCase() === "index.html"
+                    ) {
+                        continue;
+                    }
 
-                    images.push({
-                        src: url,
-                        name: name,
-                        path: path + name
-                    });
+                    if (url.pathname.endsWith("/")) {
+                        subfolders.push(url.href);
+                        continue;
+                    }
+
+                    if (/\.(png|jpe?g|webp|gif|bmp|avif|svg)$/i.test(name)) {
+                        imageUrls.push({
+                            src: url.href,
+                            name,
+                            path: url.pathname
+                        });
+                    }
                 }
+
+                images.push(...imageUrls);
+
+                for (const subfolder of subfolders) {
+                    images.push(
+                        ...await scanImageFolderAutomatically(subfolder, visited)
+                    );
+                }
+            } catch (error) {
+                console.warn("Folder scanning failed:", normalizedUrl, error);
             }
 
             return images;
         }
 
-        async function selectImageFolder() {
-            if (!("showDirectoryPicker" in window)) {
-                galleryCount.textContent =
-                    "Your browser does not support folder selection. " +
-                    "Use a Chromium-based browser or a static image manifest.";
-
-                emptyGallery.textContent =
-                    "Unable to scan the images folder automatically.";
-                emptyGallery.classList.add("visible");
-                return;
-            }
+        async function initializeGallery() {
+            galleryCount.textContent = "Scanning image folders...";
+            emptyGallery.classList.remove("visible");
 
             try {
-                galleryCount.textContent = "Select your images folder...";
-
-                const folderHandle = await window.showDirectoryPicker({
-                    mode: "read"
-                });
-
-                galleryGrid.replaceChildren();
-                galleryImages = [];
-                validImages = [];
-
-                galleryImages = await scanImageFolder(folderHandle);
+                galleryImages = await scanImageFolderAutomatically();
 
                 galleryImages.sort((a, b) =>
                     a.path.localeCompare(b.path, undefined, {
@@ -601,194 +620,20 @@
 
                 createGallery();
 
+                if (galleryImages.length === 0) {
+                    galleryCount.textContent = "No images discovered.";
+                    emptyGallery.textContent =
+                        "No images were discovered. Your web server may not expose directory listings.";
+                    emptyGallery.classList.add("visible");
+                }
             } catch (error) {
-                if (error.name === "AbortError") {
-                    galleryCount.textContent =
-                        "Folder selection cancelled.";
-                    return;
-                }
-
-                console.error("Unable to scan images:", error);
-
-                galleryCount.textContent =
-                    "Unable to read the selected folder.";
+                console.error("Gallery initialization failed:", error);
+                galleryCount.textContent = "Unable to scan image folders.";
+                emptyGallery.classList.add("visible");
             }
         }
 
-        function createGallery() {
-            galleryGrid.replaceChildren();
-            validImages = [];
-
-            galleryImages.forEach((item) => {
-                const button = document.createElement("button");
-                button.type = "button";
-                button.className = "gallery-item";
-                button.setAttribute("aria-label", "View image");
-
-                const image = document.createElement("img");
-                image.src = item.src;
-                image.alt = "";
-                image.loading = "lazy";
-                image.decoding = "async";
-
-                image.addEventListener("load", updateGallery);
-                image.addEventListener("error", () => {
-                    button.classList.add("image-missing");
-                    updateGallery();
-                });
-
-                button.appendChild(image);
-
-                button.addEventListener("click", () => {
-                    const index = validImages.findIndex(
-                        entry => entry.src === item.src
-                    );
-
-                    if (index !== -1) {
-                        openLightbox(index);
-                    }
-                });
-
-                galleryGrid.appendChild(button);
-                validImages.push({
-                    src: item.src,
-                    button,
-                    image,
-                    path: item.path
-                });
-            });
-
-            updateGallery();
-        }
-
-        function getAvailableImages() {
-            return validImages.filter(
-                item => item.image.naturalWidth > 0
-            );
-        }
-
-        function updateGallery() {
-            const availableImages = getAvailableImages();
-
-            galleryCount.textContent =
-                availableImages.length + " image" +
-                (availableImages.length === 1 ? "" : "s") +
-                " loaded";
-
-            emptyGallery.classList.toggle(
-                "visible",
-                galleryImages.length === 0
-            );
-        }
-
-        function openLightbox(index) {
-            if (!getAvailableImages().length) return;
-
-            previousFocus = document.activeElement;
-            currentIndex = index;
-
-            showImage();
-
-            lightbox.style.display = "flex";
-            document.body.classList.add("lightbox-open");
-
-            requestAnimationFrame(() => {
-                lightbox.classList.add("open");
-            });
-
-            closeButton.focus();
-        }
-
-        function showImage() {
-            const availableImages = getAvailableImages();
-
-            if (!availableImages.length) return;
-
-            currentIndex =
-                ((currentIndex % availableImages.length) +
-                    availableImages.length) %
-                availableImages.length;
-
-            const selected = availableImages[currentIndex];
-
-            lightboxImage.src = selected.src;
-            lightboxImage.alt = selected.path;
-
-            lightboxCounter.textContent =
-                (currentIndex + 1) + " / " + availableImages.length;
-
-            previousButton.style.display =
-                availableImages.length > 1 ? "flex" : "none";
-
-            nextButton.style.display =
-                availableImages.length > 1 ? "flex" : "none";
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove("open");
-            document.body.classList.remove("lightbox-open");
-            lightbox.style.display = "none";
-            lightboxImage.src = "";
-
-            if (previousFocus && previousFocus.isConnected) {
-                previousFocus.focus();
-            }
-        }
-
-        function showPrevious() {
-            currentIndex--;
-            showImage();
-        }
-
-        function showNext() {
-            currentIndex++;
-            showImage();
-        }
-
-        closeButton.addEventListener("click", closeLightbox);
-        previousButton.addEventListener("click", showPrevious);
-        nextButton.addEventListener("click", showNext);
-
-        lightbox.addEventListener("click", event => {
-            if (event.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        document.addEventListener("keydown", event => {
-            if (!lightbox.classList.contains("open")) return;
-
-            if (event.key === "Escape") {
-                closeLightbox();
-            } else if (event.key === "ArrowLeft") {
-                showPrevious();
-            } else if (event.key === "ArrowRight") {
-                showNext();
-            } else if (event.key === "Tab") {
-                const focusable = [
-                    closeButton,
-                    previousButton,
-                    nextButton
-                ].filter(button => button.style.display !== "none");
-
-                const first = focusable[0];
-                const last = focusable[focusable.length - 1];
-
-                if (event.shiftKey &&
-                    document.activeElement === first) {
-                    event.preventDefault();
-                    last.focus();
-                } else if (!event.shiftKey &&
-                    document.activeElement === last) {
-                    event.preventDefault();
-                    first.focus();
-                }
-            }
-        });
-
-        galleryGrid.addEventListener("click", updateGallery);
-
-        selectImageFolder();
+        initializeGallery();
     </script>
 
 

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Childhood — José Rizal: Life &amp; Works</title>
+
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-underline-offset: 3px;
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        #header-container,
+        #footer-container {
+            width: 100%;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 480px;
+            padding: 145px 30px 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            background:
+                linear-gradient(rgba(39, 27, 22, 0.78), rgba(39, 27, 22, 0.88)),
+                url("../../images/rizal-background.png") center / cover no-repeat;
+            color: var(--light-color);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(200, 157, 124, 0.18), transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .eyebrow,
+        .section-kicker {
+            display: block;
+            margin: 0 0 12px;
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0 0 24px;
+            color: var(--light-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 5.5vw, 66px);
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e8dcd4;
+            font-size: 17px;
+        }
+
+        .hero-rule {
+            width: 80px;
+            height: 2px;
+            margin: 30px auto 0;
+            background: var(--accent-color);
+        }
+
+        .intro,
+        .content-section {
+            padding: 75px 30px;
+        }
+
+        .intro {
+            background: var(--light-color);
+        }
+
+        .content-section {
+            background: var(--secondary-color);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .content-section:nth-of-type(even) {
+            background: var(--light-color);
+        }
+
+        .section-inner,
+        .intro-inner {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: normal;
+            line-height: 1.3;
+        }
+
+        h3 {
+            margin: 0 0 12px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(20px, 2.5vw, 25px);
+            font-weight: normal;
+            line-height: 1.4;
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+        .intro-copy {
+            max-width: 900px;
+        }
+
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 26px;
+        }
+
+        .quick-nav a {
+            display: inline-block;
+            padding: 8px 13px;
+            border: 1px solid var(--border-color);
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .quick-nav a:hover {
+            color: var(--light-color);
+            background: var(--primary-color);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .content-card {
+            min-width: 0;
+            padding: 28px;
+            background: var(--light-color);
+            border: 1px solid var(--border-color);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(33, 26, 22, 0.08);
+        }
+
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .date-label {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .feature-card {
+            background: rgba(200, 157, 124, 0.12);
+            border-color: var(--accent-color);
+        }
+
+        .timeline {
+            position: relative;
+            list-style: none;
+            margin: 35px 0 0;
+            padding: 0 0 0 28px;
+            border-left: 2px solid var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 35px 20px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: -36px;
+            width: 12px;
+            height: 12px;
+            border: 3px solid var(--secondary-color);
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .quote-card {
+            margin: 25px 0;
+            padding: 25px 28px;
+            border-left: 4px solid var(--accent-color);
+            background: rgba(200, 157, 124, 0.12);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 19px;
+            font-style: italic;
+        }
+
+        .quote-card p {
+            margin-bottom: 10px;
+        }
+
+        .quote-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .note {
+            margin-top: 25px;
+            padding: 18px 20px;
+            border-left: 4px solid var(--accent-color);
+            background: rgba(200, 157, 124, 0.12);
+            color: var(--muted-color);
+        }
+
+        .source-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            padding-left: 22px;
+        }
+
+        .source-list li {
+            padding-left: 3px;
+        }
+
+        .page-navigation {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 40px 30px;
+            background: var(--light-color);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .page-navigation a {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .page-navigation a:hover {
+            color: var(--light-color);
+            background: var(--primary-color);
+        }
+
+        .small-note {
+            color: var(--muted-color);
+            font-size: 14px;
+        }
+
+        @media (max-width: 850px) {
+
+            .content-grid,
+            .source-list {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section,
+            .intro {
+                padding: 65px 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 400px;
+                padding: 125px 22px 70px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            .content-section,
+            .intro {
+                padding: 55px 20px;
+            }
+
+            .content-card {
+                padding: 23px 20px;
+            }
+
+            .page-navigation {
+                padding: 30px 20px;
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .page-navigation a {
+                text-align: center;
+            }
+
+            .quick-nav a {
+                font-size: 12px;
+            }
+
+            .quote-card {
+                padding: 20px;
+                font-size: 17px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner">
+                <p class="eyebrow">José Rizal: Life &amp; Works</p>
+                <h1>Childhood of José Rizal</h1>
+                <p class="hero-subtitle">
+                    Discover the birth, family, early education, and childhood experiences that helped shape the life
+                    of the Philippine national hero.
+                </p>
+                <div class="hero-rule"></div>
+            </div>
+        </section>
+
+        <section class="intro" id="overview">
+            <div class="intro-inner">
+                <p class="section-kicker">Early life · 1861–1872</p>
+                <h2>The beginnings of a remarkable life</h2>
+
+                <div class="intro-copy">
+                    <p>
+                        José Protacio Rizal was born in Calamba, Laguna, on June 19, 1861. He was the seventh child
+                        of Francisco Mercado Rizal and Teodora Alonso Realonda. He grew up in a family that valued
+                        education, reading, faith, and responsibility.
+                    </p>
+
+                    <p>
+                        His earliest years were shaped by his mother's lessons, his father's support for his studies,
+                        and the guidance of relatives and tutors. Even as a child, Rizal showed an interest in language,
+                        literature, drawing, and the natural world. The events of his childhood also exposed him to
+                        personal loss and the political realities of Spanish colonial society.
+                    </p>
+                </div>
+
+                <nav class="quick-nav" aria-label="On this page">
+                    <a href="#birth">Birth</a>
+                    <a href="#name">His Complete Name</a>
+                    <a href="#family">Family &amp; Early Influences</a>
+                    <a href="#timeline">Childhood Timeline</a>
+                    <a href="#education">Early Learning</a>
+                    <a href="#sources">Sources</a>
+                </nav>
+            </div>
+        </section>
+
+        <section class="content-section" id="birth">
+            <div class="section-inner">
+                <p class="section-kicker">June 19, 1861</p>
+                <h2>The Birth of Rizal</h2>
+
+                <div class="content-grid">
+                    <article class="content-card feature-card">
+                        <span class="date-label">Birthplace</span>
+                        <h3>Calamba, Laguna</h3>
+                        <p>
+                            José P. Rizal, the seventh child of the Rizal family, was born on Wednesday, June 19, 1861,
+                            in Calamba, in the province of Laguna, Philippines. According to the account provided in
+                            the source material, he was born between 11:00 p.m. and midnight.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <span class="date-label">A difficult delivery</span>
+                        <h3>His Mother's Ordeal</h3>
+                        <p>
+                            Rizal's mother, Teodora Alonso Realonda, reportedly experienced a difficult delivery.
+                            The source account explains that the size of the baby's head made the birth especially
+                            dangerous for her.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <span class="date-label">June 22, 1861</span>
+                        <h3>Baptism in Calamba</h3>
+                        <p>
+                            Three days after his birth, Rizal was baptized at the Catholic Church in Calamba by the
+                            parish priest, Father Rufino Collantes. His godfather was Father Pedro Casañas, described
+                            in the source material as a close friend of the Rizal family.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <span class="date-label">A prediction</span>
+                        <h3>The Parish Priest's Remark</h3>
+                        <p>
+                            The account relates that Father Collantes was struck by the size of the infant's head and
+                            encouraged the family to take good care of him, predicting that he would someday become
+                            a great man.
+                        </p>
+                        <div class="quote-card">
+                            <p>“Take good care of this child, for someday he will become a great man.”</p>
+                            <p class="small-note">— Words attributed to Father Rufino Collantes in the supplied account
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="note">
+                    Rizal's birth and baptism are commonly recorded as June 19 and June 22, 1861, respectively.
+                    The wording of historical anecdotes and quotations may differ among biographies and retellings.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section" id="name">
+            <div class="section-inner">
+                <p class="section-kicker">Family identity</p>
+                <h2>Understanding Rizal's Complete Name</h2>
+
+                <p>
+                    Rizal's name appears in historical sources in slightly different forms, including José Protacio
+                    Rizal Mercado y Alonso Realonda. The supplied material also presents the form
+                    “Jose Protacio Mercado Rizal Alonzo y Realonda.” The explanations below follow the naming
+                    information in the supplied account.
+                </p>
+
+                <div class="content-grid">
+                    <article class="content-card">
+                        <h3>José Protacio</h3>
+                        <p>
+                            José was chosen by his mother in honor of Saint Joseph, whose feast day is celebrated on
+                            March 19. The supplied material explains that the first two given names were associated
+                            with saints.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <h3>Mercado</h3>
+                        <p>
+                            The surname Mercado was associated with Rizal's Chinese ancestor, Domingo Lam-co. The
+                            Mercado name continued to be used by members of the family even after they adopted Rizal
+                            as an additional surname.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <h3>Rizal</h3>
+                        <p>
+                            According to the supplied account, the family adopted the surname Rizal during the 1840s,
+                            following the implementation of the Clavería decree concerning surnames.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <h3>Alonso and Realonda</h3>
+                        <p>
+                            Alonso was the family name associated with Rizal's mother, Teodora Alonso. Realonda was
+                            also used in the family's maternal naming tradition, as described in the supplied source.
+                        </p>
+                    </article>
+                </div>
+
+                <p class="note">
+                    In Spanish naming conventions, “y” means “and.” It can appear between family names in older
+                    records. Historical documents and modern references do not always spell or arrange Rizal's
+                    complete name identically.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section" id="family">
+            <div class="section-inner">
+                <p class="section-kicker">Home and family</p>
+                <h2>The People Who Influenced His Childhood</h2>
+
+                <div class="content-grid">
+                    <article class="content-card">
+                        <h3>Teodora Alonso Realonda</h3>
+                        <p>
+                            Rizal's mother introduced him to the alphabet, reading, writing, prayer, and literature.
+                            Her early instruction helped establish the foundation for his later education and
+                            literary interests.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <h3>Francisco Mercado Rizal</h3>
+                        <p>
+                            Rizal's father supported his son's education and arranged lessons beyond those available
+                            at home. Among the tutors he hired was Leon Monroy, who introduced the young Rizal to
+                            the rudiments of Latin.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <h3>Uncle Manuel Alberto</h3>
+                        <p>
+                            The supplied account describes how Uncle Manuel Alberto encouraged Rizal's physical
+                            development and appreciation of the outdoors. He helped the young boy develop an
+                            admiration for nature.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <h3>Uncle Gregorio</h3>
+                        <p>
+                            A scholar, Uncle Gregorio encouraged Rizal to work carefully, think independently, and
+                            develop a love of learning. His advice emphasized diligence, thoroughness, and the
+                            importance of forming clear mental images of what one studies.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="timeline">
+            <div class="section-inner">
+                <p class="section-kicker">1862–1872</p>
+                <h2>Childhood Timeline</h2>
+                <p>
+                    The following timeline organizes the important dates and childhood events provided in the
+                    supplied material.
+                </p>
+
+                <ol class="timeline">
+                    <li class="timeline-item">
+                        <span class="timeline-date">September 28, 1862</span>
+                        <h3>The Burning of the Parish Records</h3>
+                        <p>
+                            The parochial church of Calamba and its canonical books, including the book containing
+                            Rizal's baptismal record, were reportedly burned.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">1864</span>
+                        <h3>Learning the Alphabet</h3>
+                        <p>
+                            At barely three years old, Rizal learned the alphabet from his mother, beginning his
+                            early education at home.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">1865</span>
+                        <h3>The Death of Concepción</h3>
+                        <p>
+                            Rizal's younger sister Concepción, the eighth child in the family, died at the age of
+                            three. The account recalls that Rizal shed what he remembered as his first genuine tears
+                            during this period of family grief.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">1865–1867</span>
+                        <h3>Reading, Writing, and Latin</h3>
+                        <p>
+                            His mother continued teaching him to read and write. His father hired Leon Monroy, a
+                            classmate, to teach him the rudiments of Latin. Monroy tutored Rizal for approximately
+                            five months before his death.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">June 6, 1868</span>
+                        <h3>Pilgrimage to Antipolo</h3>
+                        <p>
+                            Rizal traveled with his father to Antipolo to fulfill a vow made by his mother. She had
+                            promised to bring her child to the Shrine of the Virgin of Antipolo if both survived the
+                            difficult delivery.
+                        </p>
+                        <p>
+                            From Antipolo, Rizal and his father proceeded to Manila to visit his sister Saturnina,
+                            who was studying at La Concordia College in Santa Ana.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">1869 · Age eight</span>
+                        <h3>The Poem “Sa Aking Mga Kabata”</h3>
+                        <p>
+                            The supplied material attributes the poem “Sa Aking Mga Kabata” to Rizal at the age of
+                            eight. Written in Tagalog, it is associated with the theme of love for one's language.
+                        </p>
+                        <p class="small-note">
+                            Attribution of this poem to Rizal has been questioned by some scholars; the traditional
+                            attribution should therefore be distinguished from a conclusively verified authorship.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">1870</span>
+                        <h3>Studies in Biñan, Laguna</h3>
+                        <p>
+                            Rizal's older brother Paciano brought him to Biñan, where he studied under Justiniano
+                            Aquino Cruz. His lessons included Latin and Spanish. He also received instruction in
+                            painting from an older painter named Juancho Carrera, according to the supplied account.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">December 17, 1870</span>
+                        <h3>Return to Calamba</h3>
+                        <p>
+                            After completing his studies in Biñan, Rizal returned to Calamba aboard the motorboat
+                            <em>Talim</em>. His parents planned for him to continue his education in Manila.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">1871</span>
+                        <h3>His Mother's Imprisonment</h3>
+                        <p>
+                            Teodora Alonso was imprisoned in Santa Cruz, Laguna, following an accusation that she
+                            had poisoned the wife of her cousin José Alberto. The case became a painful episode in
+                            the family's history.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <span class="timeline-date">1872</span>
+                        <h3>The Cavite Mutiny and the GOMBURZA</h3>
+                        <p>
+                            Rizal became aware of the term <em>filibustero</em>, which his father reportedly forbade
+                            the family to utter. The term was associated with the political tension following the
+                            Cavite Mutiny of January 20, 1872, and the execution of Fathers Mariano Gómez, José
+                            Burgos, and Jacinto Zamora on February 17, 1872.
+                        </p>
+                        <p>
+                            The executions deeply affected Filipino society and became an important part of the
+                            historical background to Rizal's later political awareness.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section" id="education">
+            <div class="section-inner">
+                <p class="section-kicker">The foundation of learning</p>
+                <h2>Rizal's Early Education</h2>
+
+                <div class="content-grid">
+                    <article class="content-card">
+                        <span class="date-label">At home</span>
+                        <h3>Learning from His Mother</h3>
+                        <p>
+                            Rizal's earliest lessons came from his mother, who taught him letters, reading, writing,
+                            and religious instruction. The home environment encouraged his curiosity and provided
+                            his first contact with books and stories.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <span class="date-label">Private tutoring</span>
+                        <h3>Lessons with Leon Monroy</h3>
+                        <p>
+                            Leon Monroy introduced Rizal to Latin. Although their lessons were cut short by Monroy's
+                            death, they formed part of Rizal's early preparation for more formal schooling.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <span class="date-label">Biñan, Laguna</span>
+                        <h3>Formal Lessons</h3>
+                        <p>
+                            Under Justiniano Aquino Cruz, Rizal studied Latin and Spanish. His time in Biñan also
+                            included exposure to painting, expanding his interests beyond academic subjects.
+                        </p>
+                    </article>
+
+                    <article class="content-card">
+                        <span class="date-label">Personal development</span>
+                        <h3>Nature, Art, and Independent Thought</h3>
+                        <p>
+                            Family members encouraged Rizal to observe the natural world, practice his skills
+                            carefully, and think independently. These influences complemented his formal lessons
+                            and supported his growing intellectual interests.
+                        </p>
+                    </article>
+                </div>
+
+                <p class="note">
+                    Rizal's childhood education began in the family home and continued through private tutoring and
+                    schooling in Biñan. His early experiences laid groundwork for his later studies in Manila and
+                    abroad.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section" id="sources">
+            <div class="section-inner">
+                <p class="section-kicker">References</p>
+                <h2>Sources and Further Reading</h2>
+                <p>
+                    The following sources were provided for this page and can be consulted for additional details
+                    about Rizal's early life and childhood.
+                </p>
+
+                <ol class="source-list">
+                    <li>
+                        <a href="https://www.slideshare.net/slideshow/childhood-days-of-rizal/45256342" target="_blank"
+                            rel="noopener noreferrer">
+                            Childhood Days of Rizal — SlideShare presentation
+                        </a>
+                        <p class="small-note">
+                            A presentation discussing events from Rizal's childhood.
+                        </p>
+                    </li>
+
+                    <li>
+                        <a href="https://www.joserizal.com/life/rizal-early-life/" target="_blank"
+                            rel="noopener noreferrer">
+                            José Rizal Childhood and Early Education: Calamba, Biñan and the Mother
+                        </a>
+                        <p class="small-note">
+                            An online biography covering Rizal's early life and education.
+                        </p>
+                    </li>
+                </ol>
+
+                <p class="note">
+                    Historical accounts sometimes differ in spelling, naming conventions, dates, and interpretations.
+                    This page follows the supplied material and flags notable uncertainty where appropriate.
+                </p>
+            </div>
+        </section>
+
+        <nav class="page-navigation" aria-label="Page navigation">
+            <a href="index.html">← Back to Home</a>
+            <a href="education.html">Next: Education →</a>
+        </nav>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../../js/injector/injectHeader.js"></script>
+    <script src="../../js/injector/injectFooter.js"></script>
+</body>
+
+</html>

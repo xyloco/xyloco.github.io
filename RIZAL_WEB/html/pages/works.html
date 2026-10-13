@@ -6,45 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Explore the literary, historical, political, and artistic works of Dr. José Rizal.">
-    <title>Works of José Rizal — José Rizal: Life &amp; Works</title>
-    <link rel="stylesheet" href="../../css/colors.css">
-    <style>
-        :root {
-            --works-paper: var(--light-color, #F2E9E4);
-            --works-primary: var(--primary-color, #C89D7C);
-            --works-accent: var(--accent-color, #8B5E3C);
-            --works-ink: var(--text-color, #30251F);
-            --works-muted: var(--muted-color, #75665D);
-            --works-border: var(--border-color, #DCC8B8);
-            --works-card: #FFFCF8;
-            --works-deep: #38271F;
-        }
 
+    <title>Works of José Rizal — José Rizal: Life &amp; Works</title>
+
+    <link rel="stylesheet" href="../../css/colors.css">
+
+    <style>
         * {
             box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: 100px;
         }
 
         body {
             margin: 0;
-            background: var(--works-paper);
-            color: var(--works-ink);
-            font-family: Georgia, 'Times New Roman', serif;
-            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.8;
+        }
+
+        main {
+            flex: 1;
         }
 
         a {
-            color: #75472E;
+            color: var(--primary-color);
             text-underline-offset: 3px;
             overflow-wrap: anywhere;
         }
 
         a:hover {
-            color: #40281B;
+            color: var(--accent-color);
         }
 
         #header-container,
@@ -54,143 +53,177 @@
 
         .works-hero {
             position: relative;
-            min-height: 440px;
-            display: grid;
-            place-items: center;
-            padding: clamp(54px, 9vw, 110px) 20px;
+            min-height: 480px;
+            padding: 145px 30px 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            background:
-                linear-gradient(135deg, rgba(44, 31, 24, .94), rgba(92, 58, 39, .86)),
-                radial-gradient(circle at 80% 20%, #C89D7C, #38271F 65%);
-            color: #FFF9F3;
             text-align: center;
+            background:
+                linear-gradient(rgba(39, 27, 22, 0.78), rgba(39, 27, 22, 0.88)),
+                var(--primary-color) url("../../images/rizal-background.png") center/cover no-repeat;
+            color: var(--light-color);
         }
 
         .works-hero::before {
-            content: '✦';
+            content: "";
             position: absolute;
-            font-size: clamp(180px, 35vw, 440px);
-            color: rgba(255, 255, 255, .045);
-            right: 4%;
-            top: -30%;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(200, 157, 124, 0.18), transparent 65%);
             pointer-events: none;
         }
 
         .hero-inner {
-            width: min(100%, 1000px);
             position: relative;
             z-index: 1;
+            width: 100%;
+            max-width: 850px;
         }
 
-        .eyebrow {
+        .eyebrow,
+        .section-kicker {
+            display: block;
             margin: 0 0 12px;
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: .22em;
-            font: 700 .78rem/1.4 Arial, sans-serif;
-            color: #E8C8AD;
         }
 
         h1 {
-            margin: 0;
-            font-size: clamp(2.4rem, 7vw, 5.4rem);
-            line-height: 1.04;
-            font-weight: 500;
+            margin: 0 0 24px;
+            color: var(--light-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 5.5vw, 66px);
+            font-weight: normal;
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            max-width: 740px;
-            margin: 24px auto 0;
-            color: #F3E4D8;
-            font-size: clamp(1rem, 2.2vw, 1.25rem);
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e8dcd4;
+            font-size: 17px;
         }
 
         .hero-rule {
-            width: 82px;
+            width: 80px;
             height: 2px;
-            margin: 28px auto 0;
-            background: #D8AB83;
+            margin: 30px auto 0;
+            background: var(--accent-color);
         }
 
         .page-wrap {
-            width: min(1120px, calc(100% - 40px));
+            width: 100%;
             margin: 0 auto;
         }
 
         .intro {
-            padding: clamp(42px, 7vw, 78px) 0 32px;
+            padding: 75px 30px;
+            background: var(--light-color);
         }
 
-        .section-kicker {
-            color: var(--works-accent);
-            font: 700 .76rem/1.4 Arial, sans-serif;
-            text-transform: uppercase;
-            letter-spacing: .16em;
-            margin: 0 0 8px;
+        .intro>* {
+            width: 100%;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         h2 {
-            font-size: clamp(1.75rem, 4vw, 2.6rem);
-            line-height: 1.2;
             margin: 0 0 18px;
-            font-weight: 500;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: normal;
+            line-height: 1.3;
         }
 
         h3 {
-            font-size: clamp(1.18rem, 2.5vw, 1.48rem);
-            line-height: 1.3;
-            margin: 0 0 9px;
+            margin: 0 0 12px;
+            color: var(--primary-color);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(20px, 2.5vw, 25px);
+            font-weight: normal;
+            line-height: 1.4;
         }
 
         p {
-            margin: 0 0 14px;
+            margin: 0 0 20px;
         }
 
         .intro-copy {
             max-width: 850px;
-            font-size: 1.08rem;
+            font-size: 16px;
         }
 
         .quick-nav {
             display: flex;
             flex-wrap: wrap;
             gap: 9px;
-            margin: 26px 0 0;
+            margin-top: 26px;
         }
 
         .quick-nav a {
             display: inline-block;
             padding: 8px 13px;
-            border: 1px solid var(--works-border);
-            border-radius: 999px;
-            background: rgba(255, 252, 248, .72);
+            border: 1px solid var(--border-color);
+            background: var(--secondary-color);
+            color: var(--primary-color);
             text-decoration: none;
-            font: 600 .83rem/1.3 Arial, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .quick-nav a:hover {
+            color: var(--light-color);
+            background: var(--primary-color);
         }
 
         .work-section {
-            padding: 38px 0 46px;
-            border-top: 1px solid var(--works-border);
+            padding: 85px 30px;
+            background: var(--secondary-color);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .work-section:nth-of-type(even) {
+            background: var(--light-color);
+        }
+
+        .work-section>* {
+            width: 100%;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-lead {
             max-width: 800px;
-            color: var(--works-muted);
-            margin-bottom: 24px;
+            margin-bottom: 30px;
+            color: var(--muted-color);
+            font-size: 15px;
         }
 
         .work-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 17px;
+            gap: 22px;
         }
 
         .work-card {
             min-width: 0;
-            padding: clamp(18px, 3vw, 27px);
-            border: 1px solid var(--works-border);
-            border-radius: 13px;
-            background: var(--works-card);
-            box-shadow: 0 8px 22px rgba(58, 39, 27, .045);
+            padding: 28px;
+            background: var(--light-color);
+            border: 1px solid var(--border-color);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(33, 26, 22, 0.08);
         }
 
         .work-card p:last-child {
@@ -198,38 +231,43 @@
         }
 
         .work-meta {
+            display: inline-block;
             margin-bottom: 10px;
-            color: var(--works-muted);
-            font: 700 .75rem/1.4 Arial, sans-serif;
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: .08em;
         }
 
         .work-card .links {
-            margin-top: 12px;
-            font: 600 .88rem/1.6 Arial, sans-serif;
+            margin-top: 15px;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 1.8;
         }
 
         .feature-card {
-            background: #F6E8DC;
-            border-color: #D4B398;
+            background: rgba(200, 157, 124, 0.12);
+            border-color: var(--accent-color);
         }
 
         .tag {
             display: inline-block;
             padding: 4px 8px;
             margin: 0 5px 6px 0;
-            border-radius: 4px;
-            background: #EAD7C6;
-            color: #553824;
-            font: 700 .72rem/1.3 Arial, sans-serif;
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            font-size: 12px;
+            font-weight: bold;
         }
 
         .timeline {
             list-style: none;
             margin: 24px 0 0;
             padding: 0 0 0 22px;
-            border-left: 2px solid var(--works-primary);
+            border-left: 2px solid var(--primary-color);
         }
 
         .timeline li {
@@ -242,15 +280,15 @@
         }
 
         .timeline li::before {
-            content: '';
+            content: "";
             position: absolute;
             width: 11px;
             height: 11px;
             border-radius: 50%;
             left: -29px;
             top: 7px;
-            background: var(--works-accent);
-            border: 3px solid var(--works-paper);
+            background: var(--primary-color);
+            border: 3px solid var(--secondary-color);
         }
 
         .timeline strong {
@@ -261,15 +299,15 @@
         .note {
             margin: 20px 0 0;
             padding: 17px 19px;
-            border-left: 4px solid var(--works-accent);
-            background: rgba(255, 252, 248, .7);
-            color: var(--works-muted);
+            border-left: 4px solid var(--accent-color);
+            background: rgba(200, 157, 124, 0.14);
+            color: var(--muted-color);
         }
 
         .source-list {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px 24px;
+            gap: 18px;
             padding-left: 21px;
         }
 
@@ -280,63 +318,92 @@
         .page-navigation {
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            padding: 30px 0 54px;
-            border-top: 1px solid var(--works-border);
+            gap: 20px;
+            padding: 40px 30px;
+            background: var(--light-color);
+            border-top: 1px solid var(--border-color);
         }
 
         .page-navigation a {
             display: inline-block;
-            padding: 10px 15px;
-            border: 1px solid var(--works-border);
-            border-radius: 7px;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            font-size: 13px;
             text-decoration: none;
-            background: var(--works-card);
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .page-navigation a:hover {
+            color: var(--light-color);
+            background: var(--primary-color);
         }
 
         .small-note {
-            color: var(--works-muted);
-            font-size: .91rem;
+            color: var(--muted-color);
+            font-size: 14px;
         }
 
-        @media (max-width: 760px) {
+        @media (max-width: 850px) {
 
             .work-grid,
             .source-list {
                 grid-template-columns: 1fr;
             }
 
-            .page-wrap {
-                width: calc(100% - 30px);
-            }
-
-            .works-hero {
-                min-height: 370px;
-            }
-
             .work-section {
-                padding: 30px 0 36px;
+                padding: 70px 24px;
             }
         }
 
-        @media (max-width: 420px) {
-            .page-wrap {
-                width: calc(100% - 24px);
+        @media (max-width: 600px) {
+            .works-hero {
+                min-height: 400px;
+                padding: 125px 22px 70px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            .intro {
+                padding: 55px 22px;
+            }
+
+            .work-section {
+                padding: 60px 20px;
             }
 
             .work-card {
-                padding: 17px;
+                padding: 24px 20px;
+            }
+
+            .page-navigation {
+                padding: 30px 20px;
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .page-navigation a {
+                text-align: center;
             }
 
             .quick-nav a {
-                font-size: .78rem;
+                font-size: 12px;
             }
         }
 
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -346,7 +413,7 @@
     <div id="header-container"></div>
 
     <main>
-        <section class="works-hero" aria-labelledby="works-title">
+        <section class="works-hero">
             <div class="hero-inner">
                 <p class="eyebrow">José Rizal: Life &amp; Works</p>
                 <h1 id="works-title">The Works of Dr. José Rizal</h1>
@@ -392,6 +459,8 @@
                     <a href="#history">History &amp; folklore</a>
                     <a href="#translations">Translations</a>
                     <a href="#other-work">Art &amp; other work</a>
+                    <a href="#timeline">Timeline</a>
+                    <a href="#significance">Significance</a>
                     <a href="#sources">Sources</a>
                 </nav>
             </section>
@@ -455,8 +524,8 @@
                         <p>
                             <em>Makamisa</em> is the title commonly associated with a fragment of an unfinished novel
                             discovered among Rizal’s papers. Because the manuscript is incomplete, it should not be
-                            treated as a finished third novel in the same sense as <em>Noli Me Tángere</em> and <em>El
-                                Filibusterismo</em>. Its surviving pages nevertheless offer a glimpse of Rizal’s
+                            treated as a finished third novel in the same sense as <em>Noli Me Tángere</em> and
+                            <em>El Filibusterismo</em>. Its surviving pages nevertheless offer a glimpse of Rizal’s
                             continuing literary plans.
                         </p>
                         <div class="links">
@@ -921,7 +990,6 @@
             <section class="work-section" id="significance">
                 <p class="section-kicker">Why his works remain important</p>
                 <h2>Literature, reform, and national consciousness</h2>
-
                 <p>
                     Rizal’s works matter not only because of their literary quality but because they challenged readers
                     to examine power, inequality, education, history, and responsibility to the community. His novels
@@ -930,7 +998,6 @@
                     at their past, and his translations and teaching reflected a belief that knowledge should reach
                     beyond a small educated circle.
                 </p>
-
                 <p>
                     The Philippine government formally recognized the importance of studying Rizal’s life and writings
                     through
